@@ -1,0 +1,26 @@
+POST http://localhost:5000/api/users/signup
+Content-Type: application/json
+
+{
+    "username": "mobin4321",
+    "name": {
+        "firstName": "Mobin" ,
+        "lastName": "Ahmed"
+    },
+    "address": {
+        "floor": "2nd",
+        "houseNo": "G-87",
+        "area": "Defence View Phase II",
+        "city": "karachi",
+        "country": "Pakistan",
+        "zipCode": "123456"
+    },
+    "password": "mobin123",
+    "role": "buyer",
+    "contact": {
+        "email": "mobinahmed4321@gmail.com",
+        "phoneNumber": ["03425176865","03365973345"]
+     }
+}
+
+###
