@@ -69,8 +69,8 @@ const userSchema = new mongoose.Schema({
     ],
   },
   avatar: {
-    // type: String, // You can store the URL or file path of the avatar image
-    type: Buffer,
+    type: String, // You can store the URL or file path of the avatar image
+    // type: Buffer,
     require: false,
   },
 });

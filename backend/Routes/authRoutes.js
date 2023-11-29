@@ -5,10 +5,26 @@ import {
   comparePassword,
 } from "../Encryption_Utils/passwordEncryptor.js";
 import { encryptData, decryptData } from "../Encryption_Utils/dataEncryptor.js";
+import {
+  emailAlreadyExists,
+  isValidEmail,
+  sendOTPToEmail,
+  verifyOTP,
+} from "../Middlewares/authMiddlewares.js";
 
 const router = express.Router();
 
-router.post("/signup", async (req, res) => {
+router.post(
+  "/sendotp",
+  emailAlreadyExists,
+  isValidEmail,
+  sendOTPToEmail,
+  async (req, res) => {
+    res.status(201).json({ message: "OTP sent" });
+  }
+);
+
+router.post("/signup", verifyOTP, async (req, res) => {
   const { username, name, address, password, role, contact, avatar } = req.body;
 
   try {
@@ -31,5 +47,4 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.post("/login", (req, res) => {});
 export default router;
