@@ -4,16 +4,16 @@ import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import otpModel from "../Models/otpModel.js";
 
 dotenv.config();
 
 // email regex middleware
 export function isValidEmail(req, res, next) {
-  const { email } = req.body;
+  const { email } = req.body.contact;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!emailRegex.test(email)) {
-    console.log(email);
     return res.status(400).json({ error: "Invalid email format" });
   }
   next();
@@ -21,9 +21,8 @@ export function isValidEmail(req, res, next) {
 
 // email already exists
 export async function emailAlreadyExists(req, res, next) {
-  const { email } = req.body;
+  const { email } = req.body.contact;
   const existingUser = await userModel.findOne({ "contact.email": email });
-  console.log(email, existingUser);
   if (existingUser) {
     return res.status(400).json({
       message: "Email already exists. Please log in or use a different email.",
@@ -33,7 +32,7 @@ export async function emailAlreadyExists(req, res, next) {
 }
 
 // email otp middleware
-let storedOTP;
+// let storedOTP;
 
 function generateOTP() {
   const otp = Math.floor(1000 + Math.random() * 9000); // Generating 4-digit OTP
@@ -52,19 +51,21 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendOTPToEmail(req, res, next) {
-  const { email } = req.body;
+  const { email } = req.body.contact;
   const otp = generateOTP();
-  storedOTP = otp;
+
   console.log(otp);
+
+  // const otpData = new otpModel();
+  await otpModel.create({ email, otp });
 
   //   retrieving .html file for email formatting
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
   const signUpFilePath = path.join(__dirname, "../Emails", "register.html");
   const signUpFile = fs.readFileSync(signUpFilePath, "utf-8");
-
   const mailOptions = {
-    from: "Go Grab <gograb.commerce@gmail.com>",
+    from: "Go Grab <commerce.gograb.info@gmail.com>",
     to: email,
     subject: "Verification OTP", // Email subject
     text: `Your OTP for verification is: ${otp}`, // Email body with OTP
@@ -75,17 +76,8 @@ export async function sendOTPToEmail(req, res, next) {
     await transporter.sendMail(mailOptions); // Send email with OTP
     next();
   } catch (error) {
-    // throw new Error("Failed to send OTP via email");
-    return res.status(400).json({ error: "Failed to send OTP via email" });
+    return res
+      .status(400)
+      .json({ error: "Failed to send OTP via email", error });
   }
-}
-
-// verify OTP
-export function verifyOTP(req, res, next) {
-  const { otp } = req.body;
-
-  if (otp !== storedOTP) {
-    return res.status(400).json({ error: "Invalid OTP" });
-  }
-  next();
 }
