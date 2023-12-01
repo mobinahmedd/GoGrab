@@ -62,13 +62,17 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:4000/api/categories/6568bc91e9af10f12e9dcb8a
+DELETE http://localhost:4000/api/categories/6568bbc6e9af10f12e9dcb7f
 
 ###
-GET http://localhost:4000/api/categories/6568bc4ce9af10f12e9dcb84
+GET http://localhost:4000/api/categories/6568bbc6e9af10f12e9dcb7f
 
 ###
-PATCH http://localhost:4000/api/categories/6568c9a88f63050b4a3c4c4c
+GET http://localhost:4000/api/categories
+
+
+###
+PATCH http://localhost:4000/api/categories/6568bbc6e9af10f12e9dcb7f
 Content-Type: application/json
 
 {
