@@ -19,22 +19,22 @@ const productSchema = new mongoose.Schema({
   discount: {
     type: Number,
   },
-  categoryId: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
+  categoryId: { type: mongoose.Schema.Types.ObjectId, ref: "category" },
   subcategoryId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category.subcategories",
   },
   images: {
-    type: [Buffer],
+    type: [String],
     required: true,
   },
   timesSold: {
     type: Number,
     required: true,
   },
-  sellerId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  sellerId: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
 });
 
-const productModel = mongoose.model("Product", productSchema);
+const Product = mongoose.model("Product", productSchema);
 
-module.exports = productModel;
+export default Product;

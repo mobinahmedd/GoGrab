@@ -1,5 +1,6 @@
 import express from "express";
-import Product from "../Models/productModel";
+import Product from "../Models/productModel.js";
+import { getProduct } from "../Middlewares/productMiddlewares.js";
 
 // Create an Express router
 const router = express.Router();
@@ -30,24 +31,27 @@ router.post("/api/products", async (req, res) => {
   }
 });
 
-// Update product by ID
-router.patch("/api/products/:id", getProduct, async (req, res) => {
-  if (req.body.name != null) {
-    res.product.name = req.body.name;
-  }
-  if (req.body.description != null) {
-    res.product.description = req.body.description;
-  }
-  if (req.body.price != null) {
-    res.product.price = req.body.price;
-  }
-  // Add more fields as needed
+// Update a product by ID
+router.patch("/api/products/:id", async (req, res) => {
+  const productId = req.params.id;
+  const updateData = req.body; // Assuming you send the updated fields in the request body
 
   try {
-    const updatedProduct = await res.product.save();
+    // Find the product by ID and update it
+    const updatedProduct = await productModel.findByIdAndUpdate(
+      productId,
+      updateData,
+      { new: true } // Returns the updated document
+    );
+
+    if (!updatedProduct) {
+      return res.status(404).json({ error: "Product not found" });
+    }
+
     res.json(updatedProduct);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
@@ -61,19 +65,5 @@ router.delete("/api/products/:id", getProduct, async (req, res) => {
   }
 });
 
-// Middleware to get product by ID
-async function getProduct(req, res, next) {
-  try {
-    const product = await Product.findById(req.params.id);
-    if (product == null) {
-      return res.status(404).json({ message: "Product not found" });
-    }
-    res.product = product;
-    next();
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
-}
-
 // Export the router
-module.exports = router;
+export default router;
