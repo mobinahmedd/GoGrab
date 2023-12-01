@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "email": "mobinahmed4321@gmail.com",
-    "otp": "9584"
+    "otp": "1327"
 }
 
 ###
@@ -31,57 +31,4 @@ Content-Type: application/json
         "email": "mobinahmed4321@gmail.com",
         "phoneNumber": ["03425176865","03365973345"]
      }
-}
-
-###
-POST http://localhost:4000/api/categories
-Content-Type: application/json
-
-{
-  "name": "Clothing",
-  "description": "Categories related to clothing and fashion",
-  "subcategories": [
-    {
-      "name": "Men's Apparel",
-      "description": "Fashion for men including shirts, pants, and jackets"
-    },
-    {
-      "name": "Women's Apparel",
-      "description": "Fashion for women including dresses, skirts, and blouses"
-    },
-    {
-      "name": "Footwear",
-      "description": "Shoes and sandals for men and women"
-    },
-    {
-      "name": "Accessories",
-      "description": "Fashion accessories such as hats, scarves, and belts"
-    }
-  ]
-}
-
-
-###
-DELETE http://localhost:4000/api/categories/6568bc91e9af10f12e9dcb8a
-
-###
-GET http://localhost:4000/api/categories/6568bc4ce9af10f12e9dcb84
-
-###
-PATCH http://localhost:4000/api/categories/6568c9a88f63050b4a3c4c4c
-Content-Type: application/json
-
-{
-  "name": "Clothing",
-  "description": "Updated description",
-  "subcategories": [
-    {
-      "name": "Men's Apparel",
-      "description": "Updated fashion for men including shirts, pants, and jackets"
-    },
-    {
-      "name": "Women's Apparel",
-      "description": "Updated fashion for women including dresses, skirts, and blouses"
-    }
-  ]
 }
