@@ -10,6 +10,7 @@ const otpSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  attemptsLeft: { type: String, required: true },
   createdAt: {
     type: Date,
     default: Date.now,
