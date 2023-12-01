@@ -52,12 +52,14 @@ const transporter = nodemailer.createTransport({
 
 export async function sendOTPToEmail(req, res, next) {
   const { email } = req.body.contact;
+  const { firstName } = req.body.name;
+
   const otp = generateOTP();
 
   console.log(otp);
 
   // const otpData = new otpModel();
-  await otpModel.create({ email, otp });
+  await otpModel.create({ email: email, otp: otp, attemptsLeft: 3 });
 
   //   retrieving .html file for email formatting
   const __filename = fileURLToPath(import.meta.url);
@@ -69,7 +71,11 @@ export async function sendOTPToEmail(req, res, next) {
     to: email,
     subject: "Verification OTP", // Email subject
     text: `Your OTP for verification is: ${otp}`, // Email body with OTP
-    html: signUpFile.replace("{{OTP}}", otp),
+    html: signUpFile
+      .replace("{{OTP}}", otp)
+      .replace("{{NAME}}", firstName)
+      .replace("{{DATE}}", new Date().toLocaleDateString())
+      .replace("{{YEAR}}", new Date().getFullYear()),
   };
 
   try {

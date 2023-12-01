@@ -10,13 +10,29 @@ export async function verifyOTP(req, res) {
   const { email, otp } = req.body;
 
   const otpData = await otpModel.findOne({ email });
-  const savedOTP = otpData.otp;
 
-  if (otp !== savedOTP) {
-    return res.status(400).json({ error: "Invalid OTP" });
+  if (!otpData) {
+    res.status(400).json({ message: "Invalid Email" });
   }
-  await otpModel.findOneAndDelete({ email });
 
+  if (otp !== otpData.otp) {
+    otpData.attemptsLeft = otpData.attemptsLeft - 1;
+    await otpData.save();
+    console.log(otpData.attemptsLeft);
+    if (otpData.attemptsLeft <= 0) {
+      await otpModel.findOneAndDelete({ email });
+      await userModel.findOneAndDelete({ "contact.email": email });
+
+      return res.status(400).json({
+        message: "Blocked",
+      });
+    }
+    return res
+      .status(400)
+      .json({ error: "Invalid OTP", attemptsLeft: otpData.attemptsLeft });
+  }
+  console.log("deleting otp");
+  await otpModel.findOneAndDelete({ email });
   res.status(201).json({ message: "Correct OTP" });
 }
 
