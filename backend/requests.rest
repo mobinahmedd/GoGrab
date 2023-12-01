@@ -1,14 +1,14 @@
-POST http://localhost:5000/api/users/verify-otp
+POST http://localhost:5000/api/auth/verify-otp
 Content-Type: application/json
 
 {
     "email": "mobinahmed4321@gmail.com",
-    "otp": "1327"
+    "otp": "3009"
 }
 
 ###
 
-POST http://localhost:5000/api/users/signup
+POST http://localhost:5000/api/auth/signup
 Content-Type: application/json
 
 {
@@ -31,4 +31,23 @@ Content-Type: application/json
         "email": "mobinahmed4321@gmail.com",
         "phoneNumber": ["03425176865","03365973345"]
      }
+}
+
+###
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "mobin4321",
+    "password": "mobin123"
+}
+
+###
+
+POST http://localhost:5000/api/auth/refresh-token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vYmluNDMyMSIsImlhdCI6MTcwMTQ1MDE1NH0.jjjPunqC4ObNvXO0p0qxM3whQBJJBeZTZVgzzVsx-c8"
 }
