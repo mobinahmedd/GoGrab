@@ -1,8 +1,9 @@
-POST http://localhost:5000/api/users/sendotp
+POST http://localhost:5000/api/users/verify-otp
 Content-Type: application/json
 
 {
-    "email": "mobinahmed4321@gmail.com"
+    "email": "mobinahmed4321@gmail.com",
+    "otp": "9584"
 }
 
 ###
@@ -11,7 +12,6 @@ POST http://localhost:5000/api/users/signup
 Content-Type: application/json
 
 {
-    "otp":"7670",
     "username": "mobin4321",
     "name": {
         "firstName": "Mobin" ,
