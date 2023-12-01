@@ -11,7 +11,7 @@ applyRequestMiddleware(app);
 
 connectDB();
 
-app.use("/api/users/", authRoutes);
+app.use("/api/auth/", authRoutes);
 
 app.listen(port, () => {
   console.log("Auth Server running on port", port);

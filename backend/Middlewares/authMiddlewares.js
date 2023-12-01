@@ -11,6 +11,8 @@ dotenv.config();
 // email regex middleware
 export function isValidEmail(req, res, next) {
   const { email } = req.body.contact;
+
+  console.log("mobin", email);
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!emailRegex.test(email)) {
@@ -25,7 +27,18 @@ export async function emailAlreadyExists(req, res, next) {
   const existingUser = await userModel.findOne({ "contact.email": email });
   if (existingUser) {
     return res.status(400).json({
-      message: "Email already exists. Please log in or use a different email.",
+      message: "Email already exists. Please use a different email.",
+    });
+  }
+  next();
+}
+// username already exists
+export async function usernameAlreadyExists(req, res, next) {
+  const { username } = req.body;
+  const existingUser = await userModel.findOne({ username: username });
+  if (existingUser) {
+    return res.status(400).json({
+      message: "username already exists. Please use a different username.",
     });
   }
   next();

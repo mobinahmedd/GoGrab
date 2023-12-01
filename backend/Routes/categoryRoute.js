@@ -7,12 +7,13 @@ import {
   updateCategory,
   deleteCategory,
 } from "../Controllers/categoryController.js";
+import { authenticateToken } from "../JWT_Utils/jwt.js";
 
 // Create an Express router
 const router = express.Router();
 
 // Get all categories
-router.get("/api/categories", getAllCategories);
+router.get("/api/categories", authenticateToken, getAllCategories);
 
 // Get category by ID
 router.get("/api/categories/:id", getCategory);

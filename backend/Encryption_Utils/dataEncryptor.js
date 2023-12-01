@@ -5,7 +5,7 @@ dotenv.config();
 
 const secretKey = process.env.CRYPTO_SECRET_KEY;
 const algorithm = process.env.CRYPTO_ALGORITHM;
-const ivLength = process.env.CRYPTO_IV_LENGTH;
+const ivLength = parseInt(process.env.CRYPTO_IV_LENGTH);
 
 // Function to encrypt data
 function encryptData(data) {
@@ -13,12 +13,12 @@ function encryptData(data) {
     const iv = crypto.randomBytes(ivLength);
     const cipher = crypto.createCipheriv(algorithm, Buffer.from(secretKey), iv);
 
-    let encrypted = cipher.update(data);
-    encrypted = Buffer.concat([encrypted, cipher.final()]);
+    let encrypted = cipher.update(data, "utf8", "hex");
+    encrypted += cipher.final("hex");
 
     return {
       iv: iv.toString("hex"),
-      encryptedData: encrypted.toString("hex"),
+      encryptedData: encrypted,
     };
   } catch (error) {
     console.error("Encryption failed:", error);
@@ -35,10 +35,10 @@ function decryptData(encryptedData, initializationVector) {
       Buffer.from(initializationVector, "hex")
     );
 
-    let decrypted = decipher.update(Buffer.from(encryptedData, "hex"));
-    decrypted = Buffer.concat([decrypted, decipher.final()]);
+    let decrypted = decipher.update(encryptedData, "hex", "utf8");
+    decrypted += decipher.final("utf8");
 
-    return decrypted.toString();
+    return decrypted;
   } catch (error) {
     console.error("Decryption failed:", error);
     throw error;
