@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "email": "mobinahmed4321@gmail.com",
-    "otp": "3009"
+    "otp": "6630"
 }
 
 ###
