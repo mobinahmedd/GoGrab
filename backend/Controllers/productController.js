@@ -37,7 +37,7 @@ export const updateProduct = async (req, res) => {
 
   try {
     // Find the product by ID and update it
-    const updatedProduct = await productModel.findByIdAndUpdate(
+    const updatedProduct = await Product.findByIdAndUpdate(
       productId,
       updateData,
       { new: true } // Returns the updated document
@@ -61,5 +61,26 @@ export const deleteProduct = async (req, res) => {
     res.json({ message: "Product deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
+  }
+};
+
+export const searchProduct = async (req, res) => {
+  try {
+    const { name } = req.query;
+
+    // Use a regular expression to make the search case-insensitive and partial
+    const regex = new RegExp(name, "i");
+
+    // Use the find method to search for products by name
+    const products = await Product.find({ name: regex });
+
+    if (!products) {
+      return res.status(404).json({ error: "Product not found" });
+    }
+    // Send the products as a response
+    res.json(products);
+  } catch (error) {
+    // Handle any errors that occur during the search
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };

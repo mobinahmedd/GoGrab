@@ -1,3 +1,6 @@
+
+------------------------------- User signup & login APIs -------------------------------------
+
 POST http://localhost:5000/api/auth/verify-otp
 Content-Type: application/json
 
@@ -51,3 +54,122 @@ Content-Type: application/json
 {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vYmluNDMyMSIsImlhdCI6MTcwMTQ1MDE1NH0.jjjPunqC4ObNvXO0p0qxM3whQBJJBeZTZVgzzVsx-c8"
 }
+
+
+------------------------------- Category APIs -------------------------------------
+###
+
+POST http://localhost:4000/api/categories/createCategory
+Content-Type: application/json
+
+{
+  "name": "Clothing",
+  "description": "Categories related to clothing and fashion",
+  "subcategories": [
+    {
+      "name": "Men's Apparel",
+      "description": "Fashion for men including shirts, pants, and jackets"
+    },
+    {
+      "name": "Women's Apparel",
+      "description": "Fashion for women including dresses, skirts, and blouses"
+    },
+    {
+      "name": "Footwear",
+      "description": "Shoes and sandals for men and women"
+    },
+    {
+      "name": "Accessories",
+      "description": "Fashion accessories such as hats, scarves, and belts"
+    }
+  ]
+}
+
+
+
+###
+PATCH http://localhost:4000/api/categories/updateCategory/656c27bd77e1d00b51bc5b8a
+Content-Type: application/json
+
+{
+  "name": "Clothing",
+  "description": "Updated description for clothing and fashion",
+  "subcategories": [
+    {
+      "name": "Men's Apparel",
+      "description": "Updated fashion for men including shirts, pants, and jackets"
+    },
+    {
+      "name": "Women's Apparel",
+      "description": "Updated fashion for women including dresses, skirts, and blouses"
+    },
+    {
+      "name": "Footwear",
+      "description": "Updated shoes and sandals for men and women"
+    },
+    {
+      "name": "Accessories",
+      "description": "Updated fashion accessories such as hats, scarves, and belts"
+    }
+  ]
+}
+
+###
+DELETE http://localhost:4000/api/categories/deleteCategory/656c27bd77e1d00b51bc5b8a
+
+###
+GET http://localhost:4000/api/categories/getCategory/656c293bfef1304065644066
+
+###
+GET http://localhost:4000/api/categories/getAllCategories
+
+
+------------------------------- User APIs -------------------------------------
+
+###
+DELETE http://localhost:4000/api/users/deleteUser/656c2deefef130406564406b
+
+###
+GET http://localhost:4000/api/users/getUser/656c2dc4fef1304065644069
+
+###
+GET http://localhost:4000/api/users/getAllUsers
+
+
+------------------------------- Product APIs -------------------------------------
+###
+
+POST http://localhost:4000/api/products/createProduct
+Content-Type: application/json
+
+{
+  "name": "Smartphone X",
+  "description": "High-end smartphone with advanced features",
+  "price": 899.99,
+  "quantity": 100,
+  "discount": 10,
+  "categoryId": "656c293bfef1304065688066", 
+  "images": [
+    "https://example.com/image1.jpg",
+    "https://example.com/image2.jpg",
+    "https://example.com/image3.jpg"
+  ],
+  "timesSold": 50,
+  "sellerId": "656c2e77fef130406564406d" 
+}
+
+###
+DELETE http://localhost:4000/api/products/deleteProduct/656c2deefef130406564406b
+
+###
+GET http://localhost:4000/api/products/getProduct/656c3412c4e4f2cbc03dce99
+###
+GET http://localhost:4000/api/products/getAllProducts
+
+
+###
+GET http://localhost:4000/api/products/searchProduct?name=pro
+
+
+
+
