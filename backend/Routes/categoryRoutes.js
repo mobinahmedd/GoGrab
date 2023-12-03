@@ -13,18 +13,19 @@ import { authenticateToken } from "../JWT_Utils/jwt.js";
 const router = express.Router();
 
 // Get all categories
-router.get("/api/categories", authenticateToken, getAllCategories);
+// router.get("/getAllCategories", authenticateToken, getAllCategories);
+router.get("/getAllCategories", getAllCategories);
 
 // Get category by ID
-router.get("/api/categories/:id", getCategory);
+router.get("/getCategory/:id", getCategory);
 
 // Create a new category
-router.post("/api/categories", createCategory);
+router.post("/createCategory", createCategory);
 
-router.patch("/api/categories/:id", updateCategory);
+router.patch("/updateCategory/:id", updateCategory);
 
 // Delete category by ID
-router.delete("/api/categories/:id", deleteCategory);
+router.delete("/deleteCategory/:id", deleteCategory);
 
 // Export the router
 export default router;

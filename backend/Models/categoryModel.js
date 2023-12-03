@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 const subcategorySchema = new mongoose.Schema({
   name: {
     type: String,
+    unique: true,
+    required: true,
   },
   description: {
     type: String,
@@ -12,6 +14,8 @@ const subcategorySchema = new mongoose.Schema({
 const categorySchema = new mongoose.Schema({
   name: {
     type: String,
+    unique: true,
+    required: true,
   },
   description: {
     type: String,
