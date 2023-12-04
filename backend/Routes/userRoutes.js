@@ -5,6 +5,7 @@ import {
   getUser,
   updateUser,
   deleteUser,
+  searchUser,
 } from "../Controllers/userController.js";
 import { authenticateToken } from "../JWT_Utils/jwt.js";
 
@@ -22,6 +23,9 @@ router.patch("/updateUser/:id", updateUser);
 
 // Delete category by ID
 router.delete("/deleteUser/:id", deleteUser);
+
+// Search/filter users based on criteria
+router.get("/searchUser", searchUser);
 
 // Export the router
 export default router;

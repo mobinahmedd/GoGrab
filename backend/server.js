@@ -32,14 +32,14 @@ app.listen(process.env.MAIN_SERVER_PORT || 6000, () => {
     timesSold: 10,
     sellerId: "615c41ef2a4429a074df356e",
   };
-  console.log(data);
-  const encryptedData = encryptData(data);
-  console.log(encryptedData);
-  const decryptedData = decryptData(
-    encryptedData.encryptedData,
-    encryptedData.iv
-  );
-  console.log(decryptedData);
+  // console.log(data);
+  // const encryptedData = encryptData(data);
+  // console.log(encryptedData);
+  // const decryptedData = decryptData(
+  //   encryptedData.encryptedData,
+  //   encryptedData.iv
+  // );
+  // console.log(decryptedData);
 });
 
 app.use("/api/categories", categoryRoutes);
