@@ -20,9 +20,11 @@ const categorySchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  subcategories: {
-    type: [subcategorySchema],
+  image: {
+    type: String,
+    required: true,
   },
+  subcategories: [subcategorySchema],
 });
 
 const Category = mongoose.model("category", categorySchema);
