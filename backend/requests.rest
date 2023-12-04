@@ -170,6 +170,9 @@ GET http://localhost:4000/api/products/getAllProducts
 ###
 GET http://localhost:4000/api/products/searchProduct?name=pro
 
+###
+GET http://localhost:4000/api/users/searchUser?item=ahmed
+
 
 
 

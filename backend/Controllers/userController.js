@@ -50,3 +50,31 @@ export const deleteUser = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+export const searchUser = async (req, res) => {
+  try {
+    const searchTerm = req.query.item;
+
+    if (!searchTerm) {
+      return res.status(400).json({ message: "Search term is required" });
+    }
+
+    const filter = {
+      $or: [
+        { username: { $regex: new RegExp(searchTerm), $options: "i" } },
+        { "name.firstName": { $regex: new RegExp(searchTerm), $options: "i" } },
+        { "name.lastName": { $regex: new RegExp(searchTerm), $options: "i" } },
+        { role: { $regex: new RegExp(searchTerm), $options: "i" } },
+        {
+          "address.country": { $regex: new RegExp(searchTerm), $options: "i" },
+        },
+        { "contact.email": { $regex: new RegExp(searchTerm), $options: "i" } },
+      ],
+    };
+
+    const users = await User.find(filter);
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
