@@ -1,4 +1,4 @@
-.desktop {
+.signup-desktop {
   background-color: #dedede;
   display: flex;
   flex-direction: row;
@@ -6,36 +6,36 @@
   width: 100%;
 }
 
-.desktop .overlap-wrapper {
+.signup-desktop .signup-overlap-wrapper {
   background-color: #dedede;
   height: 707px;
   overflow: hidden;
   width: 1537px;
 }
 
-.desktop .overlap {
+.signup-desktop .signup-overlap {
   height: 786px;
   position: relative;
   top: -39px;
 }
 
-.desktop .background {
+.signup-desktop .signup-background {
   height: 785px;
   left: 0;
   position: absolute;
   top: 0;
-  transform: rotate(-179.99deg);
+  transform: rotate(-179signup-99deg);
   width: 1537px;
 }
 
-.desktop .overlap-group {
+.signup-desktop .signup-overlap-group {
   height: 785px;
   position: relative;
 }
 
-.desktop .ellipse {
+.signup-desktop .signup-ellipse {
   background-color: #13374e;
-  border-radius: 313.93px/71px;
+  border-radius: 313signup-93px/71px;
   height: 142px;
   left: 868px;
   position: absolute;
@@ -43,9 +43,9 @@
   width: 628px;
 }
 
-.desktop .div {
+.signup-desktop .signup-div {
   background-color: #13374e;
-  border-radius: 313.93px/71px;
+  border-radius: 313signup-93px/71px;
   height: 142px;
   left: 871px;
   position: absolute;
@@ -53,7 +53,7 @@
   width: 628px;
 }
 
-.desktop .BG {
+.signup-desktop .signup-BG {
   -webkit-backdrop-filter: blur(500px) brightness(100%);
   backdrop-filter: blur(500px) brightness(100%);
   background-color: #d9d9d94c;
@@ -64,11 +64,11 @@
   width: 1537px;
 }
 
-.desktop .frame {
+.signup-desktop .signup-frame {
   background: linear-gradient(
     180deg,
-    rgb(18.48, 57.9, 83.67) 0%,
-    rgba(0, 0, 0, 0.87) 100%
+    rgba(0, 0, 0, 0.87) 00%,
+    rgb(18.48, 57.9, 83.67) 100%
   );
   border-radius: 0px 150px 150px 0px;
   box-shadow: 0px 4px 4px #00000040;
@@ -80,8 +80,8 @@
   width: 416px;
 }
 
-.desktop .text-wrapper {
-  color: #ffffff;
+.signup-desktop .signup-text-wrapper {
+  color: rgb(190, 190, 190, 1);
   font-family: "Barlow-SemiBold", Helvetica;
   font-size: 30px;
   font-weight: 600;
@@ -92,13 +92,25 @@
   top: 554px;
   transform: rotate(180deg);
   white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.01s ease;
 }
-
-.desktop .text-wrapper-2 {
+.signup-text-wrapper-2:hover,
+.signup-text-wrapper:hover {
+  opacity: 0.5 !important;
+}
+.signup-text-wrapper:active,
+.signup-text-wrapper-2:active {
+  opacity: 0.3 !important;
+}
+/* .signup-text-wrapper-2:active {
+  opacity: 0.1;
+} */
+.signup-desktop .signup-text-wrapper-2 {
   color: #000000;
   font-family: "Barlow-Regular", Helvetica;
   font-size: 30px;
-  font-weight: 400;
+  font-weight: 600;
   left: 246px;
   letter-spacing: 0;
   line-height: normal;
@@ -106,9 +118,24 @@
   position: absolute;
   top: 108px;
   width: 79px;
+  cursor: pointer;
+  transition: all 0.01s ease;
 }
 
-.desktop .overlap-group-wrapper {
+.signup-desktop .signup-overlap-group-wrapper {
+  /* -webkit-backdrop-filter: blur(58signup-5px) brightness(100%);
+  backdrop-filter: blur(58signup-5px) brightness(100%);
+  background-color: #afc6d561;
+  border-radius: 100px;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 488px;
+  left: 151px;
+  overflow: hidden;
+  position: absolute;
+  top: 149px;
+  width: 1235px; */
+
+  /* transform: rotate(180deg); */
   -webkit-backdrop-filter: blur(58.5px) brightness(100%);
   backdrop-filter: blur(58.5px) brightness(100%);
   background-color: #afc6d561;
@@ -118,17 +145,16 @@
   left: 151px;
   overflow: hidden;
   position: absolute;
-  top: 149px;
-  transform: rotate(180deg);
+  top: 148px;
   width: 1235px;
 }
 
-.desktop .overlap-2 {
+.signup-desktop .signup-overlap-2 {
   height: 481px;
   position: relative;
 }
 
-.desktop .overlap-3 {
+.signup-desktop .signup-overlap-3 {
   height: 463px;
   left: 0;
   position: absolute;
@@ -136,63 +162,66 @@
   width: 1235px;
 }
 
-.desktop .rectangle {
+.signup-desktop .signup-rectangle {
   height: 139px;
   left: 0;
   position: absolute;
-  top: 0;
-  transform: rotate(-180deg);
+  /* top: 0; */
+  bottom: -30px;
+  /* transform: rotate(-180deg); */
   width: 1235px;
 }
 
-.desktop .text {
+.signup-desktop .signup-text {
   height: 267px;
   left: 443px;
   position: absolute;
   top: 118px;
-  transform: rotate(180deg);
+  /* transform: rotate(180deg); */
   width: 365px;
+  /* transform: rotate(180deg); */
 }
 
-.desktop .role {
+.signup-desktop .signup-role {
   height: 132px;
-  left: 80px;
+  left: 66px;
   position: absolute;
-  top: 0;
+  top: 20px;
   width: 224px;
 }
 
-.desktop .text-wrapper-3 {
+.signup-desktop .signup-text-wrapper-3 {
   color: #13374f;
   font-family: "Barlow-SemiBold", Helvetica;
   font-size: 22px;
   font-weight: 600;
-  left: 30px;
+  left: 533px;
   letter-spacing: 0;
   line-height: normal;
   opacity: 0.8;
   position: absolute;
-  top: 106px;
+  top: 96px;
   white-space: nowrap;
   width: 162px;
 }
 
-.desktop .buyer {
+.signup-desktop .signup-buyer {
   height: 85px;
   left: 0;
   position: absolute;
   top: 0;
   width: 100px;
+  /* transform: rotate(180deg); */
 }
 
-.desktop .overlap-group-2 {
+.signup-desktop .signup-overlap-group-2 {
   border-radius: 7px;
   height: 85px;
   position: relative;
   width: 98px;
 }
 
-.desktop .text-wrapper-4 {
+.signup-desktop .signup-text-wrapper-4 {
   color: #13374f;
   font-family: "Barlow-Medium", Helvetica;
   font-size: 18px;
@@ -207,7 +236,7 @@
   width: 56px;
 }
 
-.desktop .rectangle-2 {
+.signup-desktop .signup-rectangle-2 {
   border: 5px solid;
   border-color: #1b5f8e;
   border-radius: 7px;
@@ -219,24 +248,25 @@
   width: 98px;
 }
 
-.desktop .mask-group {
+.signup-desktop .signup-mask-group {
   height: 39px;
   left: 27px;
   position: absolute;
   top: 36px;
-  transform: rotate(-180deg);
+  /* transform: rotate(-180deg); */
   width: 44px;
 }
 
-.desktop .seller {
+.signup-desktop .signup-seller {
   height: 85px;
   left: 124px;
   position: absolute;
   top: 0;
   width: 100px;
+  /* transform: rotate(180deg); */
 }
 
-.desktop .text-wrapper-5 {
+.signup-desktop .signup-text-wrapper-5 {
   color: #13374f;
   font-family: "Barlow-Medium", Helvetica;
   font-size: 18px;
@@ -251,24 +281,24 @@
   width: 60px;
 }
 
-.desktop .brands-sellcast {
+.signup-desktop .signup-brands-sellcast {
   height: 35px;
   left: 29px;
   position: absolute;
   top: 37px;
-  transform: rotate(-180deg);
+  /* transform: rotate(-180deg); */
   width: 40px;
 }
 
-.desktop .input {
+.signup-desktop .signup-input {
   height: 115px;
-  left: 0;
+  left: -6px;
   position: absolute;
-  top: 152px;
+  top: 140px;
   width: 365px;
 }
 
-.desktop .un-input {
+.signup-desktop .signup-un-input {
   height: 46px;
   left: 0;
   position: absolute;
@@ -276,7 +306,7 @@
   width: 367px;
 }
 
-.desktop .div-wrapper {
+.signup-desktop .signup-div-wrapper {
   background-color: #dbe5e9;
   border-radius: 100px;
   box-shadow: 0px 4px 4px #00000040;
@@ -285,7 +315,7 @@
   width: 365px;
 }
 
-.desktop .text-wrapper-6 {
+.signup-desktop .signup-text-wrapper-6 {
   color: #000000;
   font-family: "Barlow-Thin", Helvetica;
   font-size: 18px;
@@ -300,7 +330,7 @@
   width: 91px;
 }
 
-.desktop .fn-input {
+.signup-desktop .signup-fn-input {
   height: 46px;
   left: 0;
   position: absolute;
@@ -308,16 +338,16 @@
   width: 183px;
 }
 
-.desktop .overlap-4 {
+.signup-desktop .signup-overlap-4 {
   background-color: #dbe5e9;
   border-radius: 100px 0px 0px 100px;
   box-shadow: 0px 4px 4px #00000040;
   height: 46px;
   position: relative;
-  width: 181px;
+  width: 179px;
 }
 
-.desktop .text-wrapper-7 {
+.signup-desktop .signup-text-wrapper-7 {
   color: #000000;
   font-family: "Barlow-Thin", Helvetica;
   font-size: 18px;
@@ -332,24 +362,24 @@
   width: 90px;
 }
 
-.desktop .ln-input {
+.signup-desktop .signup-ln-input {
   height: 46px;
   left: 185px;
   position: absolute;
   top: 69px;
-  width: 182px;
+  /* width: 183px; */
 }
 
-.desktop .overlap-5 {
+.signup-desktop .signup-overlap-5 {
   background-color: #dbe5e9;
   border-radius: 0px 100px 100px 0px;
   box-shadow: 0px 4px 4px #00000040;
   height: 46px;
   position: relative;
-  width: 180px;
+  width: 179px;
 }
 
-.desktop .text-wrapper-8 {
+.signup-desktop .signup-text-wrapper-8 {
   color: #000000;
   font-family: "Barlow-Thin", Helvetica;
   font-size: 18px;
@@ -364,41 +394,36 @@
   width: 85px;
 }
 
-.desktop .image-removebg {
+.signup-desktop .signup-image-removebg {
   height: 396px;
-  left: 846px;
   object-fit: cover;
   position: absolute;
   top: 67px;
-  transform: rotate(-180deg);
+  /* transform: rotate(-180deg); */
   width: 389px;
 }
 
-.desktop .steps {
+.signup-desktop .signup-steps {
   height: 45px;
-  left: 443px;
+  left: 467px;
   position: absolute;
-  top: 436px;
-  width: 349px;
+  /* bottom: 436px; */
+  top: 7px;
+  /* border: 2px solid red; */
+}
+.signup-desktop .signup-steps img {
+  width: 300px;
 }
 
-.desktop .arrow {
-  height: 3px;
-  left: 48px;
-  position: absolute;
-  top: 22px;
-  width: 100px;
-}
-
-.desktop .img {
+/* .signup-desktop .signup-img {
   height: 3px;
   left: 200px;
   position: absolute;
   top: 22px;
   width: 100px;
-}
+} */
 
-.desktop .element {
+.signup-desktop .signup-element {
   height: 45px;
   left: 152px;
   position: absolute;
@@ -406,7 +431,7 @@
   width: 47px;
 }
 
-.desktop .overlap-group-3 {
+.signup-desktop .signup-overlap-group-3 {
   background-image: url();
   background-size: 100% 100%;
   height: 45px;
@@ -414,7 +439,7 @@
   width: 45px;
 }
 
-.desktop .text-wrapper-9 {
+.signup-desktop .signup-text-wrapper-9 {
   color: #ffffff;
   font-family: "Barlow-SemiBold", Helvetica;
   font-size: 30px;
@@ -424,11 +449,11 @@
   line-height: normal;
   position: absolute;
   top: 3px;
-  transform: rotate(180deg);
+  /* transform: rotate(180deg); */
   white-space: nowrap;
 }
 
-.desktop .element-2 {
+.signup-desktop .signup-element-2 {
   height: 45px;
   left: 0;
   position: absolute;
@@ -436,7 +461,7 @@
   width: 47px;
 }
 
-.desktop .overlap-6 {
+.signup-desktop .signup-overlap-6 {
   background-image: url();
   background-size: 100% 100%;
   height: 45px;
@@ -444,7 +469,7 @@
   width: 45px;
 }
 
-.desktop .text-wrapper-10 {
+.signup-desktop .signup-text-wrapper-10 {
   color: #ffffff;
   font-family: "Barlow-SemiBold", Helvetica;
   font-size: 30px;
@@ -454,11 +479,11 @@
   line-height: normal;
   position: absolute;
   top: 3px;
-  transform: rotate(180deg);
+  /* transform: rotate(180deg); */
   white-space: nowrap;
 }
 
-.desktop .element-3 {
+.signup-desktop .signup-element-3 {
   height: 45px;
   left: 304px;
   position: absolute;
@@ -466,7 +491,7 @@
   width: 47px;
 }
 
-.desktop .overlap-7 {
+.signup-desktop .signup-overlap-7 {
   background-image: url();
   background-size: 100% 100%;
   height: 53px;
@@ -475,7 +500,7 @@
   width: 53px;
 }
 
-.desktop .text-wrapper-11 {
+.signup-desktop .signup-text-wrapper-11 {
   color: #686868;
   font-family: "Barlow-SemiBold", Helvetica;
   font-size: 30px;
@@ -485,11 +510,11 @@
   line-height: normal;
   position: absolute;
   top: 3px;
-  transform: rotate(180deg);
+  /* transform: rotate(180deg); */
   white-space: nowrap;
 }
 
-.desktop .buttons {
+.signup-desktop .signup-buttons {
   height: 60px;
   left: 631px;
   position: absolute;
@@ -497,17 +522,25 @@
   width: 276px;
 }
 
-.desktop .previous-button {
+.signup-desktop .signup-previous-button {
   background-color: #5f7b8e;
-  box-shadow: 0px 4px 4px #00000040;
+  box-shadow: inset 0px 4px 4px #00000040;
   height: 60px;
   left: 0;
   position: absolute;
   top: 0;
   width: 136px;
+  border-radius: 50px 0px 0px 50px;
 }
-
-.desktop .flat-color-icons {
+.signup-desktop .signup-previous-button:hover,
+.signup-desktop .signup-next-button:hover {
+  box-shadow: 0px 4px 4px #00000040;
+}
+.signup-desktop .signup-previous-button:active,
+.signup-desktop .signup-next-button:active {
+  box-shadow: inset 0px 4px 4px #00000040;
+}
+.signup-desktop .signup-flat-color-icons {
   height: 38px;
   left: 50px;
   position: absolute;
@@ -515,17 +548,18 @@
   width: 36px;
 }
 
-.desktop .next-button {
+.signup-desktop .signup-next-button {
   background-color: #5f7b8e;
-  box-shadow: 0px 4px 4px #00000040;
+  box-shadow: inset 0px 4px 4px #00000040;
   height: 60px;
   left: 140px;
   position: absolute;
   top: 0;
   width: 136px;
+  border-radius: 0px 50px 50px 0px;
 }
 
-.desktop .downtext {
+.signup-desktop .signup-downtext {
   height: 24px;
   left: 625px;
   position: absolute;
@@ -533,7 +567,7 @@
   width: 291px;
 }
 
-.desktop .text-wrapper-12 {
+.signup-desktop .signup-text-wrapper-12 {
   color: #000000;
   font-family: "Barlow-Regular", Helvetica;
   font-size: 20px;
@@ -547,7 +581,7 @@
   white-space: nowrap;
 }
 
-.desktop .text-wrapper-13 {
+.signup-desktop .signup-text-wrapper-13 {
   color: #000000;
   font-family: "Barlow-Regular", Helvetica;
   font-size: 20px;
@@ -560,11 +594,23 @@
   top: 0;
   white-space: nowrap;
 }
-
-.desktop .logo {
+.signup-desktop .signup-text-wrapper-13:hover {
+  opacity: 0.7;
+}
+.signup-desktop .signup-text-wrapper-13:active {
+  opacity: 0.9;
+}
+.signup-desktop .signup-logo {
   height: 82px;
   left: 650px;
   position: absolute;
   top: 53px;
   width: 238px;
+  cursor: pointer;
+}
+
+.signup-buyer:hover .signup-rectangle-2,
+.signup-seller:hover .signup-rectangle-2 {
+  border-color: #14476c;
+  opacity: 1;
 }
