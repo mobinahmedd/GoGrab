@@ -24,6 +24,7 @@ const productSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category.subcategories",
   },
+
   images: {
     type: [String],
     required: true,

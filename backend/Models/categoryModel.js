@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 const subcategorySchema = new mongoose.Schema({
   name: {
     type: String,
+    unique: true,
+    required: true,
   },
   description: {
     type: String,
@@ -12,13 +14,17 @@ const subcategorySchema = new mongoose.Schema({
 const categorySchema = new mongoose.Schema({
   name: {
     type: String,
+    unique: true,
+    required: true,
   },
   description: {
     type: String,
   },
-  subcategories: {
-    type: [subcategorySchema],
+  image: {
+    type: String,
+    required: true,
   },
+  subcategories: [subcategorySchema],
 });
 
 const Category = mongoose.model("category", categorySchema);

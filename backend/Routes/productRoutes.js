@@ -5,24 +5,28 @@ import {
   getProduct,
   updateProduct,
   deleteProduct,
+  searchProduct,
 } from "../Controllers/productController.js";
 // Create an Express router
 const router = express.Router();
 
 // Get all products
-router.get("/api/products", getAllProducts);
+router.get("/getAllProducts", getAllProducts);
 
 // Get product by ID
-router.get("/api/products/:id", getProduct);
+router.get("/getProduct/:id", getProduct);
 
 // Create a new product
-router.post("/api/products", createProduct);
+router.post("/createProduct", createProduct);
 
 // Update a product by ID
-router.patch("/api/products/:id", updateProduct);
+router.patch("/updateProduct/:id", updateProduct);
 
 // Delete product by ID
-router.delete("/api/products/:id", deleteProduct);
+router.delete("/deleteProduct/:id", deleteProduct);
+
+// Define a route for searching products by name
+router.get("/searchProduct", searchProduct);
 
 // Export the router
 export default router;
