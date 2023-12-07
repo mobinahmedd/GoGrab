@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {} from "./index.css";
-import Authentication from "./Components/Authentication/Authentication";
+import Login from "./Components/Login/Login";
+import SignUp from "./Components/SignUp/SignUp";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Authentication />
-  </React.StrictMode>
+  <>
+    {/* <Login /> */}
+    <React.StrictMode>
+      <SignUp />
+    </React.StrictMode>
+  </>
 );
