@@ -2,123 +2,200 @@ import React from "react";
 import "./SignUp.css";
 import sellerIcon from "../../Assets/sellerIcon.png";
 import buyerIcon from "../../Assets/buyerIcon.png";
+import logoBlack from "../../Assets/logoBlack.png";
+import previous from "../../Assets/previous.png";
+import next from "../../Assets/next.png";
+import blueWave from "../../Assets/blueWaveSignUp.png";
+import cartPersonSignUp from "../../Assets/cartPersonSignUp.png";
+import Step1SignUp from "../../Assets/step1SignUp.png";
 
 const SignUp = () => {
+  const [selectedRole, setSelectedRole] = React.useState("buyer");
+
+  const handleRoleChange = (event) => {
+    const value = event.currentTarget.getAttribute("value");
+    setSelectedRole(value);
+  };
+
+  console.log(selectedRole);
   return (
-    <div className="desktop">
-      <div className="overlap-wrapper">
-        <div className="overlap">
-          <div className="background">
-            <div className="overlap-group">
-              <div className="ellipse" />
-              <div className="div" />
-              <div className="BG" />
+    <div className="signup-desktop">
+      <div className="signup-overlap-wrapper">
+        <div className="signup-overlap">
+          <div className="signup-background">
+            <div className="signup-overlap-group">
+              <div className="signup-ellipse" />
+              <div className="signup-div" />
+              <div className="signup-BG" />
             </div>
           </div>
-          <div className="frame">
-            <div className="text-wrapper">Sign up</div>
+          <div className="signup-frame">
+            <div className="signup-text-wrapper">Sign up</div>
           </div>
-          <div className="text-wrapper-2">Login</div>
-          <div className="overlap-group-wrapper">
-            <div className="overlap-2">
-              <div className="overlap-3">
+          <div className="signup-text-wrapper-2">Login</div>
+          <div className="signup-overlap-group-wrapper">
+            <div className="signup-overlap-2">
+              <div className="signup-overlap-3">
                 <img
-                  className="rectangle"
+                  className="signup-rectangle"
                   alt="Rectangle"
-                  src="rectangle-22.png"
+                  src={blueWave}
                 />
-                <div className="text">
-                  <div className="role">
-                    <div className="text-wrapper-3">Select your role:</div>
-                    <div className="buyer">
-                      <div className="overlap-group-2">
-                        <div className="text-wrapper-4">Buyer</div>
-                        <div className="rectangle-2" />
+                <div className="signup-text-wrapper-3">Select your role:</div>
+                <div className="signup-text">
+                  <div className="signup-role">
+                    <button
+                      className="signup-buyer"
+                      style={{
+                        backgroundColor: "transparent",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                      type="button"
+                      value="buyer"
+                      onClick={handleRoleChange}
+                    >
+                      <div className="signup-overlap-group-2">
+                        <div
+                          style={{ left: "22px" }}
+                          className="signup-text-wrapper-4"
+                        >
+                          Buyer
+                        </div>
+                        <div
+                          style={
+                            selectedRole === "buyer"
+                              ? { borderColor: "green", opacity: "1" }
+                              : { borderColor: "#14476c" }
+                          }
+                          className="signup-rectangle-2"
+                        />
                         <img
-                          className="mask-group"
+                          style={{
+                            left: "29px",
+                            width: "38px",
+                            height: "35px",
+                          }}
+                          className="signup-mask-group"
                           alt="Mask group"
-                          src="mask-group.png"
+                          src={buyerIcon}
                         />
                       </div>
-                    </div>
-                    <div className="seller">
-                      <div className="overlap-group-2">
-                        <div className="text-wrapper-5">Seller</div>
-                        <div className="rectangle-2" />
+                    </button>
+                    <button
+                      className="signup-seller"
+                      style={{
+                        backgroundColor: "transparent",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                      type="button"
+                      value="seller"
+                      onClick={handleRoleChange}
+                    >
+                      <div className="signup-overlap-group-2">
+                        <div
+                          style={{ left: "21px" }}
+                          className="signup-text-wrapper-5"
+                        >
+                          Seller
+                        </div>
+                        <div
+                          style={
+                            selectedRole === "seller"
+                              ? { borderColor: "green", opacity: "1" }
+                              : { borderColor: "#14476c" }
+                          }
+                          className="signup-rectangle-2"
+                        />
                         <img
-                          className="brands-sellcast"
+                          style={{ left: "29px" }}
+                          className="signup-brands-sellcast"
                           alt="Brands sellcast"
-                          src="fa6-brands-sellcast.png"
+                          src={sellerIcon}
+                        />
+                      </div>
+                    </button>
+                  </div>
+                  <div className="signup-input">
+                    <div className="signup-un-input">
+                      <div className="signup-div-wrapper">
+                        {/* <div className="signup-text-wrapper-6">Username</div> */}
+                        <input
+                          style={{
+                            width: "315px",
+                            backgroundColor: "transparent",
+                            border: "none",
+                          }}
+                          className="signup-text-wrapper-7"
+                          placeholder="Username"
                         />
                       </div>
                     </div>
-                  </div>
-                  <div className="input">
-                    <div className="un-input">
-                      <div className="div-wrapper">
-                        <div className="text-wrapper-6">Username</div>
+                    <div className="signup-fn-input">
+                      <div className="signup-overlap-4">
+                        {/* <div className="signup-text-wrapper-7">First name</div> */}
+                        <input
+                          style={{
+                            width: "140px",
+                            backgroundColor: "transparent",
+                            border: "none",
+                          }}
+                          className="signup-text-wrapper-7"
+                          placeholder="First Name"
+                        />
                       </div>
                     </div>
-                    <div className="fn-input">
-                      <div className="overlap-4">
-                        <div className="text-wrapper-7">First name</div>
-                      </div>
-                    </div>
-                    <div className="ln-input">
-                      <div className="overlap-5">
-                        <div className="text-wrapper-8">Last name</div>
+                    <div className="signup-ln-input">
+                      <div className="signup-overlap-5">
+                        {/* <div className="signup-text-wrapper-8">Last name</div> */}
+                        <input
+                          style={{
+                            width: "140px",
+                            backgroundColor: "transparent",
+                            border: "none",
+                          }}
+                          className="signup-text-wrapper-7"
+                          placeholder="Last Name"
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
                 <img
-                  className="image-removebg"
+                  className="signup-image-removebg"
                   alt="Image removebg"
-                  src="image-removebg-preview-2.png"
+                  src={cartPersonSignUp}
                 />
               </div>
-              <div className="steps">
-                <img className="arrow" alt="Arrow" src="arrow-1.svg" />
-                <img className="img" alt="Arrow" src="arrow-2.svg" />
-                <div className="element">
-                  <div className="overlap-group-3">
-                    <div className="text-wrapper-9">2</div>
-                  </div>
-                </div>
-                <div className="element-2">
-                  <div className="overlap-6">
-                    <div className="text-wrapper-10">3</div>
-                  </div>
-                </div>
-                <div className="element-3">
-                  <div className="overlap-7">
-                    <div className="text-wrapper-11">1</div>
-                  </div>
-                </div>
+              <div className="signup-steps">
+                <img src={Step1SignUp} alt="" />
               </div>
             </div>
           </div>
-          <div className="buttons">
-            <div className="previous-button">
+          <div className="signup-buttons">
+            <div className="signup-previous-button">
               <img
-                className="flat-color-icons"
+                className="signup-flat-color-icons"
                 alt="Flat color icons"
-                src="flat-color-icons-next.svg"
+                src={previous}
               />
             </div>
-            <div className="next-button">
+            <div className="signup-next-button">
               <img
-                className="flat-color-icons"
+                className="signup-flat-color-icons"
                 alt="Flat color icons"
-                src="flat-color-icons-next-2.svg"
+                src={next}
               />
             </div>
           </div>
-          <div className="downtext">
-            <div className="text-wrapper-12">Already have an account?</div>
-            <div className="text-wrapper-13">Login</div>
+          <div className="signup-downtext">
+            <div className="signup-text-wrapper-12">
+              Already have an account?
+            </div>
+            <div className="signup-text-wrapper-13">Login</div>
           </div>
-          <img className="logo" alt="Logo" src="logo.png" />
+          <img className="signup-logo" alt="Logo" src={logoBlack} />
         </div>
       </div>
     </div>

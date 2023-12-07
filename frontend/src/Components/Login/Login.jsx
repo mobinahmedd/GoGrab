@@ -17,7 +17,6 @@ export const Authentication = () => {
     // console.log("click");
     const value = event.currentTarget.getAttribute("value"); // Access the data-value attribute
     setSelectedRole(value);
-    console.log("Selected Role:", value);
   };
 
   console.log(selectedRole);
