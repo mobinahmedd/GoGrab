@@ -405,9 +405,9 @@
 
 .signup-desktop .signup-steps {
   height: 45px;
-  left: 467px;
   position: absolute;
   /* bottom: 436px; */
+  left: 467px;
   top: 7px;
   /* border: 2px solid red; */
 }
@@ -593,6 +593,7 @@
   text-decoration: underline;
   top: 0;
   white-space: nowrap;
+  cursor: pointer;
 }
 .signup-desktop .signup-text-wrapper-13:hover {
   opacity: 0.7;

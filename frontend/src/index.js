@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/SignUp/SignUp";
+// import SignUp2 from "./Components/SignUp/SignUpStep2";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
