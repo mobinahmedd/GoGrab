@@ -11,7 +11,6 @@ const SignUp = () => {
   const [selectedRole, setSelectedRole] = React.useState("buyer");
   const [step, setStep] = React.useState(3);
 
-
   const handleRoleChange = (event) => {
     const value = event.currentTarget.getAttribute("value");
     setSelectedRole(value);
@@ -44,7 +43,6 @@ const SignUp = () => {
               <SignUpStep2 />
             ) : (
               <SignUpStep3 />
-
             )}
           </div>
           <div className="signup-buttons">
