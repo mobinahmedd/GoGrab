@@ -83,9 +83,14 @@ const SignUpStep3 = () => {
             </div>
             <div
               style={{ left: "10px", top: "40px", transform: "rotate(180deg)" }}
-              className="step3-boy"
+              className="step3-boy avatar"
             >
-              <img className="step3-man" alt="Man" src={boy} />
+              <img
+                style={{ top: "3px", height: "60px" }}
+                className="step3-man avatar"
+                alt="Man"
+                src={boy}
+              />
             </div>
           </div>
         </div>
