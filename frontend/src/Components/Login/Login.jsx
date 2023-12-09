@@ -14,7 +14,6 @@ export const Authentication = () => {
   const [selectedRole, setSelectedRole] = React.useState("buyer");
 
   const handleRoleChange = (event) => {
-    // console.log("click");
     const value = event.currentTarget.getAttribute("value"); // Access the data-value attribute
     setSelectedRole(value);
   };

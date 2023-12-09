@@ -6,10 +6,11 @@ import next from "../../Assets/next.png";
 import SignUpStep1 from "./SignUpStep1";
 import SignUpStep2 from "./SignUpStep2";
 import SignUpStep3 from "./SignUpStep3";
+import OTP from "./OTP";
 
 const SignUp = () => {
   const [selectedRole, setSelectedRole] = React.useState("buyer");
-  const [step, setStep] = React.useState(3);
+  const [step, setStep] = React.useState(4);
 
   const handleRoleChange = (event) => {
     const value = event.currentTarget.getAttribute("value");
@@ -41,8 +42,10 @@ const SignUp = () => {
               />
             ) : step == 2 ? (
               <SignUpStep2 />
-            ) : (
+            ) : step == 3 ? (
               <SignUpStep3 />
+            ) : (
+              <OTP />
             )}
           </div>
           <div className="signup-buttons">
