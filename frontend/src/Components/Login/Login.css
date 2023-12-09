@@ -115,6 +115,7 @@
   overflow: hidden;
   position: absolute;
   top: 148px;
+  /* top: 0px; */
   width: 1235px;
 }
 
@@ -128,17 +129,18 @@
   height: 139px;
   left: 0;
   position: absolute;
-  top: 324px;
+  /* top: 324px; */
+  top: 0px;
   width: 1235px;
 }
 
 .desktop .image-removebg {
   height: 396px;
-  left: 846px;
+  left: 0px;
   object-fit: cover;
   position: absolute;
-  /* top: 0; */
-  bottom: 0;
+  top: 0px;
+  /* bottom: 0; */
   width: 389px;
 }
 
@@ -146,7 +148,7 @@
   height: 302px;
   left: 435px;
   position: absolute;
-  top: 32px;
+  bottom: 0px;
   width: 367px;
 }
 
@@ -483,6 +485,7 @@
   white-space: nowrap;
   cursor: pointer;
   transition: all 0.01s ease;
+  text-decoration: none;
 }
 
 .desktop .down-text {
