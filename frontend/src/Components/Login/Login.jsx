@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Login.css";
 import blueWave from "../../Assets/blueWave.png";
 import cartPerson from "../../Assets/cartPerson.png";
@@ -10,7 +11,7 @@ import passwordIcon from "../../Assets/passwordIcon.png";
 import viewPassword from "../../Assets/viewPassword.png";
 import logoBlack from "../../Assets/logoBlack.png";
 
-export const Authentication = () => {
+export const Login = (props) => {
   const [selectedRole, setSelectedRole] = React.useState("buyer");
 
   const handleRoleChange = (event) => {
@@ -31,7 +32,13 @@ export const Authentication = () => {
             </div>
           </div>
           <div className="frame">
-            <p className="text-wrapper">Login</p>
+            <Link
+              to="/"
+              className="text-wrapper"
+              style={{ textDecoration: "none" }}
+            >
+              Login
+            </Link>
           </div>
           <div className="overlap-group-wrapper">
             <div className="overlap-2">
@@ -42,7 +49,9 @@ export const Authentication = () => {
                 src={cartPerson}
               />
               <div className="text">
-                <div className="text-wrapper-2">Forget your Password?</div>
+                <Link to="/forgotpassword" className="text-wrapper-2">
+                  Forget your Password?
+                </Link>
                 <div className="input">
                   <div className="password">
                     <div className="overlap-group-2">
@@ -189,10 +198,15 @@ export const Authentication = () => {
               <div className="text-wrapper-7">LOGIN</div>
             </div>
           </button>
-          <div className="text-wrapper-8">Sign up</div>
+          <Link to="/signup" className="text-wrapper-8">
+            Sign up
+          </Link>
           <div className="down-text">
             <div className="text-wrapper-9">New to GoGrab? </div>
-            <div className="text-wrapper-10"> Create Account</div>
+            <Link to="/signup" className="text-wrapper-10">
+              {" "}
+              Create Account
+            </Link>
           </div>
           <img className="logo" alt="logoBlack" src={logoBlack} />
         </div>
@@ -201,4 +215,4 @@ export const Authentication = () => {
   );
 };
 
-export default Authentication;
+export default Login;
