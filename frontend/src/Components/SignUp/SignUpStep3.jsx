@@ -87,7 +87,7 @@ const SignUpStep3 = () => {
             >
               <img
                 style={{ top: "3px", height: "60px" }}
-                className="step3-man "
+                className="step3-man"
                 alt="Man"
                 src={boy}
               />
