@@ -12,6 +12,7 @@ const SignUp = () => {
   const [selectedRole, setSelectedRole] = React.useState("buyer");
   const [step, setStep] = React.useState(4);
 
+
   const handleRoleChange = (event) => {
     const value = event.currentTarget.getAttribute("value");
     setSelectedRole(value);
@@ -46,6 +47,7 @@ const SignUp = () => {
               <SignUpStep3 />
             ) : (
               <OTP />
+
             )}
           </div>
           <div className="signup-buttons">
