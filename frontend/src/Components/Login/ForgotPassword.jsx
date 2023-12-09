@@ -1,5 +1,6 @@
 import React from "react";
 import "./ForgotPassword.css";
+import { Link } from "react-router-dom";
 import blueWave from "../../Assets/blueWave.png";
 import cartPerson from "../../Assets/cartPerson.png";
 import logoBlack from "../../Assets/logoBlack.png";
@@ -17,7 +18,13 @@ const ForgotPassword = () => {
             </div>
           </div>
           <div className="fp-frame">
-            <div className="fp-text-wrapper">Login</div>
+            <Link
+              to="/"
+              className="fp-text-wrapper"
+              style={{ textDecoration: "none" }}
+            >
+              Login
+            </Link>
           </div>
           <div className="fp-overlap-group-wrapper">
             <div className="fp-overlap-2">
@@ -48,10 +55,18 @@ const ForgotPassword = () => {
               <div className="fp-text-wrapper-4">GET OTP</div>
             </div>
           </button>
-          <div className="fp-text-wrapper-5">Sign up</div>
+          <Link
+            to="/signup"
+            className="fp-text-wrapper-5"
+            style={{ textDecoration: "none" }}
+          >
+            Sign up
+          </Link>
           <div className="fp-down-text">
             <div className="fp-text-wrapper-6">New to goGrab?</div>
-            <div className="fp-text-wrapper-7">Create account</div>
+            <Link to="/signup" className="fp-text-wrapper-7">
+              Create account
+            </Link>
           </div>
           <img className="fp-logo" alt="Logo" src={logoBlack} />
         </div>

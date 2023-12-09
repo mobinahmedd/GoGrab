@@ -1,5 +1,6 @@
 import React from "react";
 import "./SignUp.css";
+import { Link } from "react-router-dom";
 import logoBlack from "../../Assets/logoBlack.png";
 import previous from "../../Assets/previous.png";
 import next from "../../Assets/next.png";
@@ -10,7 +11,7 @@ import OTP from "./OTP";
 
 const SignUp = () => {
   const [selectedRole, setSelectedRole] = React.useState("buyer");
-  const [step, setStep] = React.useState(4);
+  const [step, setStep] = React.useState(1);
 
   const handleRoleChange = (event) => {
     const value = event.currentTarget.getAttribute("value");
@@ -30,19 +31,31 @@ const SignUp = () => {
             </div>
           </div>
           <div className="signup-frame">
-            <div className="signup-text-wrapper">Sign up</div>
+            <Link
+              to="/signup"
+              className="signup-text-wrapper"
+              style={{ textDecoration: "none" }}
+            >
+              Sign up
+            </Link>
           </div>
-          <div className="signup-text-wrapper-2">Login</div>
+          <Link
+            to="/"
+            className="signup-text-wrapper-2"
+            style={{ textDecoration: "none" }}
+          >
+            Login
+          </Link>
           {/*  */}
           <div className="signup-overlap-group-wrapper">
-            {step == 1 ? (
+            {step === 1 ? (
               <SignUpStep1
                 selectedRole={selectedRole}
                 handleRoleChange={handleRoleChange}
               />
-            ) : step == 2 ? (
+            ) : step === 2 ? (
               <SignUpStep2 />
-            ) : step == 3 ? (
+            ) : step === 3 ? (
               <SignUpStep3 />
             ) : (
               <OTP />
@@ -68,7 +81,9 @@ const SignUp = () => {
             <div className="signup-text-wrapper-12">
               Already have an account?
             </div>
-            <div className="signup-text-wrapper-13">Login</div>
+            <Link to="/" className="signup-text-wrapper-13">
+              Login
+            </Link>
           </div>
           <img className="signup-logo" alt="Logo" src={logoBlack} />
         </div>
