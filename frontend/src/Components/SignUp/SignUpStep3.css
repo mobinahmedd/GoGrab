@@ -438,5 +438,10 @@
   width: 238px;
 }
 
+.avatar {
+  cursor: pointer;
+  /* transition: 0.3s all ease; */
+}
 .avatar:hover {
+  border-color: #13374e;
 }
