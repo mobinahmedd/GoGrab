@@ -1,0 +1,46 @@
+.cat-frame {
+  background: linear-gradient(180deg, rgb(34, 34, 34) 0%, rgb(52, 52, 52) 100%);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  height: 300px;
+  overflow: hidden;
+  width: 237px;
+}
+
+.cat-frame .cat-overlap-group {
+  height: 298px;
+  position: relative;
+  top: 2px;
+  width: 246px;
+}
+
+.cat-frame .cat-text-wrapper {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-size: 26px;
+  font-weight: 900;
+  left: 19px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  left: 13px;
+  width: 208px;
+  width: 150px;
+  z-index: 11;
+  /* border: 2px solid red; */
+}
+
+.cat-frame .cat-element {
+  height: 298px;
+  left: 0;
+  object-fit: contain;
+  object-position: bottom center;
+  position: absolute;
+  bottom: 0;
+  width: 237px;
+  z-index: 10;
+  opacity: 0.8;
+  filter: blur(2px);
+}

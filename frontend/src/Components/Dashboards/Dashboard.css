@@ -1,0 +1,1291 @@
+.home {
+  background-color: #eeeeee;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.home .div {
+  background-color: #eeeeee;
+  height: 2958px;
+  overflow: hidden;
+  position: relative;
+  width: 1537px;
+}
+
+.home .footer {
+  background-color: var(--cold-grey90);
+  height: 224px;
+  left: -1px;
+  position: absolute;
+  top: 2734px;
+  width: 1540px;
+}
+
+.home .menu-header {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 40px;
+  left: 283px;
+  position: absolute;
+  top: 60px;
+}
+
+.home .text-wrapper {
+  color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.home .menu-footer {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 40px;
+  left: 283px;
+  position: absolute;
+  top: 148px;
+}
+
+.home .text-wrapper-2 {
+  color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.home .text-wrapper-3 {
+  color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 1383px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 150px;
+  width: 103px;
+}
+
+.home .social {
+  height: 31px;
+  left: 1318px;
+  position: absolute;
+  top: 59px;
+  width: 21px;
+}
+
+.home .img {
+  height: 32px;
+  left: 1359px;
+  position: absolute;
+  top: 60px;
+  width: 32px;
+}
+
+.home .social-2 {
+  height: 32px;
+  left: 1411px;
+  position: absolute;
+  top: 58px;
+  width: 32px;
+}
+
+.home .social-3 {
+  background-image: url();
+  background-size: 100% 100%;
+  border: 1px solid;
+  border-color: #000000;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 22px;
+  left: 1467px;
+  position: absolute;
+  top: 59px;
+  width: 22px;
+}
+
+.home .line {
+  height: 1px;
+  left: 283px;
+  object-fit: cover;
+  position: absolute;
+  top: 115px;
+  width: 1200px;
+}
+
+.home .overlap-group {
+  border-radius: 100px;
+  height: 32px;
+  left: 997px;
+  position: absolute;
+  top: 55px;
+  width: 240px;
+}
+
+.home .search {
+  border-radius: 100px;
+  height: 32px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 240px;
+}
+
+.home .frame {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 100px;
+  color: #000000;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  padding: 4px 13px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: 240px;
+}
+
+.home .iconamoon-search {
+  height: 20px;
+  left: 209px;
+  position: absolute;
+  top: 6px;
+  width: 20px;
+}
+
+.home .logo {
+  height: 73px;
+  left: 33px;
+  position: absolute;
+  top: 72px;
+  width: 180px;
+}
+
+.home .colaborators {
+  background: linear-gradient(
+    180deg,
+    rgb(211.17, 211.17, 211.17) 0%,
+    rgb(244, 244, 244) 100%
+  );
+  height: 321px;
+  left: -1px;
+  position: absolute;
+  top: 2413px;
+  width: 1540px;
+}
+
+.home .download-removebg {
+  height: 108px;
+  left: 978px;
+  object-fit: cover;
+  position: absolute;
+  top: 107px;
+  width: 250px;
+}
+
+.home .chanel-removebg {
+  height: 131px;
+  left: 690px;
+  object-fit: cover;
+  position: absolute;
+  top: 95px;
+  width: 221px;
+}
+
+.home .ralph-lauren-symbol {
+  height: 117px;
+  left: 357px;
+  object-fit: cover;
+  position: absolute;
+  top: 102px;
+  width: 254px;
+}
+
+.home .breitling-logo {
+  height: 86px;
+  left: 37px;
+  object-fit: cover;
+  position: absolute;
+  top: 118px;
+  width: 210px;
+}
+
+.home .png-transparent {
+  height: 108px;
+  left: 1265px;
+  object-fit: cover;
+  position: absolute;
+  top: 107px;
+  width: 272px;
+}
+
+.home .products-cards {
+  height: 349px;
+  left: 333px;
+  position: absolute;
+  /* top: 1856px; */
+  width: 269px;
+}
+.products {
+}
+
+.home .ui-challenge-day {
+  background-color: #dad9c3;
+  border: 0px none;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 349px;
+  overflow: hidden;
+  position: relative;
+}
+
+.home .text-wrapper-4 {
+  color: #000000;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  left: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 263px;
+}
+
+.home .text-wrapper-5 {
+  color: #000000;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 208px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 262px;
+}
+
+.home .overlap-group-wrapper {
+  height: 25px;
+  left: 153px;
+  position: absolute;
+  top: 296px;
+  width: 100px;
+}
+
+.home .group-wrapper {
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 30px;
+  height: 25px;
+  position: relative;
+  top: 8px;
+}
+
+.home .group {
+  height: 22px;
+  left: 15px;
+  position: relative;
+  top: -1px;
+  width: 82px;
+}
+
+.home .iconamoon-arrow {
+  height: 22px;
+  left: 58px;
+  position: absolute;
+  top: 0;
+  width: 22px;
+}
+
+.home .text-wrapper-6 {
+  color: #000000d9;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 10px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 5px;
+  white-space: nowrap;
+}
+
+.home .favourites {
+  height: 26px;
+  left: 227px;
+  position: absolute;
+  top: 13px;
+  width: 28px;
+}
+
+.home .image {
+  height: 186px;
+  left: 43px;
+  object-fit: cover;
+  position: absolute;
+  top: 38px;
+  width: 184px;
+}
+
+.home .line-2 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 253px;
+  width: 269px;
+}
+
+.home .text-wrapper-7 {
+  color: #000000;
+  font-family: "Istok Web-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 310px;
+  width: 21px;
+}
+
+.home .star {
+  height: 14px;
+  left: 15px;
+  object-fit: cover;
+  position: absolute;
+  top: 312px;
+  width: 14px;
+}
+
+.home .sold {
+  color: #000000;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 291px;
+}
+
+.home .span {
+  font-weight: 700;
+}
+
+.home .text-wrapper-8 {
+  font-family: "Inter-Regular", Helvetica;
+}
+
+.home .ui-challenge-day-wrapper {
+  height: 349px;
+  left: 24px;
+  position: absolute;
+  top: 1856px;
+  width: 269px;
+}
+
+.home .div-wrapper {
+  height: 349px;
+  left: 641px;
+  position: absolute;
+  top: 1856px;
+  width: 269px;
+}
+
+.home .products-cards-2 {
+  height: 349px;
+  left: 943px;
+  position: absolute;
+  top: 1856px;
+  width: 269px;
+}
+
+.home .products-cards-3 {
+  height: 349px;
+  left: 1245px;
+  position: absolute;
+  top: 1856px;
+  width: 269px;
+}
+
+.home .products-heading {
+  height: 29px;
+  left: 24px;
+  position: absolute;
+  top: 1806px;
+  width: 1492px;
+}
+
+.home .sort-by {
+  height: 29px;
+  left: 1380px;
+  position: absolute;
+  top: 0;
+  width: 112px;
+}
+
+.home .overlap-group-2 {
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 100px;
+  height: 29px;
+  position: relative;
+  width: 110px;
+}
+
+.home .flat-color-icons {
+  height: 20px;
+  left: 85px;
+  position: absolute;
+  top: 3px;
+  width: 17px;
+}
+
+.home .text-wrapper-9 {
+  color: #000000;
+  font-family: "Barlow-SemiBold", Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 10px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 4px;
+  width: 52px;
+}
+
+.home .text-wrapper-10 {
+  color: #000000;
+  font-family: "Barlow-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 284px;
+}
+
+.home .categories-frames {
+  height: 300px;
+  left: 24px;
+  position: absolute;
+  top: 1413px;
+  width: 1490px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.home .frame-2 {
+  background: linear-gradient(
+    180deg,
+    rgb(18, 121, 254) 0%,
+    rgba(17, 122, 224, 0.85) 100%
+  );
+  border-radius: 20px;
+  height: 300px;
+  left: 1253px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 237px;
+}
+
+.home .overlap-group-3 {
+  height: 286px;
+  left: 12px;
+  position: relative;
+  top: 14px;
+  width: 227px;
+}
+
+.home .text-wrapper-11 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 60px;
+  width: 227px;
+}
+
+.home .element-removebg {
+  height: 243px;
+  left: 78px;
+  object-fit: cover;
+  position: absolute;
+  top: 43px;
+  width: 147px;
+}
+
+.home .text-wrapper-12 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 161px;
+}
+
+.home .text-wrapper-13 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 30px;
+  width: 128px;
+}
+
+.home .overlap-wrapper {
+  background: linear-gradient(
+    180deg,
+    rgb(19, 52, 73) 21.44%,
+    rgb(24, 40, 49) 100%
+  );
+  border-radius: 20px;
+  height: 300px;
+  left: 1003px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 237px;
+}
+
+.home .overlap {
+  height: 285px;
+  position: relative;
+  top: 15px;
+  width: 241px;
+}
+
+.home .text-wrapper-14 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 189px;
+}
+
+.home .text-wrapper-15 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 30px;
+  width: 128px;
+}
+
+.home .WEL-lness {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 60px;
+  width: 227px;
+}
+
+.home .istock {
+  height: 282px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 3px;
+  width: 237px;
+}
+
+.home .frame-3 {
+  background: linear-gradient(
+    180deg,
+    rgba(253, 133, 161, 0.73) 0%,
+    rgb(250, 175, 196) 100%
+  );
+  border-radius: 20px;
+  height: 300px;
+  left: 752px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 237px;
+}
+
+.home .overlap-2 {
+  height: 300px;
+  position: relative;
+  width: 243px;
+}
+
+.home .text-wrapper-16 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 76px;
+  width: 227px;
+}
+
+.home .HCB-w-carousel {
+  height: 300px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 235px;
+}
+
+.home .text-wrapper-17 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  width: 132px;
+}
+
+.home .text-wrapper-18 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 46px;
+  width: 128px;
+}
+
+.home .frame-4 {
+  background: linear-gradient(
+    180deg,
+    rgb(253, 188, 12) 0%,
+    rgba(253, 198, 46, 0.82) 100%
+  );
+  border-radius: 20px;
+  height: 300px;
+  left: 501px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 237px;
+}
+
+.home .overlap-3 {
+  height: 300px;
+  left: 9px;
+  position: relative;
+  width: 235px;
+}
+
+.home .text-wrapper-19 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 8px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 45px;
+  width: 128px;
+}
+
+.home .text-wrapper-20 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 8px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 15px;
+  width: 161px;
+}
+
+.home .text-wrapper-21 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 8px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 76px;
+  width: 227px;
+}
+
+.home .element {
+  height: 300px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 205px;
+}
+
+.home .frame-5 {
+  background: linear-gradient(
+    180deg,
+    rgb(244, 44, 55) 0%,
+    rgb(253, 68, 79) 100%
+  );
+  border-radius: 20px;
+  height: 300px;
+  left: 251px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 237px;
+}
+
+.home .text-wrapper-22 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 10px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 60px;
+  width: 231px;
+}
+
+.home .firefly-modern {
+  height: 284px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 1px;
+  width: 237px;
+}
+
+.home .text-wrapper-23 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 10px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 30px;
+  width: 130px;
+}
+
+.home .text-wrapper-24 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 10px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 231px;
+}
+
+.home .frame-6 {
+  background: linear-gradient(180deg, rgb(34, 34, 34) 0%, rgb(52, 52, 52) 100%);
+  border-radius: 20px;
+  height: 300px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 237px;
+}
+
+.home .overlap-4 {
+  height: 298px;
+  position: relative;
+  top: 2px;
+  width: 246px;
+}
+
+.home .text-wrapper-25 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 19px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 13px;
+  width: 208px;
+}
+
+.home .text-wrapper-26 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 19px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 43px;
+  width: 135px;
+}
+
+.home .apparel {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Black", Helvetica;
+  font-size: 30px;
+  font-weight: 900;
+  left: 19px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 73px;
+  width: 227px;
+}
+
+.home .element-aa {
+  height: 298px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 237px;
+}
+
+.home .categoris-heading {
+  height: 29px;
+  left: 24px;
+  position: absolute;
+  top: 1365px;
+  width: 279px;
+}
+
+.home .text-wrapper-27 {
+  color: #000000;
+  font-family: "Barlow-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0.72px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 277px;
+}
+
+.home .sale-headphone {
+  height: 483px;
+  left: 20px;
+  position: absolute;
+  top: 809px;
+  width: 1498px;
+}
+
+.home .functionalities {
+  height: 41px;
+  left: 192px;
+  position: absolute;
+  top: 704px;
+  width: 1154px;
+}
+.functionality {
+  box-shadow: 0px 4px 4px #322d2d29;
+  padding-top: 3px;
+  background: linear-gradient(
+    -90deg,
+    rgb(165, 165, 165, 0.45) 10%,
+    rgb(149, 149, 149, 0.2) 100%
+  ) !important;
+}
+
+.home .frame-7 {
+  height: 41px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 227px;
+}
+
+.home .la-shipping-fast {
+  height: 34px;
+  left: 9px;
+  position: absolute;
+  top: 4px;
+  width: 38px;
+}
+
+.home .text-wrapper-28 {
+  color: #000000;
+  font-family: "Barlow-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 62px;
+  letter-spacing: 0.16px;
+  line-height: normal;
+  position: absolute;
+  top: 2px;
+  white-space: nowrap;
+}
+
+.home .text-wrapper-29 {
+  color: #00000057;
+  font-family: "Barlow-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 62px;
+  letter-spacing: 0.12px;
+  line-height: normal;
+  position: absolute;
+  top: 21px;
+  white-space: nowrap;
+}
+
+.home .frame-8 {
+  background: linear-gradient(
+    180deg,
+    rgb(220.73, 220.73, 220.73) 0%,
+    rgba(230.2, 230.2, 230.2, 0.7) 100%
+  );
+  height: 41px;
+  left: 309px;
+  position: absolute;
+  top: 0;
+  width: 227px;
+}
+
+.home .vector {
+  height: 30px;
+  left: 9px;
+  position: absolute;
+  top: 6px;
+  width: 30px;
+}
+
+.home .frame-9 {
+  background: linear-gradient(
+    180deg,
+    rgb(220.73, 220.73, 220.73) 0%,
+    rgba(230.2, 230.2, 230.2, 0.7) 100%
+  );
+  height: 41px;
+  left: 618px;
+  position: absolute;
+  top: 0;
+  width: 227px;
+}
+
+.home .pepicons-pop {
+  height: 30px;
+  left: 8px;
+  position: absolute;
+  top: 6px;
+  width: 32px;
+}
+
+.home .frame-10 {
+  background: linear-gradient(
+    180deg,
+    rgb(220.73, 220.73, 220.73) 0%,
+    rgba(230.2, 230.2, 230.2, 0.7) 100%
+  );
+  height: 41px;
+  left: 927px;
+  position: absolute;
+  top: 0;
+  width: 227px;
+}
+
+.home .tdesign-secured {
+  height: 29px;
+  left: 10px;
+  position: absolute;
+  top: 6px;
+  width: 30px;
+}
+
+.home .landing {
+  -webkit-backdrop-filter: blur(50px) brightness(100%);
+  backdrop-filter: blur(50px) brightness(100%);
+  background-image: url("../../Assets/heroBg.png");
+  background-position: 50% 50%;
+  background-size: cover;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 563px;
+  left: 24px;
+  overflow: hidden;
+  position: absolute;
+  top: 105px;
+  width: 1490px;
+}
+
+.home .overlap-5 {
+  height: 319px;
+  left: 143px;
+  position: relative;
+  top: 69px;
+  width: 521px;
+}
+
+.home .sale-off {
+  height: 175px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 521px;
+}
+
+.home .overlap-group-4 {
+  height: 175px;
+  position: relative;
+  width: 517px;
+}
+
+.home .text-wrapper-30 {
+  color: #f74443;
+  font-family: "DM Serif Display-Regular", Helvetica;
+  font-size: 72px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 3.6px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.home .text-wrapper-31 {
+  color: #002c3e;
+  font-family: "DM Serif Display-Regular", Helvetica;
+  font-size: 66px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 3.3px;
+  line-height: normal;
+  position: absolute;
+  top: 85px;
+  width: 517px;
+}
+
+.home .embrace-the-joy-of {
+  color: #000000;
+  font-family: "Barlow-SemiBold", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0.18px;
+  line-height: normal;
+  position: absolute;
+  top: 174px;
+  width: 434px;
+}
+
+.home .login-button {
+  all: unset;
+  box-sizing: border-box;
+  height: 41px;
+  left: 0;
+  position: absolute;
+  top: 278px;
+  width: 143px;
+}
+
+.home .overlap-6 {
+  border: 2px solid;
+  border-color: #f74443;
+  border-radius: 100px;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 41px;
+  position: relative;
+  width: 141px;
+  transition: 0.3s all ease;
+}
+
+.home .text-wrapper-32 {
+  transition: 0.3s all ease;
+  color: #f74443;
+  font-family: "Barlow-SemiBold", Helvetica;
+  font-size: 19px;
+  font-weight: 600;
+  left: 35px;
+  letter-spacing: 3.61px;
+  line-height: normal;
+  position: absolute;
+  top: 6px;
+  white-space: nowrap;
+  width: 68px;
+}
+.home .overlap-6:hover {
+  background-color: #f74443;
+}
+.home .overlap-6:hover .text-wrapper-32 {
+  color: white !important;
+}
+.home .overlap-6:active {
+  opacity: 0.7;
+}
+.home .nav-bar-wrapper {
+  background-color: #eeeeee;
+  height: 105px;
+  left: 24px;
+  position: absolute;
+  top: 0;
+  width: 1490px;
+}
+
+.home .nav-bar {
+  height: 73px;
+  left: 22px;
+  position: relative;
+  top: 20px;
+  width: 1434px;
+}
+
+.home .logo-2 {
+  height: 73px;
+  left: -1px;
+  position: absolute;
+  top: 0;
+  width: 180px;
+}
+
+.home .prime-shopping-cart {
+  height: 28px;
+  left: 1335px;
+  position: absolute;
+  top: 23px;
+  width: 34px;
+}
+
+.home .search-button {
+  height: 51px;
+  left: 357px;
+  position: absolute;
+  top: 11px;
+  width: 739px;
+}
+
+.home .overlap-group-5 {
+  border: 2px solid;
+  border-color: #315166;
+  border-radius: 100px;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 51px;
+  position: relative;
+  width: 737px;
+}
+
+.home .p {
+  color: #413b3b82;
+  font-family: "Barlow-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 13px;
+  width: 383px;
+}
+
+.home .search-icon-wrapper {
+  background-color: #133951d9;
+  border-radius: 0px 100px 100px 0px;
+  height: 51px;
+  left: 679px;
+  position: absolute;
+  top: 0;
+  width: 58px;
+  /* border: 2px solid rgb(0, 0, 0, 0); */
+}
+.home .search-icon-wrapper:hover {
+  opacity: 0.9;
+}
+.home .search-icon-wrapper:active {
+  opacity: 0.8;
+}
+
+.home .search-icon {
+  height: 24px;
+  left: 13px;
+  position: absolute;
+  top: 14px;
+  width: 24px;
+}
+
+.home .favourites-2 {
+  height: 26px;
+  left: 1266px;
+  position: absolute;
+  top: 24px;
+  width: 28px;
+}
+.home .navIcons {
+  transition: 0.1s ease;
+}
+.home .navIcons:hover {
+  opacity: 0.5;
+}
+.home .navIcons:active {
+  opacity: 0.8;
+}
+.home .profile {
+  height: 24px;
+  left: 1410px;
+  position: absolute;
+  top: 25px;
+  width: 24px;
+}
