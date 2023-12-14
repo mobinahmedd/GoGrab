@@ -1,0 +1,136 @@
+.home .nav-bar {
+  height: 73px;
+  left: 22px;
+  position: relative;
+  top: 20px;
+  width: 1434px;
+}
+
+.home .logo-2 {
+  height: 73px;
+  left: -1px;
+  position: absolute;
+  top: 0;
+  width: 180px;
+}
+
+.home .prime-shopping-cart {
+  height: 28px;
+  left: 1335px;
+  position: absolute;
+  top: 23px;
+  width: 34px;
+}
+
+.home .search-button {
+  height: 51px;
+  left: 357px;
+  position: absolute;
+  top: 11px;
+  width: 739px;
+}
+
+.home .overlap-group-5 {
+  border: 2px solid;
+  border-color: #315166;
+  border-radius: 100px;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 51px;
+  position: relative;
+  width: 737px;
+}
+
+.home .p {
+  color: #413b3b82;
+  font-family: "Barlow-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 13px;
+  width: 383px;
+}
+
+.home .search-icon-wrapper {
+  background-color: #133951d9;
+  border-radius: 0px 100px 100px 0px;
+  height: 51px;
+  left: 679px;
+  position: absolute;
+  top: 0;
+  width: 58px;
+  /* border: 2px solid rgb(0, 0, 0, 0); */
+}
+.home .search-icon-wrapper:hover {
+  opacity: 0.9;
+}
+.home .search-icon-wrapper:active {
+  opacity: 0.8;
+}
+
+.home .search-icon {
+  height: 24px;
+  left: 13px;
+  position: absolute;
+  top: 14px;
+  width: 24px;
+}
+
+.home .favourites-2 {
+  height: 26px;
+  left: 1266px;
+  position: absolute;
+  top: 24px;
+  width: 28px;
+}
+.home .navIcons {
+  transition: 0.1s ease;
+}
+.home .navIcons:hover {
+  opacity: 0.5;
+}
+.home .navIcons:active {
+  opacity: 0.8;
+}
+.home .profile {
+  height: 24px;
+  left: 1410px;
+  position: absolute;
+  top: 25px;
+  width: 24px;
+}
+.heroImage {
+  margin: 10px 5px;
+}
+
+/* width and height for scrollbar track */
+.home::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* color of scrollbar handle */
+.home::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* color on scrollbar track */
+.home::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* corner of scrollbar */
+.home::-webkit-scrollbar-corner {
+  background: #f1f1f1;
+}
+
+.home .nav-bar-wrapper {
+  background-color: #eeeeee;
+  height: 105px;
+  left: 24px;
+  /* position: absolute; */
+  top: 0;
+  width: 1490px;
+}

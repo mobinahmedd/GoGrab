@@ -1,25 +1,44 @@
-.home {
-  background-color: #eeeeee;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
-
-.home .div {
-  background-color: #eeeeee;
-  height: 2958px;
+/* .homePage {
+  overflow: auto;
+} */
+body {
   overflow: hidden;
+}
+.home {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
   position: relative;
   width: 1537px;
+  /* background-color: red; */
+  min-height: 100vh;
+  height: fit-content;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #eeeeee;
+}
+.home::-webkit-scrollbar {
+  width: 8px;
 }
 
+.home::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+  border-radius: 12px;
+}
+
+.home::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: #36576b; /* Color of the scrollbar thumb */
+}
+*/ .home .div {
+  /* background-color: red; */
+}
 .home .footer {
-  background-color: var(--cold-grey90);
+  background-color: black;
   height: 224px;
   left: -1px;
   position: absolute;
-  top: 2734px;
+  top: 2800px;
   width: 1540px;
 }
 
@@ -188,7 +207,7 @@
   height: 321px;
   left: -1px;
   position: absolute;
-  top: 2413px;
+  top: 2613px;
   width: 1540px;
 }
 
@@ -238,13 +257,33 @@
 }
 
 .home .products-cards {
-  height: 349px;
-  left: 333px;
+  left: 10px;
   position: absolute;
-  /* top: 1856px; */
-  width: 269px;
+  top: 1800px;
+  width: 1510px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  gap: 10px;
+  row-gap: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
 }
-.products {
+.home .products-cards::-webkit-scrollbar {
+  /* width: 12px; Width of the scrollbar */
+  height: 6px;
+}
+
+.home .products-cards::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+  border: 1px solid #36576b;
+  border-radius: 12px;
+}
+
+.home .products-cards::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: #36576b; /* Color of the scrollbar thumb */
 }
 
 .home .ui-challenge-day {
@@ -411,48 +450,32 @@
   width: 269px;
 }
 
-.home .products-cards-2 {
-  height: 349px;
-  left: 943px;
-  position: absolute;
-  top: 1856px;
-  width: 269px;
-}
-
-.home .products-cards-3 {
-  height: 349px;
-  left: 1245px;
-  position: absolute;
-  top: 1856px;
-  width: 269px;
-}
-
-.home .products-heading {
+.products-heading {
   height: 29px;
   left: 24px;
   position: absolute;
-  top: 1806px;
+  top: 1750px;
   width: 1492px;
 }
 
-.home .sort-by {
+.sort-by {
   height: 29px;
   left: 1380px;
   position: absolute;
   top: 0;
-  width: 112px;
+  width: 117px;
 }
 
-.home .overlap-group-2 {
+.overlap-group-2 {
   border: 1px solid;
   border-color: #000000;
   border-radius: 100px;
   height: 29px;
   position: relative;
-  width: 110px;
+  /* width: 1110px; */
 }
 
-.home .flat-color-icons {
+.flat-color-icons {
   height: 20px;
   left: 85px;
   position: absolute;
@@ -460,7 +483,7 @@
   width: 17px;
 }
 
-.home .text-wrapper-9 {
+.text-wrapper-9 {
   color: #000000;
   font-family: "Barlow-SemiBold", Helvetica;
   font-size: 14px;
@@ -470,10 +493,10 @@
   line-height: normal;
   position: absolute;
   top: 4px;
-  width: 52px;
+  /* width: 52px; */
 }
 
-.home .text-wrapper-10 {
+.text-wrapper-10 {
   color: #000000;
   font-family: "Barlow-Bold", Helvetica;
   font-size: 24px;
@@ -483,18 +506,36 @@
   line-height: normal;
   position: absolute;
   top: 0;
-  width: 284px;
+  /* width: 284px; */
 }
 
 .home .categories-frames {
   height: 300px;
+  height: auto;
   left: 24px;
   position: absolute;
   top: 1413px;
   width: 1490px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-auto-flow: column;
   gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+.home .categories-frames::-webkit-scrollbar {
+  /* width: 12px; Width of the scrollbar */
+  height: 6px;
+}
+
+.home .categories-frames::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+  border: 1px solid #36576b;
+  border-radius: 12px;
+}
+
+.home .categories-frames::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: #36576b; /* Color of the scrollbar thumb */
 }
 
 .home .frame-2 {
@@ -1178,7 +1219,7 @@
   opacity: 0.7;
 }
 .home .nav-bar-wrapper {
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
   height: 105px;
   left: 24px;
   position: absolute;

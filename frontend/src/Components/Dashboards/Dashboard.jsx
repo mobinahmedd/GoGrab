@@ -17,6 +17,7 @@ import decor from "../../Assets/decor.png";
 import food from "../../Assets/food.png";
 import study from "../../Assets/study.png";
 import makeup from "../../Assets/makeup.png";
+import Product from "./Product";
 
 const Dashboard = () => {
   return (
@@ -83,10 +84,22 @@ const Dashboard = () => {
           />
         </div>
         {/* products mobin  */}
-        <div className="products"></div>
+        <div className="products-cards">
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+        </div>
         {/*  */}
         <div className="products-heading">
-          <div className="sort-by">
+          {/* <div className="sort-by">
             <div className="overlap-group-2">
               <img
                 className="flat-color-icons"
@@ -95,8 +108,9 @@ const Dashboard = () => {
               />
               <div className="text-wrapper-9">Sort by:</div>
             </div>
-          </div>
-          <div className="text-wrapper-10">Buy Top Seller Products</div>
+          </div> */}
+
+          <div className="text-wrapper-10">Products</div>
         </div>
         {/*  */}
         {/* categories mobin */}
@@ -106,6 +120,7 @@ const Dashboard = () => {
           <Categories image={makeup} name={"Home and decor"} />
           <Categories image={study} name={"Beauty and personal care"} />
           <Categories image={food} name={"Health and wellness"} />
+          <Categories image={gaming} name={"books and media"} />
           <Categories image={gaming} name={"books and media"} />
         </div>
         <div className="categoris-heading">
