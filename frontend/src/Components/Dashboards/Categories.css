@@ -5,6 +5,7 @@
   height: 300px;
   overflow: hidden;
   width: 237px;
+  /* display: block; */
 }
 
 .cat-frame .cat-overlap-group {
