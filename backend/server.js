@@ -5,6 +5,8 @@ import applyRequestMiddleware from "./Middlewares/requestMiddlewares.js";
 import categoryRoutes from "./Routes/categoryRoutes.js";
 import productRoutes from "./Routes/productRoutes.js";
 import userRoutes from "./Routes/userRoutes.js";
+import reviewRoutes from "./Routes/reviewRoutes.js";
+import cartRoutes from "./Routes/cartRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -20,3 +22,5 @@ app.listen(process.env.MAIN_SERVER_PORT || 6000, () => {
 app.use("/api/categories", categoryRoutes);
 app.use("/api/products/", productRoutes);
 app.use("/api/users/", userRoutes);
+app.use("/api/reviews/", reviewRoutes);
+app.use("/api/cart/", cartRoutes);
