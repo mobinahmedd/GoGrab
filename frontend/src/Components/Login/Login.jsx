@@ -31,11 +31,16 @@ export const Login = (props) => {
               <div className="BG" />
             </div>
           </div>
-          <div className="frame">
+          <div style={{ zIndex: "0" }} className="frame">
             <Link
               to="/"
               className="text-wrapper"
-              style={{ textDecoration: "none" }}
+              style={{
+                textDecoration: "none",
+                color: "rgb(190, 190, 190, 1)",
+                fontSize: "30px",
+                top: "25px",
+              }}
             >
               Login
             </Link>
@@ -54,7 +59,7 @@ export const Login = (props) => {
                 </Link>
                 <div className="input">
                   <div className="password">
-                    <div className="overlap-group-2">
+                    <div style={{ border: "none" }} className="overlap-group-2">
                       <input
                         className="enter-your-password"
                         id="input-1"
