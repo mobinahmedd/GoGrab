@@ -2,11 +2,10 @@ import React from "react";
 import "./Product.css";
 import productHeart from "../../Assets/productHeart.png";
 import star from "../../Assets/star.png";
-import headphoneProduct from "../../Assets/headphoneProduct.png";
 import productCardLine from "../../Assets/productCardLine.png";
 import nextArrow from "../../Assets/next.png";
 
-const Product = () => {
+const Product = (props) => {
   return (
     <div className="box">
       <div className="products-cards">
@@ -26,7 +25,9 @@ const Product = () => {
             </div>
           </div>
           <img className="favourites" alt="Favourites" src={productHeart} />
-          <img className="image" alt="Image" src={headphoneProduct} />
+          <div className="image">
+            <img className="" alt="Image" src={props.img} />
+          </div>
           <img className="line" alt="Line" src={productCardLine} />
           <div className="text-wrapper-3">4.8</div>
           <img className="star" alt="Star" src={star} />
