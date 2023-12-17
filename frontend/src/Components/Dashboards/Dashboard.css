@@ -1,6 +1,3 @@
-/* .homePage {
-  overflow: auto;
-} */
 body {
   overflow: hidden;
 }
@@ -30,15 +27,13 @@ body {
   border-radius: 12px;
   background: #36576b; /* Color of the scrollbar thumb */
 }
-*/ .home .div {
-  /* background-color: red; */
-}
+
 .home .footer {
   background-color: black;
   height: 224px;
   left: -1px;
   position: absolute;
-  top: 2800px;
+  top: 2934px;
   width: 1540px;
 }
 
@@ -48,15 +43,13 @@ body {
   gap: 40px;
   left: 283px;
   position: absolute;
-  top: 60px;
+  top: 70px;
 }
 
 .home .text-wrapper {
-  color: #ffffff;
-  font-family: "Roboto-Regular", Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0;
+  color: rgb(244, 244, 244, 0.9);
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 13px;
   line-height: normal;
   margin-top: -1px;
   position: relative;
@@ -65,16 +58,17 @@ body {
 }
 
 .home .menu-footer {
+  font-weight: 100;
   align-items: flex-start;
   display: inline-flex;
   gap: 40px;
   left: 283px;
   position: absolute;
-  top: 148px;
+  top: 145px;
 }
 
 .home .text-wrapper-2 {
-  color: #ffffff;
+  color: rgb(244, 244, 244, 0.8);
   font-family: "Roboto-Regular", Helvetica;
   font-size: 14px;
   font-weight: 400;
@@ -100,13 +94,22 @@ body {
 }
 
 .home .social {
-  height: 31px;
   left: 1318px;
   position: absolute;
-  top: 59px;
-  width: 21px;
+  top: 54px;
+  width: 180px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
-
+.home .social-icon {
+  width: 20px;
+  height: 20px;
+}
+.fbIcon {
+  width: 16px !important;
+}
 .home .img {
   height: 32px;
   left: 1359px;
@@ -116,15 +119,15 @@ body {
 }
 
 .home .social-2 {
-  height: 32px;
+  /* height: 32px; */
   left: 1411px;
   position: absolute;
   top: 58px;
-  width: 32px;
+  width: 24px;
 }
 
 .home .social-3 {
-  background-image: url();
+  background-image: url("../../Assets/facebookIcon.png");
   background-size: 100% 100%;
   border: 1px solid;
   border-color: #000000;
@@ -157,6 +160,7 @@ body {
 .home .search {
   border-radius: 100px;
   height: 32px;
+  height: 32px;
   left: 0;
   overflow: hidden;
   position: absolute;
@@ -180,16 +184,24 @@ body {
   text-align: center;
   white-space: nowrap;
   width: 240px;
+  height: 100%;
+  text-align: left;
+  padding-left: 20px;
 }
 
 .home .iconamoon-search {
   height: 20px;
   left: 209px;
   position: absolute;
-  top: 6px;
+  top: 5px;
   width: 20px;
 }
-
+.home .iconamoon-search:hover {
+  opacity: 0.8;
+}
+.home .iconamoon-search:active {
+  opacity: 0.6;
+}
 .home .logo {
   height: 73px;
   left: 33px;
@@ -205,6 +217,7 @@ body {
     rgb(244, 244, 244) 100%
   );
   height: 321px;
+  /* border: 2px solid red; */
   left: -1px;
   position: absolute;
   top: 2613px;
@@ -239,11 +252,10 @@ body {
 }
 
 .home .breitling-logo {
-  height: 86px;
   left: 37px;
   object-fit: cover;
   position: absolute;
-  top: 118px;
+  top: 117px;
   width: 210px;
 }
 
@@ -1141,6 +1153,7 @@ body {
   font-family: "DM Serif Display-Regular", Helvetica;
   font-size: 72px;
   font-weight: 400;
+
   left: 0;
   letter-spacing: 3.6px;
   line-height: normal;
@@ -1196,7 +1209,7 @@ body {
 }
 
 .home .text-wrapper-32 {
-  transition: 0.3s all ease;
+  transition: 0.1s all ease;
   color: #f74443;
   font-family: "Barlow-SemiBold", Helvetica;
   font-size: 19px;
@@ -1205,7 +1218,7 @@ body {
   letter-spacing: 3.61px;
   line-height: normal;
   position: absolute;
-  top: 6px;
+  top: 7.5px;
   white-space: nowrap;
   width: 68px;
 }

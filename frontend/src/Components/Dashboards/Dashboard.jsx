@@ -1,6 +1,9 @@
 import React from "react";
 import "./Dashboard.css";
+import Product from "./Product";
+import Categories from "./Categories";
 import logo from "../../Assets/logoBlack.png";
+import logoWhite from "../../Assets/logoWhite.png";
 import searchIcon from "../../Assets/searchIcon.png";
 import profileIcon from "../../Assets/profileIcon.png";
 import favouritesIcon from "../../Assets/favouritesIcon.png";
@@ -10,40 +13,71 @@ import freeShippingIcon from "../../Assets/freeShippingIcon.png";
 import moneyGuaranteeIcon from "../../Assets/moneyGuaranteeIcon.png";
 import supportIcon from "../../Assets/supportIcon.png";
 import saleHeadphone from "../../Assets/saleHeadphone.png";
-import Categories from "./Categories";
 import shoe from "../../Assets/shoe.png";
 import gaming from "../../Assets/gaming.png";
 import decor from "../../Assets/decor.png";
 import food from "../../Assets/food.png";
 import study from "../../Assets/study.png";
 import makeup from "../../Assets/makeup.png";
-import Product from "./Product";
+import ralphLaurenLogo from "../../Assets/ralphLaurenLogo.png";
+import chanelLogo from "../../Assets/chanelLogo.png";
+import mightyFurnitureLogo from "../../Assets/mightyFurnitureLogo.png";
+import breitlingLogo from "../../Assets/breitlingLogo.png";
+import hermesLogo from "../../Assets/hermesLogo.png";
+import facebookIcon from "../../Assets/facebookIcon.png";
+import instagramIcon from "../../Assets/instagramIcon.png";
+import xIcon from "../../Assets/xIcon.png";
+import messageIcon from "../../Assets/messageIcon.png";
+import footerSearchIcon from "../../Assets/footerSearchIcon.png";
+import footerLine from "../../Assets/footerLine.png";
+import product1 from "../../Assets/product1.png";
+import product2 from "../../Assets/product2.png";
+import product3 from "../../Assets/product3.png";
+import product4 from "../../Assets/product4.png";
+import headphoneProduct from "../../Assets/headphoneProduct.png";
+import headphoneSet from "../../Assets/headphoneSet.jpeg";
 
 const Dashboard = () => {
+  const [year, setYear] = React.useState(new Date().getFullYear());
   return (
     <div className="home">
       <div className="div">
         <div style={{ backgroundColor: "black" }} className="footer">
-          <div className="menu-header">
+          <div style={{ letterSpacing: "1.16px" }} className="menu-header">
             <div className="text-wrapper">About</div>
             <div className="text-wrapper">Categories</div>
             <div className="text-wrapper">Products</div>
             <div className="text-wrapper">Profile</div>
             <div className="text-wrapper">Contact us</div>
           </div>
-          <div className="menu-footer">
-            <div className="text-wrapper-2">Privacy Policy</div>
-            <div className="text-wrapper-2">Terms of Use</div>
-            <div className="text-wrapper-2">Sales and Refunds</div>
-            <div className="text-wrapper-2">Legal</div>
-            <div className="text-wrapper-2">Site Map</div>
+          <div style={{ letterSpacing: "1.16px" }} className="menu-footer">
+            <div className="text-wrapper">Privacy Policy</div>
+            <div className="text-wrapper">Terms of Use</div>
+            <div className="text-wrapper">Sales and Refunds</div>
+            <div className="text-wrapper">Legal</div>
+            <div className="text-wrapper">Site Map</div>
           </div>
-          <div className="text-wrapper-3">© 2023 GoGrab</div>
-          <img className="social" alt="Social" src="social.svg" />
-          <img className="img" alt="Social" src="social-3.svg" />
-          <img className="social-2" alt="Social" src="social-2.svg" />
-          <div className="social-3" />
-          <img className="line" alt="Line" src="line-6.svg" />
+          <div
+            style={{ textDecorationLine: "none" }}
+            className="text-wrapper-3"
+          >
+            © <span>{year}</span> GoGrab
+          </div>
+          <div className="social">
+            <img className="social-icon " alt="messageLogo" src={messageIcon} />
+            <img
+              className="social-icon"
+              alt="instagramLogo"
+              src={instagramIcon}
+            />
+            <img className="social-icon" alt="xLogo" src={xIcon} />
+            <img
+              className="social-icon fbIcon"
+              alt="facebookLogo"
+              src={facebookIcon}
+            />
+          </div>
+          <img className="line" alt="Line" src={footerLine} />
           <div className="overlap-group">
             <div className="search">
               <input className="frame" placeholder="Search.." type="text" />
@@ -51,51 +85,49 @@ const Dashboard = () => {
             <img
               className="iconamoon-search"
               alt="Iconamoon search"
-              src="iconamoon-search-thin.svg"
+              src={footerSearchIcon}
             />
           </div>
-          <img className="logo" alt="Logo" src={logo} />
+          <img className="logo" alt="Logo" src={logoWhite} />
         </div>
         <div className="colaborators">
           <img
             className="download-removebg"
-            alt="Download removebg"
-            src="download-removebg-preview-1.png"
+            alt="mightyFurnitureLogo"
+            src={mightyFurnitureLogo}
           />
-          <img
-            className="chanel-removebg"
-            alt="Chanel removebg"
-            src="chanel-removebg-preview-1.png"
-          />
+          <img className="chanel-removebg" alt="Chanel " src={chanelLogo} />
           <img
             className="ralph-lauren-symbol"
             alt="Ralph lauren symbol"
-            src="ralph-lauren-symbol-removebg-preview-1.png"
+            src={ralphLaurenLogo}
           />
           <img
             className="breitling-logo"
             alt="Breitling logo"
-            src="breitling-logo-1-1.png"
+            src={breitlingLogo}
           />
-          <img
-            className="png-transparent"
-            alt="Png transparent"
-            src="png-transparent-hermes-paris-logo-hermes-perfume-logo-eau-d-orange-verte-fashion-hermes-hermes-perfume-logo-removebg-preview-1.png"
-          />
+          <img className="png-transparent" alt="hermesLogo" src={hermesLogo} />
         </div>
         {/* products mobin  */}
         <div className="products-cards">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          <Product img={product1} />
+          <Product img={product2} />
+          <Product img={product3} />
+          <Product img={product4} />
+          <Product img={headphoneProduct} />
+
+          <Product img={product1} />
+          <Product img={product2} />
+          <Product img={product3} />
+          <Product img={product4} />
+          <Product img={headphoneProduct} />
+
+          <Product img={product1} />
+          <Product img={product2} />
+          <Product img={product3} />
+          <Product img={product4} />
+          <Product img={headphoneSet} />
         </div>
         {/*  */}
         <div className="products-heading">
