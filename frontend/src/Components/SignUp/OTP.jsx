@@ -2,7 +2,7 @@ import React from "react";
 import "./OTP.css";
 import blueWave from "../../Assets/blueWaveSignUp.png";
 import cartPersonSignUp from "../../Assets/cartPersonSignUp.png";
-import step3SignUp from "../../Assets/step3SignUp.png";
+import otpStep from "../../Assets/otpStep.png";
 
 const OTP = () => {
   return (
@@ -38,7 +38,7 @@ const OTP = () => {
         <div className="text-wrapper-5">OTP VERIFICATION</div>
       </div>
       <div className="step2-steps">
-        <img style={{ width: "300px" }} src={step3SignUp} alt="" />
+        <img style={{ width: "300px" }} src={otpStep} alt="" />
       </div>
     </div>
   );

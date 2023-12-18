@@ -1,12 +1,12 @@
 
-------------------------------- User signup & login APIs -------------------------------------
-
+###------------------------------- User signup & login APIs -------------------------------------
+###
 POST http://localhost:5000/api/auth/verify-otp
 Content-Type: application/json
 
 {
     "email": "mobinahmed4321@gmail.com",
-    "otp": "6630"
+    "otp": "3806"
 }
 
 ###
