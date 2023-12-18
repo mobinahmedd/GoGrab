@@ -90,22 +90,27 @@ const SignUpStep1 = (props) => {
                     backgroundColor: "transparent",
                     border: "none",
                   }}
+                  value={props.formData.username}
+                  name="username"
                   className="signup-text-wrapper-7"
                   placeholder="Username"
+                  onChange={props.handleInputChange}
                 />
               </div>
             </div>
             <div style={{ top: "5px" }} className="signup-fn-input">
               <div className="signup-overlap-4">
-                {/* <div className="signup-text-wrapper-7">First name</div> */}
                 <input
                   style={{
                     width: "140px",
                     backgroundColor: "transparent",
                     border: "none",
                   }}
+                  value={props.formData.name.firstName}
+                  name="name.firstName"
                   className="signup-text-wrapper-7"
                   placeholder="First Name"
+                  onChange={props.handleInputChange}
                 />
               </div>
             </div>
@@ -118,8 +123,11 @@ const SignUpStep1 = (props) => {
                     backgroundColor: "transparent",
                     border: "none",
                   }}
+                  value={props.formData.name.lastName}
+                  name="name.lastName"
                   className="signup-text-wrapper-7"
                   placeholder="Last Name"
+                  onChange={props.handleInputChange}
                 />
               </div>
             </div>
