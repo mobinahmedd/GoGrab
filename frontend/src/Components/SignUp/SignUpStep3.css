@@ -446,3 +446,14 @@
 .avatar:hover {
   border-color: #13374e;
 }
+
+.step3-email-input::after,
+.step3-c-pw-input::after,
+.step3-pw-input::after {
+  position: absolute;
+  top: 6px;
+  right: 15px;
+  font-size: 17px;
+  content: "*";
+  color: red;
+}
