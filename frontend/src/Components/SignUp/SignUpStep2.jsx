@@ -91,6 +91,7 @@ const SignUpStep2 = () => {
                   width: "80px",
                   border: "none",
                   backgroundColor: "transparent",
+                  left: "13px",
                 }}
                 className="step2-text-wrapper-3"
                 placeholder="House No."
@@ -116,6 +117,7 @@ const SignUpStep2 = () => {
               {/* <div className="step2-text-wrapper-10">Phone number</div> */}
               <input
                 style={{
+                  color: "black",
                   width: "310px",
                   border: "none",
                   backgroundColor: "transparent",

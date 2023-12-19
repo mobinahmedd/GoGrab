@@ -239,12 +239,12 @@
 
 .step3-img {
   height: 62px;
-  left: 4px;
+  left: 0px;
   object-fit: cover;
   position: absolute;
-  top: 4px;
+  top: 3px;
   transform: rotate(-180deg);
-  width: 65px;
+  width: 71px;
 }
 
 .step3-boy {
@@ -259,13 +259,14 @@
 }
 
 .step3-man {
-  height: 62px;
-  left: 9px;
+  /* height: 50px; */
+  left: 7px;
   object-fit: cover;
   position: absolute;
   top: 4px;
   transform: rotate(-180deg);
-  width: 55px;
+  /* width: 55px; */
+  /* width: 5px; */
 }
 
 .step3-image-removebg {
