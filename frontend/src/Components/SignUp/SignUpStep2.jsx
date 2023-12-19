@@ -4,7 +4,7 @@ import blueWave from "../../Assets/blueWaveSignUp.png";
 import cartPersonSignUp from "../../Assets/cartPersonSignUp.png";
 import Step2SignUp from "../../Assets/step2SignUp.png";
 
-const SignUpStep2 = () => {
+const SignUpStep2 = (props) => {
   return (
     <div className="step2-overlap-2">
       <div className="step2-overlap-3">
@@ -27,6 +27,9 @@ const SignUpStep2 = () => {
                 }}
                 className="step2-text-wrapper-3"
                 placeholder="City"
+                name="address.city"
+                value={props.formData.address.city}
+                onChange={props.handleInputChange}
               />
             </div>
           </div>
@@ -40,6 +43,9 @@ const SignUpStep2 = () => {
                 }}
                 className="step2-text-wrapper-3"
                 placeholder="Country"
+                name="address.country"
+                value={props.formData.address.country}
+                onChange={props.handleInputChange}
               />
             </div>
           </div>
@@ -54,6 +60,9 @@ const SignUpStep2 = () => {
                 }}
                 className="step2-text-wrapper-3"
                 placeholder="Zip Code"
+                name="address.zipCode"
+                value={props.formData.address.zipCode}
+                onChange={props.handleInputChange}
               />
             </div>
           </div>
@@ -67,6 +76,9 @@ const SignUpStep2 = () => {
                 }}
                 className="step2-text-wrapper-3"
                 placeholder="Area"
+                name="address.area"
+                value={props.formData.address.area}
+                onChange={props.handleInputChange}
               />
             </div>
           </div>
@@ -80,6 +92,9 @@ const SignUpStep2 = () => {
                 }}
                 className="step2-text-wrapper-3"
                 placeholder="Floor"
+                name="address.floor"
+                value={props.formData.address.floor}
+                onChange={props.handleInputChange}
               />
             </div>
           </div>
@@ -95,6 +110,9 @@ const SignUpStep2 = () => {
                 }}
                 className="step2-text-wrapper-3"
                 placeholder="House No."
+                name="address.houseNo"
+                value={props.formData.address.houseNo}
+                onChange={props.handleInputChange}
               />
             </div>
           </div>
@@ -109,6 +127,9 @@ const SignUpStep2 = () => {
                 }}
                 className="step2-text-wrapper-3"
                 placeholder="Street"
+                name="address.street"
+                value={props.formData.address.street}
+                onChange={props.handleInputChange}
               />
             </div>
           </div>
@@ -124,6 +145,9 @@ const SignUpStep2 = () => {
                 }}
                 className="step2-text-wrapper-3"
                 placeholder="Phone Number"
+                name="contact.phoneNumber"
+                value={props.formData.contact.phoneNumber}
+                onChange={props.handleInputChange}
               />
             </div>
           </div>
