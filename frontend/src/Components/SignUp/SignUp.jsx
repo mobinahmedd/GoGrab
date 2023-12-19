@@ -31,7 +31,7 @@ const SignUp = () => {
       zipCode: "123456",
     },
     password: "mobin123",
-    role: "buyer",
+    role: selectedRole,
     contact: {
       email: "mobinahmed4321@gmail.com",
       phoneNumber: ["03425176865", "03365973345"],
@@ -64,9 +64,17 @@ const SignUp = () => {
     console.log("mobin", notification);
   };
   const handleRoleChange = (event) => {
-    const value = event.currentTarget.getAttribute("value");
+    const value = event.currentTarget.getAttribute("name");
+
     setSelectedRole(value);
+    setFormData((prev) => {
+      return { ...prev, role: value };
+    });
   };
+
+  // console.log("mobin");
+  // console.log("selected role", selectedRole);
+  // console.log("formData", formData);
 
   const handleStep = (event) => {
     if (step === 1) {
@@ -85,7 +93,28 @@ const SignUp = () => {
         return;
       } else if (!usernameChecker(formData.username)) {
         showMessage(
-          "Name fields can only contain alphabets, numbers, underscore(_) and period(.).",
+          "Username field can only contain alphabets, numbers, underscore(_) and period(.).",
+          "error"
+        );
+        return;
+      }
+    } else if (step === 2) {
+      if (
+        formData.name.firstName === "" ||
+        formData.name.lastName === "" ||
+        formData.username === ""
+      ) {
+        showMessage("Fill all the fields", "error");
+        return;
+      } else if (
+        !nameChecker(formData.name.firstName) ||
+        !nameChecker(formData.name.lastName)
+      ) {
+        showMessage("Name fields can only contain alphabets.", "error");
+        return;
+      } else if (!usernameChecker(formData.username)) {
+        showMessage(
+          "Username field can only contain alphabets, numbers, underscore(_) and period(.).",
           "error"
         );
         return;

@@ -21,7 +21,7 @@ const SignUpStep1 = (props) => {
                 cursor: "pointer",
               }}
               type="button"
-              value="buyer"
+              name="buyer"
               onClick={props.handleRoleChange}
             >
               <div className="signup-overlap-group-2">
@@ -56,7 +56,7 @@ const SignUpStep1 = (props) => {
                 cursor: "pointer",
               }}
               type="button"
-              value="seller"
+              name="seller"
               onClick={props.handleRoleChange}
             >
               <div className="signup-overlap-group-2">

@@ -345,8 +345,24 @@
   height: 46px;
   position: relative;
   width: 179px;
+  /* background-color: red; */
 }
-
+.signup-desktop .signup-overlap-4::after,
+.signup-desktop .signup-overlap-5::after,
+.signup-desktop .signup-div-wrapper::after {
+  position: absolute;
+  top: 6px;
+  /* top: 15px; */
+  right: 6px;
+  font-size: 17px;
+  content: "*";
+  color: red;
+}
+.signup-desktop .signup-overlap-5::after,
+.signup-desktop .signup-div-wrapper::after {
+  right: 15px;
+  /* top: 8px; */
+}
 .signup-desktop .signup-text-wrapper-7 {
   color: #000000;
   font-family: "Barlow-Thin", Helvetica;
