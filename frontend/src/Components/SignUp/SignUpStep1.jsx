@@ -123,10 +123,10 @@ const SignUpStep1 = (props) => {
                     backgroundColor: "transparent",
                     border: "none",
                   }}
-                  value={props.formData.name.lastName}
-                  name="name.lastName"
                   className="signup-text-wrapper-7"
                   placeholder="Last Name"
+                  value={props.formData.name.lastName}
+                  name="name.lastName"
                   onChange={props.handleInputChange}
                 />
               </div>

@@ -19,11 +19,14 @@ import {
 import {
   areaChecker,
   cityOrCountryChecker,
+  emailChecker,
+  passwordChecker,
   phoneNumberChecker,
 } from "../../Validations/validations2";
 
 const SignUp = () => {
   const [selectedRole, setSelectedRole] = React.useState("buyer");
+  const [confirmPw, setConfirmPw] = React.useState("");
   const [step, setStep] = React.useState(1);
   const { notification, setNotification } =
     React.useContext(NotificationContext);
@@ -42,10 +45,10 @@ const SignUp = () => {
       country: "",
       zipCode: "",
     },
-    password: "mobin123",
+    password: "",
     role: selectedRole,
     contact: {
-      email: "mobinahmed4321@gmail.com",
+      email: "",
       phoneNumber: [],
     },
   });
@@ -57,6 +60,11 @@ const SignUp = () => {
       type: type,
     });
     console.log("mobin", notification);
+  };
+
+  const handleConfirmPassword = (event) => {
+    const { value } = event.target;
+    setConfirmPw(value);
   };
 
   const handleRoleChange = (event) => {
@@ -134,6 +142,26 @@ const SignUp = () => {
           showMessage("Wrong 'Phone Number' format", "error");
           return;
         }
+      } else if (step === 3) {
+        if (formData.password === "" || formData.contact.email === "") {
+          showMessage("Fill all the fields", "error");
+          return;
+        } else if (!emailChecker(formData.contact.email)) {
+          showMessage("Wrong Email Format", "error");
+          return;
+        } else if (!passwordChecker(formData.password)) {
+          showMessage(
+            "Password must contain alphabet, digit, symbol and has a minimum length of 6 characters",
+            "error"
+          );
+          return;
+        } else if (formData.password !== confirmPw) {
+          console.log("pw", formData.password, "cpw", confirmPw);
+          showMessage("Password does not match.", "error");
+          return;
+        }
+      } else if (step === 4) {
+        checkOTP();
       }
       step <= 3 && setStep((prev) => ++prev);
     }
@@ -142,6 +170,9 @@ const SignUp = () => {
     }
   };
 
+  const checkOTP = () => {
+    console.log("otp checking");
+  };
   const handleInputChange = (event) => {
     // const { name, value } = event.target;
     // setFormData((prev) => {
@@ -218,34 +249,66 @@ const SignUp = () => {
               ) : step === 3 ? (
                 <SignUpStep3
                   formData={formData}
+                  confirmPw={confirmPw}
                   handleInputChange={handleInputChange}
+                  handleConfirmPassword={handleConfirmPassword}
                 />
               ) : (
                 <OTP />
               )}
             </div>
             <div className="signup-buttons">
+              {step !== 4 && (
+                <div
+                  onClick={handleStep}
+                  id="previous"
+                  className="signup-previous-button"
+                >
+                  <img
+                    className="signup-flat-color-icons"
+                    alt="Flat color icons"
+                    src={previous}
+                  />
+                </div>
+              )}
+
               <div
-                onClick={handleStep}
-                id="previous"
-                className="signup-previous-button"
-              >
-                <img
-                  className="signup-flat-color-icons"
-                  alt="Flat color icons"
-                  src={previous}
-                />
-              </div>
-              <div
+                // style={
+                //   step === 4
+                //     ? {
+                //         width: "136px",
+                //         right: "200px",
+                //       }
+                //     : {}
+                // }
+                style={
+                  step === 4
+                    ? {
+                        width: "272px",
+                        left: "0px",
+                        borderRadius: "50px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        fontFamily: "Helvetica",
+                        letterSpacing: "4px",
+                        fontSize: "22px",
+                      }
+                    : {}
+                }
                 onClick={handleStep}
                 id="next"
                 className="signup-next-button"
               >
-                <img
-                  className="signup-flat-color-icons"
-                  alt="Flat color icons"
-                  src={next}
-                />
+                {step != 4 ? (
+                  <img
+                    className="signup-flat-color-icons"
+                    alt="Flat color icons"
+                    src={next}
+                  />
+                ) : (
+                  "VERIFY"
+                )}
               </div>
             </div>
             <div className="signup-downtext">

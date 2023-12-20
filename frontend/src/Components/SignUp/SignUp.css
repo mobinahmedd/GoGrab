@@ -371,7 +371,7 @@
   left: 24px;
   letter-spacing: 0;
   line-height: normal;
-  opacity: 0.7;
+  /* opacity: 0.7; */
   position: absolute;
   top: 13px;
   white-space: nowrap;
