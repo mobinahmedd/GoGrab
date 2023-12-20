@@ -59,8 +59,8 @@
 .step3-frame {
   background: linear-gradient(
     180deg,
-    rgb(18step3-48, 57step3-9, 83step3-67) 0%,
-    rgba(0, 0, 0, 0step3-87) 100%
+    rgb(18.48, 57.9, 83.67) 0%,
+    rgba(0, 0, 0, 0.87) 100%
   );
   border-radius: 0px 150px 150px 0px;
   box-shadow: 0px 4px 4px #00000040;
@@ -94,7 +94,7 @@
   left: 246px;
   letter-spacing: 0;
   line-height: normal;
-  opacity: 0step3-3;
+  /* opacity: 0.3; */
   position: absolute;
   top: 108px;
   width: 79px;
@@ -178,9 +178,9 @@
   font-size: 18px;
   font-weight: 100;
   left: 27px;
-  letter-spacing: 0;
+  letter-spacing: 0px;
   line-height: normal;
-  opacity: 0step3-7;
+  /* opacity: 0.7; */
   position: absolute;
   top: 16px;
   white-space: nowrap;
@@ -219,7 +219,7 @@
   left: 4px;
   letter-spacing: 0;
   line-height: normal;
-  opacity: 0step3-8;
+  /* opacity: 0.8; */
   position: absolute;
   top: 92px;
   white-space: nowrap;
@@ -411,7 +411,7 @@
   left: 0;
   letter-spacing: 0;
   line-height: normal;
-  opacity: 0step3-6;
+  /* opacity: 0.6; */
   position: absolute;
   top: 0;
   white-space: nowrap;

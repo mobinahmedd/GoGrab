@@ -6,7 +6,15 @@ import cartPersonSignUp from "../../Assets/cartPersonSignUp.png";
 import girl from "../../Assets/girl.png";
 import boy from "../../Assets/boy.png";
 
-const SignUpStep3 = () => {
+const SignUpStep3 = (props) => {
+  const [showPassword, setShowPassword] = React.useState(false);
+  const [showCPassword, setShowCPassword] = React.useState(false);
+  const toggleShowPassword = () => {
+    setShowPassword((prev) => !prev);
+  };
+  const toggleShowCPassword = () => {
+    setShowCPassword((prev) => !prev);
+  };
   return (
     <div className="step3-overlap-2">
       <div className="step3-overlap-3">
@@ -20,23 +28,54 @@ const SignUpStep3 = () => {
           <div style={{ top: "0px" }} className="step3-input">
             <div style={{ top: "120px" }} className="step3-c-pw-input">
               <div className="step3-div-wrapper">
-                {/* <div className="step3-text-wrapper-3">Confirm password</div> */}
+                <button
+                  style={{
+                    left: "305px",
+                    backgroundColor: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    zIndex: "1000",
+                    width: "fit-content",
+                    fontSize: "13px",
+                  }}
+                  onClick={toggleShowCPassword}
+                  className="step3-text-wrapper-3"
+                >
+                  {showCPassword ? "Hide" : "Show"}
+                </button>{" "}
                 <input
                   style={{
                     top: "13px",
                     width: "300px",
                     border: "none",
                     backgroundColor: "transparent",
+                    color: "black",
                   }}
-                  type="password"
+                  type={showCPassword ? "text" : "password"}
                   className="step3-text-wrapper-3"
+                  value={props.confirmPw}
                   placeholder="Confirm password"
+                  onChange={props.handleConfirmPassword}
                 />
               </div>
             </div>
             <div className="step3-pw-input">
               <div className="step3-div-wrapper">
-                {/* <div className="step3-text-wrapper-3">Password</div> */}
+                <button
+                  style={{
+                    left: "305px",
+                    backgroundColor: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    zIndex: "1000",
+                    width: "fit-content",
+                    fontSize: "13px",
+                  }}
+                  onClick={toggleShowPassword}
+                  className="step3-text-wrapper-3"
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
                 <input
                   style={{
                     top: "13px",
@@ -44,9 +83,12 @@ const SignUpStep3 = () => {
                     border: "none",
                     backgroundColor: "transparent",
                   }}
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   className="step3-text-wrapper-3"
                   placeholder="Password"
+                  name="password"
+                  value={props.formData.password}
+                  onChange={props.handleInputChange}
                 />
               </div>
             </div>
@@ -63,6 +105,9 @@ const SignUpStep3 = () => {
                   type="email"
                   className="step3-text-wrapper-3"
                   placeholder="Email"
+                  name="contact.email"
+                  value={props.formData.contact.email}
+                  onChange={props.handleInputChange}
                 />
               </div>
             </div>

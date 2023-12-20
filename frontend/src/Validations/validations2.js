@@ -23,3 +23,19 @@ export const phoneNumberChecker = (phoneNumber) => {
     return false;
   }
 };
+export const emailChecker = (email) => {
+  const usernameFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (usernameFormat.test(email)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+export const passwordChecker = (password) => {
+  const usernameFormat = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
+  if (usernameFormat.test(password)) {
+    return true;
+  } else {
+    return false;
+  }
+};
