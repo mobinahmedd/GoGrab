@@ -67,7 +67,7 @@ export async function verifyOTP(req, res) {
         message: "Blocked",
       });
     }
-    console.log(otp);
+    // console.log(otp);
     return res
       .status(400)
       .json({ message: "Invalid OTP", attemptsLeft: otpData.attemptsLeft });
@@ -97,6 +97,8 @@ export async function signUp(req, res) {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Failed to create user", error });
+    res
+      .status(500)
+      .json({ message: "Failed to create user : " + error, error });
   }
 }
