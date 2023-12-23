@@ -1,0 +1,1073 @@
+.profile-frame {
+  background-color: #eeeeee;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-frame .profile-div {
+  background-color: #eeeeee;
+  height: 2058px;
+  overflow: hidden;
+  position: relative;
+  width: 1537px;
+}
+
+.profile-frame .profile-footer {
+  background-color: var(--cold-grey90);
+  height: 224px;
+  left: -3px;
+  position: absolute;
+  top: 1834px;
+  width: 1540px;
+}
+
+.profile-frame .profile-menu-header {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 40px;
+  left: 283px;
+  position: absolute;
+  top: 60px;
+}
+
+.profile-frame .profile-text-wrapper {
+  color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.profile-frame .profile-menu-footer {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 40px;
+  left: 283px;
+  position: absolute;
+  top: 148px;
+}
+
+.profile-frame .profile-text-wrapper-2 {
+  color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.profile-frame .profile-text-wrapper-3 {
+  color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 1383px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 150px;
+  width: 103px;
+}
+
+.profile-frame .profile-social {
+  height: 23px;
+  left: 1322px;
+  position: absolute;
+  top: 59px;
+  width: 13px;
+}
+
+.profile-frame .profile-img {
+  height: 24px;
+  left: 1363px;
+  position: absolute;
+  top: 60px;
+  width: 24px;
+}
+
+.profile-frame .profile-social-2 {
+  height: 24px;
+  left: 1415px;
+  position: absolute;
+  top: 58px;
+  width: 24px;
+}
+
+.profile-frame .profile-social-3 {
+  background-image: url("../../Assets/insta.png");
+  background-size: 100% 100%;
+  height: 22px;
+  left: 1467px;
+  position: absolute;
+  top: 59px;
+  width: 22px;
+}
+
+.profile-frame .profile-line {
+  height: 1px;
+  left: 283px;
+  object-fit: cover;
+  position: absolute;
+  top: 115px;
+  width: 1200px;
+}
+
+.profile-frame .profile-overlap-group {
+  border-radius: 100px;
+  height: 32px;
+  left: 997px;
+  position: absolute;
+  top: 55px;
+  width: 240px;
+}
+
+.profile-frame .profile-search {
+  border-radius: 100px;
+  height: 32px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 240px;
+}
+
+.profile-frame .profile-input {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 100px;
+  color: #000000;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 25px;
+  letter-spacing: 0;
+  line-height: normal;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  padding-left: 15px;
+  position: relative;
+  text-align: left;
+  white-space: nowrap;
+  width: 240px;
+}
+
+.profile-frame .profile-iconamoon-search {
+  height: 20px;
+  left: 209px;
+  position: absolute;
+  top: 6px;
+  width: 20px;
+}
+
+.profile-frame .profile-logo {
+  height: 73px;
+  left: 33px;
+  position: absolute;
+  top: 72px;
+  width: 180px;
+}
+
+.profile-frame .profile-colaborators {
+  background: linear-gradient(
+    180deg,
+    rgb(211.17, 211, 211) 0%,
+    rgb(244, 244, 244) 100%
+  );
+  height: 321px;
+  left: 0;
+  position: absolute;
+  top: 1513px;
+  width: 1537px;
+}
+
+.profile-frame .profile-download-removebg {
+  height: 108px;
+  left: 978px;
+  object-fit: cover;
+  position: absolute;
+  top: 107px;
+  width: 250px;
+}
+
+.profile-frame .profile-chanel-removebg {
+  height: 131px;
+  left: 690px;
+  object-fit: cover;
+  position: absolute;
+  top: 95px;
+  width: 221px;
+}
+
+.profile-frame .profile-ralph-lauren-symbol {
+  height: 117px;
+  left: 357px;
+  object-fit: cover;
+  position: absolute;
+  top: 102px;
+  width: 254px;
+}
+
+.profile-frame .profile-breitling-logo {
+  height: 86px;
+  left: 37px;
+  object-fit: cover;
+  position: absolute;
+  top: 118px;
+  width: 210px;
+}
+
+.profile-frame .profile-png-transparent {
+  height: 108px;
+  left: 1265px;
+  object-fit: cover;
+  position: absolute;
+  top: 107px;
+  width: 272px;
+}
+
+.profile-frame .profile-overlap {
+  height: 1372px;
+  left: 0;
+  position: absolute;
+  top: 105px;
+  width: 1537px;
+}
+
+.profile-frame .profile-black-friday {
+  height: 376px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1537px;
+}
+
+.profile-frame .profile-profile {
+  height: 1030px;
+  left: 83px;
+  position: absolute;
+  top: 342px;
+  width: 1370px;
+}
+
+.profile-frame .profile-div-2 {
+  background-color: #f7f6f7;
+  border-radius: 30px;
+  box-shadow: -1profile-5px 1profile-5px 4px #00000040;
+  height: 1030px;
+  left: 525px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 845px;
+}
+
+.profile-frame .profile-overlap-2 {
+  background-color: #373738;
+  box-shadow: 0px 1px 16profile-3px #00000040;
+  height: 166px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 845px;
+}
+
+.profile-frame .profile-rectangle {
+  background-color: #ececec;
+  border-radius: 100px;
+  box-shadow: 0px 1px 16profile-3px #00000040;
+  height: 3px;
+  left: 33px;
+  position: absolute;
+  top: 163px;
+  width: 112px;
+}
+
+.profile-frame .profile-text-wrapper-4 {
+  color: #ececec;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 42px;
+  font-weight: 600;
+  left: 37px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 24px;
+}
+
+.profile-frame .profile-text-wrapper-5 {
+  color: #f3f2f2;
+  font-family: "Poppins-Medium", Helvetica;
+  font-size: 17px;
+  font-weight: 500;
+  left: 51px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 130px;
+  width: 77px;
+}
+
+.profile-frame .profile-text-wrapper-6 {
+  color: #f3f2f2;
+  font-family: "Poppins-Medium", Helvetica;
+  font-size: 17px;
+  font-weight: 500;
+  left: 171px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 130px;
+  width: 196px;
+  cursor: pointer;
+}
+
+.profile-frame .profile-btn {
+  height: 87px;
+  left: 33px;
+  position: absolute;
+  top: 183px;
+  width: 381px;
+}
+
+.profile-frame .profile-div-wrapper {
+  background-image: url();
+  border-style: solid;
+  border-color: #c8c8c8;
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 377px;
+  color: #171717;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-text-wrapper-7 {
+  color: #161616;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 18px;
+  font-weight: 200;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  width: 57px;
+}
+
+.profile-frame .profile-text-wrapper-8 {
+  color: #161616;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 104px;
+}
+
+.profile-frame .profile-btn-2 {
+  height: 87px;
+  left: 33px;
+  position: absolute;
+  top: 519px;
+  width: 381px;
+}
+
+.profile-frame .profile-overlap-3 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 377px;
+}
+
+.profile-frame .profile-btn-3 {
+  height: 87px;
+  left: 33px;
+  position: absolute;
+  top: 631px;
+  width: 381px;
+}
+
+.profile-frame .profile-overlap-4 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 377px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border: 1px, solid;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-text-wrapper-9 {
+  color: #161616;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 18px;
+  font-weight: 200;
+  left: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  width: 80px;
+}
+
+.profile-frame .profile-btn-4 {
+  height: 87px;
+  left: 435px;
+  position: absolute;
+  top: 183px;
+  width: 381px;
+}
+
+.profile-frame .profile-overlap-5 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 377px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border: 1px, solid;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-btn-5 {
+  height: 87px;
+  left: 435px;
+  position: absolute;
+  top: 519px;
+  width: 381px;
+}
+
+.profile-frame .profile-overlap-6 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 377px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border: 1px, solid;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-btn-6 {
+  height: 87px;
+  left: 435px;
+  position: absolute;
+  top: 631px;
+  width: 381px;
+}
+
+.profile-frame .profile-overlap-7 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 377px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border: 1px, solid;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-btn-7 {
+  height: 87px;
+  left: 33px;
+  position: absolute;
+  top: 407px;
+  width: 254px;
+}
+
+.profile-frame .profile-overlap-8 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 230px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border: 1px, solid;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-text-wrapper-10 {
+  color: #161616;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 18px;
+  font-weight: 200;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  width: 55px;
+}
+
+.profile-frame .profile-text-wrapper-11 {
+  color: #161616;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 71px;
+}
+
+.profile-frame .profile-btn-8 {
+  height: 87px;
+  left: 297px;
+  position: absolute;
+  top: 407px;
+  width: 254px;
+}
+
+.profile-frame .profile-overlap-9 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 230px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border: 1px, solid;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-text-wrapper-12 {
+  color: #161616;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 84px;
+}
+
+.profile-frame .profile-btn-9 {
+  height: 87px;
+  left: 562px;
+  position: absolute;
+  top: 407px;
+  width: 254px;
+}
+
+.profile-frame .profile-overlap-10 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 250px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border: 1px, solid;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-text-wrapper-13 {
+  color: #161616;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 18px;
+  font-weight: 200;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  width: 85px;
+}
+
+.profile-frame .profile-btn-10 {
+  height: 87px;
+  left: 167px;
+  position: absolute;
+  top: 295px;
+  width: 515px;
+}
+
+.profile-frame .profile-overlap-11 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 511px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border: 1px, solid;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-text-wrapper-14 {
+  color: #161616;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 18px;
+  font-weight: 200;
+  left: 33px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  width: 77px;
+}
+
+.profile-frame .profile-text-wrapper-15 {
+  color: #161616;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 141px;
+}
+
+.profile-frame .profile-btn-11 {
+  height: 87px;
+  left: 167px;
+  position: absolute;
+  top: 743px;
+  width: 515px;
+}
+
+.profile-frame .profile-overlap-12 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 511px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border: 1px, solid;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-text-wrapper-16 {
+  color: #161616;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 18px;
+  font-weight: 200;
+  left: 33px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  width: 121px;
+}
+
+.profile-frame .profile-btn-12 {
+  height: 87px;
+  left: 167px;
+  position: absolute;
+  top: 854px;
+  width: 515px;
+}
+
+.profile-frame .profile-overlap-13 {
+  background-image: url();
+  background-size: 100% 100%;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  top: 32px;
+  width: 511px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border: 1px, solid;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 275;
+  line-height: normal;
+  padding-left: 10px;
+}
+
+.profile-frame .profile-text-wrapper-17 {
+  color: #161616;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 18px;
+  font-weight: 200;
+  left: 33px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  width: 313px;
+}
+
+.profile-frame .profile-update-btn {
+  height: 49px;
+  left: 317px;
+  position: absolute;
+  top: 959px;
+  width: 212px;
+}
+
+.profile-frame .profile-overlap-14 {
+  background-image: url();
+  background-color: #383838;
+  background-size: 100% 100%;
+  height: 57px;
+  left: -4px;
+  position: relative;
+  top: -2px;
+  width: 218px;
+  cursor: pointer;
+  margin-top: 5px;
+  border-radius: 30px;
+}
+
+.profile-frame .profile-text-wrapper-18 {
+  color: #f8f8f8;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 53px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  margin-top: 16px;
+  width: 118px;
+}
+
+.profile-frame .profile-div-3 {
+  background-color: #f7f6f7;
+  border-radius: 30px;
+  box-shadow: -1profile-5px 1profile-5px 4px #00000040;
+  height: 621px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 481px;
+}
+
+.profile-frame .profile-text-wrapper-19 {
+  color: #000000;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 30px;
+  font-weight: 600;
+  left: 132px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 54px;
+}
+
+.profile-frame .profile-material-symbols-wrapper {
+  background-image: url("../../Assets/profile-avatar.png");
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 200px;
+  left: 140px;
+  position: absolute;
+  top: 121px;
+  width: 199px;
+}
+
+.profile-frame .profile-material-symbols {
+  height: 44px;
+  left: 145px;
+  position: absolute;
+  top: 6px;
+  width: 42px;
+}
+
+.profile-frame .profile-overlap-group-wrapper {
+  all: unset;
+  box-sizing: border-box;
+  height: 60px;
+  left: 120px;
+  position: absolute;
+  top: 342px;
+  width: 242px;
+}
+
+.profile-frame .profile-overlap-group-2 {
+  background-color: #383838;
+  background-size: 100% 100%;
+  height: 60px;
+  position: relative;
+  width: 240px;
+}
+
+.profile-frame .profile-text-wrapper-20 {
+  color: #ffffff;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 50px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  margin-top: 20px;
+  width: 157px;
+  cursor: pointer;
+}
+
+.profile-frame .profile-desc {
+  height: 95px;
+  left: 113px;
+  position: absolute;
+  top: 423px;
+  width: 258px;
+}
+
+.profile-frame .profile-overlap-15 {
+  background-color: #def3d1;
+  background-size: 100% 100%;
+  height: 95px;
+  position: relative;
+  width: 254px;
+}
+
+.profile-frame .profile-p {
+  color: #515151;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 14px;
+  font-weight: 200;
+  left: 9px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  margin-top: 12px;
+  width: 235px;
+}
+
+.profile-frame .profile-maximum-upload-size {
+  color: #515151;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  margin-top: 64px;
+  width: 199px;
+}
+
+.profile-frame .profile-span {
+  font-weight: 200;
+}
+
+.profile-frame .profile-text-wrapper-21 {
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+}
+
+.profile-frame .profile-member-since {
+  color: #000000;
+  font-family: "Poppins-ExtraLight", Helvetica;
+  font-size: 14px;
+  font-weight: 600;
+  left: 122px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 560px;
+}
+
+.profile-frame .profile-text-wrapper-22 {
+  font-family: "Poppins-Regular", Helvetica;
+}
+
+.profile-frame .profile-nav-bar-wrapper {
+  background-color: #eeeeee;
+  height: 105px;
+  left: 24px;
+  position: absolute;
+  top: 0;
+  width: 1490px;
+}
+
+.profile-frame .profile-nav-bar {
+  height: 73px;
+  left: 22px;
+  position: relative;
+  top: 20px;
+  width: 1434px;
+}
+
+.profile-frame .profile-logo-2 {
+  height: 73px;
+  left: -1px;
+  position: absolute;
+  top: 0;
+  width: 180px;
+}
+
+.profile-frame .profile-prime-shopping-cart {
+  height: 28px;
+  left: 1335px;
+  position: absolute;
+  top: 23px;
+  width: 34px;
+}
+
+.profile-frame .profile-search-button {
+  height: 51px;
+  left: 357px;
+  position: absolute;
+  top: 11px;
+  width: 739px;
+}
+
+.profile-frame .profile-overlap-group-3 {
+  border: 1px solid;
+  border-color: #315166;
+  border-radius: 100px;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 51px;
+  position: relative;
+  width: 735px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: normal;
+  padding-left: 15px;
+}
+
+.profile-frame .profile-text-wrapper-23 {
+  color: #413b3b82;
+  font-family: "Barlow-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 13px;
+  width: 383px;
+}
+
+.profile-frame .profile-search-icon-wrapper {
+  background-color: #383838;
+  border-radius: 0px 100px 100px 0px;
+  height: 55px;
+  left: 697px;
+  position: absolute;
+  top: 0;
+  width: 58px;
+}
+
+.profile-frame .profile-search-icon {
+  height: 24px;
+  left: 13px;
+  position: absolute;
+  top: 14px;
+  width: 24px;
+}
+
+.profile-frame .profile-favourites {
+  height: 26px;
+  left: 1266px;
+  position: absolute;
+  top: 24px;
+  width: 28px;
+}
+
+.profile-frame .profile-profile-2 {
+  height: 24px;
+  left: 1410px;
+  position: absolute;
+  top: 25px;
+  width: 24px;
+}
