@@ -1,5 +1,6 @@
 import userModel from "../Models/userModel.js";
 import jwt from "jsonwebtoken";
+
 import {
   hashPassword,
   comparePassword,
@@ -11,9 +12,9 @@ let refreshTokens = [];
 
 // login
 export async function login(req, res) {
-  const { username, password } = req.body;
+  const { username, password, role } = req.body;
   const userData = await userModel.findOne({ username });
-  if (!userData) {
+  if (!userData || role !== userData.role) {
     return res.status(404).json({ message: "user not found" });
   }
 
