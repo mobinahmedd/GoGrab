@@ -47,14 +47,26 @@
 // export default OTP;
 
 import React, { useRef } from "react";
+import { NotificationContext } from "../../NotificationContext";
+import axios from "axios";
 import "./OTP.css";
 import blueWave from "../../Assets/blueWaveSignUp.png";
 import cartPersonSignUp from "../../Assets/cartPersonSignUp.png";
 import otpStep from "../../Assets/otpStep.png";
 
-const OTP = () => {
+const OTP = (props) => {
+  const { notification, setNotification } =
+    React.useContext(NotificationContext);
   const inputs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
+  const showMessage = (message, type) => {
+    setNotification({
+      show: true,
+      message: message,
+      type: type,
+    });
+    // console.log("mobin", notification);
+  };
   const handleChange = (index, e) => {
     const input = e.target;
     const value = input.value;
@@ -64,11 +76,34 @@ const OTP = () => {
     } else if (value.length === 0 && index > 0) {
       inputs[index - 1].current.focus();
     }
+    if (e.target.name == "last") {
+      props.setOtp(combineValues);
+    }
   };
 
   const handleKeyDown = (index, e) => {
     if (e.key === "Backspace" && index > 0 && !e.target.value) {
       inputs[index - 1].current.focus();
+    }
+  };
+  const combineValues = () => {
+    const otpValues = inputs.map((input) => input.current.value);
+    const finalOTP = otpValues.join("");
+    return finalOTP;
+  };
+  const sendOTP = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/signup",
+        props.formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    } catch (error) {
+      showMessage(error.message, "error");
     }
   };
 
@@ -117,6 +152,7 @@ const OTP = () => {
             ref={inputs[3]}
             onChange={(e) => handleChange(3, e)}
             onKeyDown={(e) => handleKeyDown(3, e)}
+            name="last"
           />
         </div>
         <p className="p">
@@ -124,9 +160,12 @@ const OTP = () => {
         </p>
         <div className="OTP-dwon-text">
           <div style={{ top: "30px", left: "87px" }} className="text-wrapper-4">
-            Remaining Tries: <span style={{ color: "red" }}>3</span>
+            Remaining Tries:{" "}
+            <span style={{ color: "red" }}>{props.attemptsLeft}</span>
           </div>
-          <div className="text-wrapper-3">Re-send OTP</div>
+          <div onClick={sendOTP} className="text-wrapper-3">
+            Re-send OTP
+          </div>
           <div className="text-wrapper-4">Didn’t receive the code?</div>
         </div>
         <div className="text-wrapper-5">OTP VERIFICATION</div>

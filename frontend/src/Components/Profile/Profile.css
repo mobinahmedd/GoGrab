@@ -1,9 +1,13 @@
+body {
+  overflow-y: auto;
+}
 .profile-frame {
   background-color: #eeeeee;
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  /* overflow-x: hidden; */
 }
 
 .profile-frame .profile-div {

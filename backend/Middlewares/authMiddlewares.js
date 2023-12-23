@@ -8,19 +8,6 @@ import otpModel from "../Models/otpModel.js";
 
 dotenv.config();
 
-// email regex middleware
-export function isValidEmail(req, res, next) {
-  const { email } = req.body.contact;
-
-  console.log("mobin", email);
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!emailRegex.test(email)) {
-    return res.status(400).json({ error: "Invalid email format" });
-  }
-  next();
-}
-
 // email already exists
 export async function emailAlreadyExists(req, res, next) {
   const { email } = req.body.contact;

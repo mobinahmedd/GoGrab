@@ -1,10 +1,14 @@
+body {
+  overflow-y: auto;
+}
 .cart-frame {
   background-color: #eeeeee;
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  overflow: auto;
+  /* overflow: auto; */
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
