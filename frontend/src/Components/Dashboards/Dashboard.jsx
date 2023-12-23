@@ -40,7 +40,7 @@ import headphoneSet from "../../Assets/headphoneSet.jpeg";
 
 const Dashboard = () => {
   const [year, setYear] = React.useState(new Date().getFullYear());
-  const [showWishlist, setShowWishlist] = React.useState(true);
+  const [showWishlist, setShowWishlist] = React.useState(false);
   return (
     <>
       {showWishlist && <Wishlist />}

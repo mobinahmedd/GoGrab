@@ -6,7 +6,7 @@ Content-Type: application/json
 
 {
     "email": "mobinahmed4321@gmail.com",
-    "otp": "3806"
+    "otp": "8622"
 }
 
 ###
@@ -33,7 +33,8 @@ Content-Type: application/json
     "contact": {
         "email": "mobinahmed4321@gmail.com",
         "phoneNumber": ["03425176865","03365973345"]
-     }
+     },
+     "avatar":"base64:7777777"
 }
 
 ###

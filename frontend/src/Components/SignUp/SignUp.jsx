@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
 import logoBlack from "../../Assets/logoBlack.png";
@@ -28,6 +29,9 @@ const SignUp = () => {
   const [selectedRole, setSelectedRole] = React.useState("buyer");
   const [confirmPw, setConfirmPw] = React.useState("");
   const [step, setStep] = React.useState(1);
+  const [otp, setOtp] = React.useState("");
+  const [attemptsLeft, setAttemptsLeft] = React.useState(3);
+
   const { notification, setNotification } =
     React.useContext(NotificationContext);
 
@@ -40,6 +44,7 @@ const SignUp = () => {
     address: {
       floor: "",
       houseNo: "",
+      street: "",
       area: "",
       city: "",
       country: "",
@@ -51,15 +56,16 @@ const SignUp = () => {
       email: "",
       phoneNumber: [],
     },
+    avatar: "",
   });
-
+  // console.log(formData.avatar);
   const showMessage = (message, type) => {
     setNotification({
       show: true,
       message: message,
       type: type,
     });
-    console.log("mobin", notification);
+    // console.log("mobin", notification);
   };
 
   const handleConfirmPassword = (event) => {
@@ -74,6 +80,12 @@ const SignUp = () => {
     setFormData((prev) => {
       return { ...prev, role: value };
     });
+  };
+  const handleAvatarChange = (avatar) => {
+    setFormData((prev) => {
+      return { ...prev, avatar: avatar };
+    });
+    console.log(avatar);
   };
 
   const handleStep = (event) => {
@@ -156,10 +168,11 @@ const SignUp = () => {
           );
           return;
         } else if (formData.password !== confirmPw) {
-          console.log("pw", formData.password, "cpw", confirmPw);
+          // console.log("pw", formData.password, "cpw", confirmPw);
           showMessage("Password does not match.", "error");
           return;
         }
+        sendOTP();
       } else if (step === 4) {
         checkOTP();
       }
@@ -170,8 +183,87 @@ const SignUp = () => {
     }
   };
 
-  const checkOTP = () => {
-    console.log("otp checking");
+  // const checkOTP = () => {
+  //   const apiUrl = "http://localhost:5000/api/auth/verify-otp";
+
+  //   const data = {
+  //     email: formData.contact.email,
+  //     otp: otp,
+  //   };
+  //   console.log(data);
+  //   axios
+  //     .post(apiUrl, data, {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log("Success:", response.data.message);
+  //       showMessage(response.data.message, "success");
+  //     })
+  //     .catch((error) => {
+  //       // if (error.response) {
+  //       console.error("Error:", error.message);
+  //       showMessage("mobin " + error.message, "error");
+  //       // }
+  //     });
+  // };
+
+  const checkOTP = async () => {
+    const apiUrl = "http://localhost:5000/api/auth/verify-otp"; // Replace with your actual backend API endpoint
+
+    try {
+      const data = {
+        email: formData.contact.email, // Assuming formData is accessible here
+        otp: otp, // Assuming otp is defined somewhere in the scope
+      };
+
+      const response = await axios.post(apiUrl, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.status === 201) {
+        // Correct OTP
+        showMessage(response.data.message, "success");
+      } else if (response.status === 400) {
+        if (response.data.message === "timeout") {
+          showMessage("timeout", "error");
+        } else if (response.data.message === "Blocked") {
+          showMessage("Account Blocked", "error");
+        } else if (response.data.message === "Invalid OTP") {
+          showMessage(
+            `Invalid OTP. Attempts Left: ${response.data.attemptsLeft}`,
+            "error"
+          );
+        } else {
+          showMessage("Unknown Error", "error");
+        }
+      }
+    } catch (error) {
+      error.response.data.message === "Invalid OTP"
+        ? setAttemptsLeft(error.response.data.attemptsLeft)
+        : setAttemptsLeft(0);
+      showMessage(error.response.data.message, "error");
+    }
+  };
+
+  const sendOTP = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/signup",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    } catch (error) {
+      showMessage("here" + error.response.message, "error");
+      setStep(1);
+    }
   };
   const handleInputChange = (event) => {
     // const { name, value } = event.target;
@@ -182,7 +274,7 @@ const SignUp = () => {
     //   };
     // });
     const { name, value } = event.target;
-    console.log(name, value);
+    // console.log(name, value);
     const [parentKey, childKey] = name.split(".");
 
     setFormData((prev) => {
@@ -202,7 +294,7 @@ const SignUp = () => {
       }
     });
   };
-  console.log("data :", formData);
+  // console.log("data :", formData);
 
   return (
     <>
@@ -252,9 +344,15 @@ const SignUp = () => {
                   confirmPw={confirmPw}
                   handleInputChange={handleInputChange}
                   handleConfirmPassword={handleConfirmPassword}
+                  handleAvatarChange={handleAvatarChange}
                 />
               ) : (
-                <OTP />
+                <OTP
+                  setOtp={setOtp}
+                  formData={formData}
+                  setStep={setStep}
+                  attemptsLeft={attemptsLeft}
+                />
               )}
             </div>
             <div className="signup-buttons">
@@ -300,7 +398,7 @@ const SignUp = () => {
                 id="next"
                 className="signup-next-button"
               >
-                {step != 4 ? (
+                {step !== 4 ? (
                   <img
                     className="signup-flat-color-icons"
                     alt="Flat color icons"

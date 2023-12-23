@@ -1,7 +1,6 @@
 import express from "express";
 import {
   emailAlreadyExists,
-  isValidEmail,
   sendOTPToEmail,
   usernameAlreadyExists,
 } from "../Middlewares/authMiddlewares.js";
@@ -24,7 +23,6 @@ router.post("/verify-otp", verifyOTP);
 
 router.post(
   "/signup",
-  isValidEmail,
   emailAlreadyExists,
   usernameAlreadyExists,
   sendOTPToEmail,

@@ -5,10 +5,24 @@ import Step3SignUp from "../../Assets/step3SignUp.png";
 import cartPersonSignUp from "../../Assets/cartPersonSignUp.png";
 import girl from "../../Assets/girl.png";
 import boy from "../../Assets/boy.png";
+// import { getBase64FromImageUrl } from "../../ImageConversion/imageConversion";
 
 const SignUpStep3 = (props) => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [showCPassword, setShowCPassword] = React.useState(false);
+  const [avatar, setAvatar] = React.useState("boy");
+
+  React.useEffect(() => {
+    props.handleAvatarChange(avatar);
+  }, []);
+
+  const handleAvatarChange = (event) => {
+    const name = event.currentTarget.getAttribute("name");
+    setAvatar(name);
+    props.handleAvatarChange(name);
+  };
+
+  console.log("avatar: ", avatar, "data: ", props.formData.avatar);
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
@@ -116,19 +130,31 @@ const SignUpStep3 = (props) => {
             <div style={{ top: "0" }} className="step3-text-wrapper-4">
               Select your avatar:
             </div>
-            <div
+            <button
               style={{
+                backgroundColor: "transparent",
                 left: "110px",
                 top: "40px",
                 transform: "rotate(180deg)",
+                ...(avatar === "girl" ? { borderColor: "green" } : {}),
               }}
               className="step3-girl avatar"
+              name="girl"
+              onClick={(event) => handleAvatarChange(event)}
             >
               <img className="step3-img" alt="Girl" src={girl} />
-            </div>
-            <div
-              style={{ left: "10px", top: "40px", transform: "rotate(180deg)" }}
+            </button>
+            <button
+              style={{
+                left: "10px",
+                top: "40px",
+                transform: "rotate(180deg)",
+                backgroundColor: "transparent",
+                ...(avatar === "boy" ? { borderColor: "green" } : {}),
+              }}
               className="step3-boy avatar"
+              name="boy"
+              onClick={(event) => handleAvatarChange(event)}
             >
               <img
                 style={{ top: "3px", height: "60px" }}
@@ -136,7 +162,7 @@ const SignUpStep3 = (props) => {
                 alt="Man"
                 src={boy}
               />
-            </div>
+            </button>
           </div>
         </div>
         <img

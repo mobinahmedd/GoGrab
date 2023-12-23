@@ -46,14 +46,13 @@ export async function refreshAccessToken(req, res) {
   });
 }
 
-// verify otp
 export async function verifyOTP(req, res) {
   const { email, otp } = req.body;
 
   const otpData = await otpModel.findOne({ email });
 
   if (!otpData) {
-    return res.status(400).json({ message: "Invalid Email" });
+    return res.status(400).json({ message: "timeout" });
   }
 
   if (otp !== otpData.otp) {
@@ -68,9 +67,10 @@ export async function verifyOTP(req, res) {
         message: "Blocked",
       });
     }
+    console.log(otp);
     return res
       .status(400)
-      .json({ error: "Invalid OTP", attemptsLeft: otpData.attemptsLeft });
+      .json({ message: "Invalid OTP", attemptsLeft: otpData.attemptsLeft });
   }
   console.log("deleting otp");
   await otpModel.findOneAndDelete({ email });
@@ -97,6 +97,6 @@ export async function signUp(req, res) {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Failed to create user", error });
+    res.status(500).json({ message: "Failed to create user", error });
   }
 }
