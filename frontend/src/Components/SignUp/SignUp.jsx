@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 import "./SignUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import logoBlack from "../../Assets/logoBlack.png";
 import previous from "../../Assets/previous.png";
 import next from "../../Assets/next.png";
@@ -31,6 +32,7 @@ const SignUp = () => {
   const [step, setStep] = React.useState(1);
   const [otp, setOtp] = React.useState("");
   const [attemptsLeft, setAttemptsLeft] = React.useState(3);
+  const navigate = useNavigate();
 
   const { notification, setNotification } =
     React.useContext(NotificationContext);
@@ -51,7 +53,7 @@ const SignUp = () => {
       zipCode: "",
     },
     password: "",
-    role: selectedRole,
+    role: "buyer",
     contact: {
       email: "",
       phoneNumber: [],
@@ -59,6 +61,26 @@ const SignUp = () => {
     avatar: "",
   });
   // console.log(formData.avatar);
+
+  const resetFormData = () => {
+    const emptyStringify = (obj) => {
+      for (const key in obj) {
+        if (typeof obj[key] === "object" && !Array.isArray(obj[key])) {
+          emptyStringify(obj[key]);
+        } else {
+          obj[key] = "";
+        }
+      }
+    };
+
+    const updatedFormData = { ...formData };
+    emptyStringify(updatedFormData);
+    setFormData(updatedFormData);
+    setFormData((prev) => {
+      return { ...prev, role: selectedRole };
+    });
+  };
+
   const showMessage = (message, type) => {
     setNotification({
       show: true,
@@ -208,7 +230,6 @@ const SignUp = () => {
   //       // }
   //     });
   // };
-
   const checkOTP = async () => {
     const apiUrl = "http://localhost:5000/api/auth/verify-otp"; // Replace with your actual backend API endpoint
 
@@ -226,26 +247,29 @@ const SignUp = () => {
 
       if (response.status === 201) {
         // Correct OTP
+        navigate("/");
         showMessage(response.data.message, "success");
-      } else if (response.status === 400) {
-        if (response.data.message === "timeout") {
+      }
+    } catch (error) {
+      if (error.response.status === 400) {
+        if (error.response.data.message === "timeout") {
           showMessage("timeout", "error");
-        } else if (response.data.message === "Blocked") {
-          showMessage("Account Blocked", "error");
-        } else if (response.data.message === "Invalid OTP") {
-          showMessage(
-            `Invalid OTP. Attempts Left: ${response.data.attemptsLeft}`,
-            "error"
-          );
+          setStep(1);
+          resetFormData();
+          setConfirmPw("");
+        } else if (error.response.data.message === "Blocked") {
+          showMessage("Too many tries, Register again.", "error");
+          setStep(1);
+          resetFormData();
+          setConfirmPw("");
+        } else if (error.response.data.message === "Invalid OTP") {
+          showMessage(`Invalid OTP.`, "error");
+          setAttemptsLeft(error.response.data.attemptsLeft);
         } else {
           showMessage("Unknown Error", "error");
         }
       }
-    } catch (error) {
-      error.response.data.message === "Invalid OTP"
-        ? setAttemptsLeft(error.response.data.attemptsLeft)
-        : setAttemptsLeft(0);
-      showMessage(error.response.data.message, "error");
+      // showMessage(error.response.data.message, "error");
     }
   };
 
@@ -261,10 +285,21 @@ const SignUp = () => {
         }
       );
     } catch (error) {
-      showMessage("here" + error.response.message, "error");
+      showMessage(error.message, "error");
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        const errorMessage = error.response.data.message;
+        showMessage(errorMessage, "error");
+      } else {
+        console.log("Unknown Error");
+      }
       setStep(1);
     }
   };
+
   const handleInputChange = (event) => {
     // const { name, value } = event.target;
     // setFormData((prev) => {
