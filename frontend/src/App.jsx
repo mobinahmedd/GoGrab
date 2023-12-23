@@ -4,6 +4,7 @@ import "./index.css";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/SignUp/SignUp";
 import ForgotPassword from "./Components/Login/ForgotPassword";
+import Dashboard from "../src/Components/Dashboards/Dashboard";
 import OTP from "./Components/SignUp/OTP";
 import Notification from "./Components/Notification/Notification";
 
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </BrowserRouter>
       </NotificationProvider>

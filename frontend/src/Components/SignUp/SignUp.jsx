@@ -87,7 +87,6 @@ const SignUp = () => {
       message: message,
       type: type,
     });
-    // console.log("mobin", notification);
   };
 
   const handleConfirmPassword = (event) => {

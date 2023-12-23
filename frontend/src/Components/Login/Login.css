@@ -884,3 +884,13 @@ input:focus {
   opacity: 0.7;
   position: absolute;
 }
+.hidePw {
+  position: absolute;
+  top: 4px;
+  right: 29px;
+  opacity: 0.4;
+  font-weight: bolder;
+  /* border: 2px solid red; */
+  font-size: 35px;
+  transform: rotate(30deg);
+}

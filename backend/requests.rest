@@ -6,7 +6,7 @@ Content-Type: application/json
 
 {
     "email": "mobinahmed4321@gmail.com",
-    "otp": "5411"
+    "otp": "5018"
 }
 
 ###
@@ -44,7 +44,8 @@ Content-Type: application/json
 
 {
     "username": "mobin4321",
-    "password": "mobin123"
+    "password": "mobin123",
+    "role":""
 }
 
 ###

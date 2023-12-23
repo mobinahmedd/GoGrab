@@ -91,6 +91,7 @@ const OTP = (props) => {
     const finalOTP = otpValues.join("");
     return finalOTP;
   };
+
   const sendOTP = async () => {
     try {
       const response = await axios.post(
@@ -104,6 +105,16 @@ const OTP = (props) => {
       );
     } catch (error) {
       showMessage(error.message, "error");
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        const errorMessage = error.response.data.message;
+        showMessage(errorMessage, "error");
+      } else {
+        console.log("Unknown Error");
+      }
     }
   };
 

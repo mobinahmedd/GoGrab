@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Login.css";
 import blueWave from "../../Assets/blueWave.png";
 import cartPerson from "../../Assets/cartPerson.png";
@@ -10,16 +11,67 @@ import emailIcon from "../../Assets/emailIcon.png";
 import passwordIcon from "../../Assets/passwordIcon.png";
 import viewPassword from "../../Assets/viewPassword.png";
 import logoBlack from "../../Assets/logoBlack.png";
+import { NotificationContext } from "../../NotificationContext";
+import { authServerInstance } from "../../Axios/axiosInstance";
 
 export const Login = (props) => {
   const [selectedRole, setSelectedRole] = React.useState("buyer");
+  const [showPassword, setShowPassword] = React.useState(false);
+  const toggleShowPassword = () => {
+    setShowPassword((prev) => !prev);
+  };
+  const { notification, setNotification } =
+    React.useContext(NotificationContext);
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = React.useState({
+    username: "",
+    password: "",
+    role: "buyer",
+  });
+
+  const showMessage = (message, type) => {
+    setNotification({
+      show: true,
+      message: message,
+      type: type,
+    });
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  console.log(formData);
 
   const handleRoleChange = (event) => {
     const value = event.currentTarget.getAttribute("value"); // Access the data-value attribute
     setSelectedRole(value);
+    setFormData((prev) => {
+      return { ...prev, role: value };
+    });
   };
 
-  console.log(selectedRole);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await authServerInstance.post(
+        "http://localhost:5000/api/auth/login",
+        formData
+      );
+      const { accessToken, refreshToken } = response.data;
+
+      localStorage.getItem("accessToken", accessToken);
+      localStorage.getItem("refreshToken", refreshToken);
+
+      navigate("/dashboard");
+    } catch (error) {
+      showMessage("Invalid credentials. Please try again.", "error");
+    }
+  };
+
   return (
     <div className="desktop">
       <div className="overlap-wrapper">
@@ -64,14 +116,27 @@ export const Login = (props) => {
                         className="enter-your-password"
                         id="input-1"
                         placeholder="Enter your password"
-                        type="email"
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        value={formData.password}
+                        onChange={handleInputChange}
                       />
                       <img
                         className="vector"
                         alt="passwordIcon"
                         src={passwordIcon}
                       />
-                      <img className="eye" alt="Eye" src={viewPassword} />
+                      <img
+                        onClick={toggleShowPassword}
+                        className="eye"
+                        alt="Eye"
+                        src={viewPassword}
+                      />
+                      {showPassword && (
+                        <div onClick={toggleShowPassword} className="hidePw">
+                          /
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="email">
@@ -79,9 +144,12 @@ export const Login = (props) => {
                       <img className="img" alt="emailIcon" src={emailIcon} />
                       <input
                         className="enter-your-email"
-                        id="input-1"
-                        placeholder="Enter your email"
-                        type="email"
+                        id="input-2"
+                        placeholder="Enter your Username"
+                        type="text"
+                        name="username"
+                        value={formData.username}
+                        onChange={handleInputChange}
                       />
                     </div>
                   </div>
@@ -199,7 +267,7 @@ export const Login = (props) => {
             </div>
           </div>
           <button className="login-button">
-            <div className="div-wrapper">
+            <div onClick={handleSubmit} className="div-wrapper">
               <div className="text-wrapper-7">LOGIN</div>
             </div>
           </button>
