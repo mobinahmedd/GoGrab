@@ -14,13 +14,13 @@ const router = express.Router();
 
 // Get all categories
 // router.get("/getAllCategories", authenticateToken, getAllCategories);
-router.get("/getAllCategories", getAllCategories);
+router.get("/getAllCategories", authenticateToken, getAllCategories);
 
 // Get category by ID
 router.get("/getCategory/:id", getCategory);
 
 // Create a new category
-router.post("/createCategory", createCategory);
+router.post("/createCategory", authenticateToken, createCategory);
 
 router.patch("/updateCategory/:id", updateCategory);
 

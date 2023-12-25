@@ -85,10 +85,16 @@ const createAxiosInstance = (baseURL) => {
 
   const handleTokenExpiration = async (refreshToken, accessTokenKey) => {
     try {
-      const response = await instance.post("/api/auth/refresh-token", {
-        token: refreshToken,
-      });
-      const { access_token } = response.data;
+      const response = await instance.post(
+        "http://localhost:5000/api/auth/refresh-token",
+        {
+          token: refreshToken,
+        }
+      );
+      const access_token = response.data.accessToken;
+      console.log("res", response);
+      // const access_token = "mobin";
+      console.log("mobin ahmed");
       setToken(accessTokenKey, access_token);
     } catch (error) {
       console.error("Token refresh failed:", error);
@@ -99,7 +105,9 @@ const createAxiosInstance = (baseURL) => {
     (config) => {
       const token = getToken("accessToken");
       if (token) {
-        config.headers["Authorization"] = `Bearer ${token}`;
+        config.headers["authorization"] = `Bearer ${token}`;
+      } else {
+        delete config.headers["authorization"];
       }
       return config;
     },
@@ -114,19 +122,16 @@ const createAxiosInstance = (baseURL) => {
     },
     async (error) => {
       const originalRequest = error.config;
-
+      console.log(error);
       if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
-
         const refreshToken = getToken("refreshToken");
-        const accessTokenKey = "accessToken"; // Adjust this if needed for your setup
-
+        const accessTokenKey = "accessToken";
         if (refreshToken) {
           await handleTokenExpiration(refreshToken, accessTokenKey);
-          originalRequest.headers["Authorization"] = `Bearer ${getToken(
+          originalRequest.headers["authorization"] = `Bearer ${getToken(
             accessTokenKey
           )}`;
-
           return instance(originalRequest);
         }
       }

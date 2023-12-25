@@ -29,7 +29,11 @@ export async function login(req, res) {
   const accessToken = generateToken(user);
   const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
   refreshTokens.push(refreshToken);
-  res.json({ accessToken: accessToken, refreshToken: refreshToken });
+  res.json({
+    accessToken: accessToken,
+    refreshToken: refreshToken,
+    username: username,
+  });
 }
 
 // refresh access token
@@ -44,6 +48,7 @@ export async function refreshAccessToken(req, res) {
     const accessToken = generateToken({ username: user.username });
     console.log(user);
     res.json({ accessToken: accessToken });
+    console.log("refreshed");
   });
 }
 
