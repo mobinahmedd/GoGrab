@@ -45,7 +45,7 @@ Content-Type: application/json
 {
     "username": "mobin4321",
     "password": "mobin123",
-    "role":""
+    "role":"buyer"
 }
 
 ###
@@ -54,39 +54,23 @@ POST http://localhost:5000/api/auth/refresh-token
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vYmluNDMyMSIsImlhdCI6MTcwMTQ1MDE1NH0.jjjPunqC4ObNvXO0p0qxM3whQBJJBeZTZVgzzVsx-c8"
+    "token": ""
 }
 
-
+###
 ------------------------------- Category APIs -------------------------------------
 ###
 
 POST http://localhost:4000/api/categories/createCategory
 Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlNraGFuNzEyIiwiaWF0IjoxNzAzNDk3MTM2LCJleHAiOjE3MDM0OTgwMzZ9.pVU919rD2O7H9N1R-C4oOlLLhcciSK0o_alWGkhZGpI
 
 {
-  "name": "Clothing",
-  "description": "Categories related to clothing and fashion",
-  "subcategories": [
-    {
-      "name": "Men's Apparel",
-      "description": "Fashion for men including shirts, pants, and jackets"
-    },
-    {
-      "name": "Women's Apparel",
-      "description": "Fashion for women including dresses, skirts, and blouses"
-    },
-    {
-      "name": "Footwear",
-      "description": "Shoes and sandals for men and women"
-    },
-    {
-      "name": "Accessories",
-      "description": "Fashion accessories such as hats, scarves, and belts"
-    }
-  ]
+  "name": "Books and Media",
+  "description": "Categories related to Study",
+  "image":"P+kGuwaWdygigvAySy+QLsPr+LIktUydEqPR5YaXr2evqNyowVe5KavsyuukEAY0npSibVbRT61taipS9R4a5GZ92KObOC4XQ7qhEMYALyowHJs8fGIYhDJfPkyxZZ9VVVtit3vDbXpuhCBtrVNB/gxuM8BHSCGWv781auVgagGGD7DDSXSPo7kwmcHun+272ugG2ifj85ZosJYU7jKk4Az57INJgg+B3z3PHUWBvNzDOYXGcgff/HF+oYs1LcsUV0ArjPbiMB6CnYoq8wA78b2doLkfhBde+xCcV+x5HxGr3XNnw0oRMekl+bKKIg0sIOlN74vTK0WTsSAO0W6Y7+fuO3cM8DO+bXOEpdBLX+z9E4gffEOIEPTkLS+JTtsNL0PgMZoTSQznaUmTxBpMVr7D0MZ/jICU9YGJW0cPqBPsYvmFqvCCNsEtbIE4VWoeiu+1kSCKHldygAd0Vsssb+RT+ndtE9n6KBdonk2A6zUypHSVBoNAYrK8w/rR+Dj0Iq9KovdGpuVb85SNvnqKMv+0SDJ3uH7pREsUWxxC7QI1EHEk61LAFDSgnryzkD2EqwMMkSfCSARHZVYNJTXv66PyZxEYhUuvAxv0pQiquuMec0xD7hwKYu63SjAgLLA1ueqkg4fUd00KfiADiE8rpL6DphdFMI5AdaQ7QZsB6O5kWqJvALQsk1nXfU5OyaykT7LQHregCrrTMKaik4GW5WYBlRs+zkmzGQfrLNjXLXjPu/n7KC35ZGB+zMObOyHsjYI67SEinphqQviC+Alr7Vl71EoZh02CYmLJAgw3oiWOTk81PI7fJOvWXhkfC6JtV2JK2jEdZaxeAicHMdmZCzIHgJFgZnc3Qfe8U0+I0xSS9zIgBLpgLI2/Pc0CoP0plU9lSBVYracsZ9lMZ/+v2Wv/MaU3RBHh0vaH1yhf3UyoX8+O6U7zBjPqI+EBwEeTwV02h/QaW9E74UxfY2P8XPsCvqVRU7fGozoNE2kXjPS9mAP59LZVn2zSJ53nribeSRqcKUxzwXF/trK/gtf76e9v7CVZH95mPbeAmhrW7Rhj9ugtTBPhDYmFt44tBamvdC0Lc0BXoDYQhoL6wU0WCG9kbEloEUzNyvkgEXIpugZehMvLwTnzxyF4FCAEKBFjLv31JLaaPa5wORvlV18Fq8okrh+Vzyqiug8aLGw9KqoAXYtcf/6X//rvj9s26q7H9l67P8JVckrAZAekzxe2tV1/OWABmAZ1CW/khrctn2jdOvyWfsO2z3PU/bzq4DNvyc1qYyA+4yB+DmPACP1KSOVEa6xbrz1LbOhJYwSKYxMeHn6YBZlFpF1dajT/2wmRblYPNy4fhX+XotAG6cLumoV7BrmNkiklhHyfzv9hiBpW6VdSVMO7WDS7W9qETqe7eJEDA/CcTWb/HfTsHhxf3ZMt3f36C4f6osMu59eHtDPsa36Zd7j6yxBX2SC6Qs8Rv6f2QH9s/kR/XKxoG+OUzoYDpgt1gbUSM3JAFImqpapOLOIySOtA0UX9yCqPPDYl1Kk80ujrPc/bw6G/zWzxgd8Uzc9Hc/vE1E7q0dUXNiWHotsvX9AIKFZWm6SV8BsReDkOB79pDWQW/cS21g8skZesaaTuLRFphdp+9W1UNdDlvdWamfQfkDOmUhnDp7YEa6LdUemKl+2cYSY+WCGPaSi2KOG3tA1+qPPwREeGvEc28P1ssIeriVzvA0WcTvpRNCyqaOl8m3seMGB/fLLL8v6biBJd//4mNjX9pPP0URQ29IA8nPmQnrO1k/xzpLXK4NA0kLiusqM9+ts6y7tITzAvXabl9XmglVzkFuuKmO9qMyoAMhuFVlvqm9XXfZ1to/Yqkji7+EzIq7wHdu8UJ/lex5EWG+qsWwPVTiFqo33aJ37n2U7+xvr+Y+k6KdXTmn5k9Wy+AQyhQrEGkt2T0kjJBeAislSkXNTkNxsC2dSeqbSXFv+XKQSVijtQADSRVZJoTaqNISyorL9wKvKEgl0ex2UdMxrXl8fDv/xME2/jV5MmdfQijTDQsvPkNeEiia6WtJKoIVJUC+mh3U1aCF10d5Fc56laqYnFsDO9S4SkLQ5tKGgKXvoqCFJ8gZcsWvRTsQSRxYsVYNGS9VaFooMbqiqLLat2LFoP8uTOhIKUI0U4AVJhcjBq9FADjFIL1p8NvzJn/xJB7nsYyCKwVG/u9SOyK4YdG7v1sAz8Mo5xcSWn4J/1/mbot+V40Gid+3s+Lfi43w2ykWOPqtabe4vAFeKCLDUnVrmE1hyLxwAu5dBLBoMgAupe9WA2SKrLl8WBpjt3sBMc4B7CGoR3EwVk0tPsEvp6Pi4BiySP9yGBVGF9669K4BmAIOYErCSREQlPSunI7Yv2GJ+R24o3gFmdk+5fZw4cHHdmQM5TXX9chkYvFdnef5f8Ln/+4iIypFcAPBWSJRYsvsDIMvYdSOsqpBOUG5zyURIqBtwov12kYSQCgEllSrs+8Q+Veq6wseTXpr8E7Y5vzQaDN5B3yN//t5kWo5rUrawLoVWYrUGbQTSel3S1E8uo/0FxLUbyOxWJ6CW6gJS8wMgxcubkRuAYcYs2r2ToUU1xFRoyvdOGbCucXkpYBQnRO2p46hAg2Sj8fd75o5y0FZ0HsCr1tVLJKXpMRKaVu0fEWE1W+2LS0KiTgxb89yrFdKcPvcY0ixa3yLSOvuGmhTj7T5DolYLeL/r5CT8n1oJUyXvdNoCL4D76U9/OnnvPa3b4fHQPFsmDFI0N5NwzUsI1tBWLi2JGxNVWIdyO+PxGAyyAtgYZriHwDKDXUYhPKQtlCxhkehQOFHlUpSZZhBSDkgnquxdAIsuCELwugSOtsV7au9gmhkgy6NZ/sfy5fw/5lH90aIqM9Qn7iNeOQ2SFI+Sd0gWALLYgBSApqWm4dnzbqnDdW5vsHlcjTaYB1MexD87yHqvjPoDdusUMx86mdWAsvvcUoe7nyNJWwYPacS6qLQMOIC+2raiSLhdC7No6Yn12IbURYTjSVF6B7sBu1uSZmQStw5jRPE3S+nEuc2s/jbpcbUfdNIU65fC/nGXD2x79SqhP1edkUJq4wa76FXq6jn1tQtI/N2VxhdsW08I/jDpvGosJ2THk79XAPPcLrTabVW5VrAK7L6YNG5cVaRE1ncxWF/b2KgA3hejHwN4XWX2hQEcoD5fv349IDEfQERFDfQQLq9eDZdUYoq6jO1b6rKpyb7OJau/xwyzPCsGKwCMJAacC3zCADF8uDxwQs8Y5p4BsWegRbAHfLqVuYtc7Ua45RB/myotjLOtB1dcWeAG/711muf/bpkv/pw0xwphgJrHMBZK6bMTrMtfZSl41A1BbOXPis2ahH2eGt7hQfo15rFeWxsOX2HJf8S+0nFhjaVtkMQ2rHbNU7VY/KIIfog5gFp6mvoctGytqMIiUT2xPbLtY9ePN/UamC0LyRw3Xwvm6225dOAGMsmK7o1oQWPrPalAmsbVZXwNmGhCx1oYeYsc0t5abeDygtLFzgq3Bn19QyMQR+F3tQ18DjUXSNYLtvVj15NEF2Tx0gXvqld8eDJbPAZ+9JuPmwTkfADiR42rqPYLn5jEtQ4Q8hnJDxJnHNm5eC80bjgkDx5UVxnIUJmhLoMX3DaQYjt+WsGBC1v3eIWtG0tdX9c3wEEUbTBgYeMO7DtUzGBgq4Q14PbN5nU/sPhw3aY1NxDbUamESZprKFahzXWkebz2+WSxuDXNiz/B0uwWW6pXFlX5YQbvHLWeeKchso3t6Q8qIcPDlEF6wAPzNV53lwfj3XHWf6eXhgcMpBmrxmnWJEZoFJipv6nmHtekk5fiEWAyULKoq56DlUw1lvXsj7VUOTDplJvLx8ENUDpovRl1MHV6aXHI2NekLn5fZhR8vzAJ66oxJC0i5VxdxnapssZCPM6MIGwFXBgpBQc0apnJ9yZx0QgA0la6YGZZXSo1dMZ1bQPaSt/m3BLvRI3UriWvraQu6AFOsM/+2cHkvx3bzStsaFoB8pZdHUn9lirePQ6dJ62otqsjH/HzZC4rqwZyAunLriKA1tXlLnCZtJLStAAhVGWvnoF7tG1SV6Tr4aE093bwHvH3ay6JO+CtTCJXBtwJwGrgqiUv7F0DHYgrSF/YvpCyFBFVTkYJeQUJrB3/EoukSpZUl3EVtTpXiZakbXVaxwm/lkkC0KNhVsU+5BsoPB/Q+rnId5I0uw1hzOewZEm6sHERvC9P7l0L9f7J1/htO5dgoKolrXcRwGchnLyqh9u2kbsGq61rfEu6FtbPVgoWMHj7TkYZ+LxVpqjEVgBO7ORIRa4l7wUSN65y0rVt4wwg1JJCdYsTdw2ilc7ly7Ub0W1bO371/wMDrDGzgeJsgAAAAABJRU5ErkJggg==", 
+  "subcategories": [{"name":"Books"}]
 }
-
 
 
 ###
@@ -124,6 +108,7 @@ GET http://localhost:4000/api/categories/getCategory/656c293bfef1304065644066
 
 ###
 GET http://localhost:4000/api/categories/getAllCategories
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlNraGFuNzEyIiwiaWF0IjoxNzAzNDA0NzU2LCJleHAiOjE3MDM0MDU2NTZ9.VFOS34pIMYqB2_GEoydc5LXGXQdIDIdXnjNP7uTVXlU
 
 
 ------------------------------- User APIs -------------------------------------

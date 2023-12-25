@@ -58,14 +58,14 @@ export const Login = (props) => {
     e.preventDefault();
     try {
       const response = await authServerInstance.post(
-        "http://localhost:5000/api/auth/login",
+        "/api/auth/login",
         formData
       );
-      const { accessToken, refreshToken } = response.data;
+      const { accessToken, refreshToken, username } = response.data;
 
-      localStorage.getItem("accessToken", accessToken);
-      localStorage.getItem("refreshToken", refreshToken);
-
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+      showMessage(`Authenticated as ${username}`, "success");
       navigate("/dashboard");
     } catch (error) {
       showMessage("Invalid credentials. Please try again.", "error");

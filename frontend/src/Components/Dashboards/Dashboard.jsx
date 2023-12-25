@@ -1,5 +1,6 @@
 import React from "react";
 import "./Dashboard.css";
+import { mainServerInstance } from "../../Axios/axiosInstance";
 import Product from "./Product";
 import Categories from "./Categories";
 import Wishlist from "../Wishlist/Wishlist";
@@ -41,6 +42,35 @@ import headphoneSet from "../../Assets/headphoneSet.jpeg";
 const Dashboard = () => {
   const [year, setYear] = React.useState(new Date().getFullYear());
   const [showWishlist, setShowWishlist] = React.useState(false);
+  const [categoriesData, setCategoriesData] = React.useState([]);
+
+  React.useEffect(() => {
+    getAllCategories();
+  }, []);
+
+  const categories = categoriesData?.map((category) => (
+    <Categories
+      key={category._id}
+      image={category.image}
+      name={category.name}
+    />
+  ));
+
+  const getAllCategories = async () => {
+    try {
+      const response = await mainServerInstance.get(
+        "/api/categories/getAllCategories"
+      );
+
+      console.log("Categories:", response.data);
+      setCategoriesData(response.data);
+      // Handle the categories data as needed
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+      // Handle errors or display an error message to the user
+    }
+  };
+  // getAllCategories();
   return (
     <>
       {showWishlist && <Wishlist />}
@@ -159,13 +189,14 @@ const Dashboard = () => {
           {/*  */}
           {/* categories mobin */}
           <div className="categories-frames">
-            <Categories image={shoe} name={"Fashion And Apparel"} />
+            {/* <Categories image={shoe} name={"Fashion And Apparel"} />
             <Categories image={decor} name={"Electronics and gadgets"} />
             <Categories image={makeup} name={"Home and decor"} />
             <Categories image={study} name={"Beauty and personal care"} />
             <Categories image={food} name={"Health and wellness"} />
             <Categories image={gaming} name={"books and media"} />
-            <Categories image={gaming} name={"books and media"} />
+            <Categories image={gaming} name={"books and media"} /> */}
+            {categories}
           </div>
           <div className="categoris-heading">
             <div className="text-wrapper-27">Categories</div>
@@ -222,6 +253,7 @@ const Dashboard = () => {
                 extravaganza! Don&#39;t miss out on incredible savings – log in
                 and treat yourself to the latest trends at unbeatable prices
               </p>
+
               <button className="login-button">
                 <div className="overlap-6">
                   <div className="text-wrapper-32">LOGIN</div>
