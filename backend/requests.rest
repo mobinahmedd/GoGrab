@@ -160,6 +160,74 @@ GET http://localhost:4000/api/products/searchProduct?name=pro
 ###
 GET http://localhost:4000/api/users/searchUser?item=ahmed
 
+###
+POST http://localhost:4000/api/wishlist/addToWishlist
+Content-Type: application/json
 
+{
+  "userId": "6586f11761510627cf359b8e",
+  "productId": "658b8a49c82b55925106fd45"
+}
+
+###
+POST http://localhost:4000/api/wishlist/addToWishlist
+Content-Type: application/json
+
+{
+  "userId": "658b8af4d9be0843103f31b1",
+  "productId": "658b8a49c82b55925106fd45"
+}
+
+###
+GET http://localhost:4000/api/wishlist/getWishlist/6586f11761510627cf359b8e
+
+###
+DELETE http://localhost:4000/api/wishlist/removeFromWishlist/658b8af4d9be0843103f31b1/658b8a49c82b55925106fd47
+
+###
+POST http://localhost:4000/api/cart/addToCart
+Content-Type: application/json
+
+{
+  "userId": "658b8af4d9be0843103f31b1",
+  "productId": "658bc3ac1e65643702e6fde8"
+}
+
+###
+POST http://localhost:4000/api/cart/addToCart
+Content-Type: application/json
+
+{
+  "userId": "6586f11761510627cf359b8e",
+  "productId": "658b8a49c82b55925106fd49"
+}
+
+###
+GET http://localhost:4000/api/cart/getCart/658b8af4d9be0843103f31b1
+
+###
+DELETE http://localhost:4000/api/cart/removeFromCart/658b8af4d9be0843103f31b1/658b8a49c82b55925106fd49
+
+
+###
+
+POST http://localhost:4000/api/products/createProduct
+Content-Type: application/json
+
+{
+  "name": "Headphones Deluxe",
+  "description": "Premium over-ear headphones with noise-canceling technology",
+  "price": 199.99,
+  "quantity": 120,
+  "discount": 8,
+  "categoryId": "656c293bfef13040656880aa",
+  "images": [
+    "https://example.com/headphones_image1.jpg",
+    "https://example.com/headphones_image2.jpg",
+    "https://example.com/headphones_image3.jpg"
+  ],
+  "timesSold": 40,
+  "sellerId": "656c2e77fef13040656440c0"
+}
 
 

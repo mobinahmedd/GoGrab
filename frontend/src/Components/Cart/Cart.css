@@ -169,7 +169,7 @@ body::-webkit-scrollbar-thumb {
   font-family: "Roboto-Regular", Helvetica;
   font-size: 14px;
   font-weight: 400;
-  height: 25px;
+  height: 30px;
   letter-spacing: 0;
   line-height: normal;
   padding-bottom: 4px;
@@ -183,9 +183,9 @@ body::-webkit-scrollbar-thumb {
 
 .cart-frame .cart-iconamoon-search {
   height: 20px;
-  left: 209px;
+  left: 210px;
   position: absolute;
-  top: 6px;
+  top: 5px;
   width: 20px;
 }
 
@@ -345,6 +345,23 @@ body::-webkit-scrollbar-thumb {
   width: 127px;
 }
 
+.cart-plus {
+  height: 100%;
+  width: 35%;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  left: 80px;
+  top: 0%;
+}
+
+.cart-minus {
+  height: 100%;
+  width: 35%;
+  cursor: pointer;
+  user-select: none;
+}
+
 .cart-frame .cart-overlap-group-2 {
   background-image: url("../../Assets/quantity-bg.png");
   background-size: 100% 100%;
@@ -358,7 +375,7 @@ body::-webkit-scrollbar-thumb {
   font-family: "Proxima Nova-Regular", Helvetica;
   font-size: 18px;
   font-weight: 400;
-  left: 57px;
+  left: 51px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
@@ -367,19 +384,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 .cart-frame .cart-group {
-  height: 12px;
-  left: 95px;
+  height: 10px;
+  left: 15px;
   position: absolute;
   top: 18px;
-  width: 13px;
+  width: 11px;
 }
 
 .cart-frame .cart-rectangle-copy {
-  height: 5px;
+  height: 3px;
   left: 18px;
   position: absolute;
   top: 21px;
-  width: 12px;
+  width: 10px;
 }
 
 .cart-frame .cart-del {
@@ -391,7 +408,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .cart-frame .cart-pic {
-  background-image: url();
   background-size: 100% 100%;
   height: 135px;
   left: 50px;
@@ -407,6 +423,7 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   top: 9px;
   width: 117px;
+  mix-blend-mode: multiply;
 }
 
 .cart-frame .cart-text-wrapper-7 {
@@ -439,7 +456,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .cart-frame .cart-image-wrapper {
-  background-image: url();
   background-size: 100% 100%;
   height: 135px;
   left: 50px;
@@ -504,7 +520,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .cart-frame .cart-img-wrapper {
-  background-image: url();
   background-size: 100% 100%;
   height: 135px;
   left: 50px;
@@ -530,7 +545,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .cart-frame .cart-pic-2 {
-  background-image: url();
   background-size: 100% 100%;
   height: 135px;
   left: 50px;
@@ -876,8 +890,8 @@ body::-webkit-scrollbar-thumb {
 .cart-frame .cart-search-icon-wrapper {
   background-color: #133951d9;
   border-radius: 0px 100px 100px 0px;
-  height: 53px;
-  left: 695px;
+  height: 48px;
+  left: 674px;
   position: absolute;
   top: 1.5px;
   width: 60px;
@@ -885,9 +899,9 @@ body::-webkit-scrollbar-thumb {
 
 .cart-frame .cart-search-icon {
   height: 24px;
-  left: 13px;
+  left: 16px;
   position: absolute;
-  top: 14px;
+  top: 13px;
   width: 24px;
   cursor: pointer;
 }

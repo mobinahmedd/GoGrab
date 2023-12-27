@@ -1,4 +1,6 @@
 import React from "react";
+import { mainServerInstance } from "../../Axios/axiosInstance";
+
 import "./Cart.css";
 import profileIcon from "../../Assets/profile.png";
 import hero from "../../Assets/hero.png";
@@ -22,6 +24,39 @@ import logoDark from "../../Assets/logo-dark.png";
 import CartProduct from "./CartProduct";
 
 const Cart = () => {
+  const [totalPrice, setTotalPrice] = React.useState(0);
+  const [cartData, setCartData] = React.useState([]);
+
+  React.useEffect(() => {
+    getCartProducts();
+  }, []);
+
+  const cartProduct = cartData.products?.map((product) => (
+    <CartProduct
+      key={product._id}
+      image={product.productId.image}
+      name={product.productId.name}
+      price={product.productId.price}
+      quantity={product.quantity}
+    />
+  ));
+
+  const getCartProducts = async () => {
+    try {
+      const response = await mainServerInstance.get(
+        "/api/cart/getCart/658b8af4d9be0843103f31b1"
+      );
+
+      console.log("Cart:", response.data);
+      setCartData(response.data);
+    } catch (error) {
+      console.error("Error fetching cart:", error);
+      // Handle errors or display an error message to the user
+    }
+  };
+
+  console.log(cartData);
+
   return (
     <div className="cart-frame">
       <div className="cart-div">
@@ -99,12 +134,13 @@ const Cart = () => {
         <div className="cart-overlap">
           <div className="cart-div-2">
             <div className="cart-products">
-              <CartProduct name="Beats by Dre" />
+              {/* <CartProduct name="Beats by Dre" /> */}
               {/* <CartProduct name="Beats by Jawad" />
               <CartProduct name="Beats by Mobin" />
               <CartProduct name="Beats by Adan" />
               <CartProduct name="Beats by Shahood" />
               <CartProduct name="Beats by Umer" /> */}
+              {cartProduct}
             </div>
             <div className="cart-heading">
               <div className="cart-text-wrapper-11">Shopping Cart</div>
@@ -123,11 +159,11 @@ const Cart = () => {
             <div className="cart-text-wrapper-17">Subtotal</div>
             <div className="cart-text-wrapper-18">Shipping fee</div>
             <div className="cart-text-wrapper-19">TOTAL</div>
-            <div className="cart-text-wrapper-20">$62</div>
+            <div className="cart-text-wrapper-20">${totalPrice}</div>
             <div className="cart-text-wrapper-21">$20</div>
             <div className="cart-text-wrapper-22">Coupon</div>
             <div className="cart-text-wrapper-23">No</div>
-            <div className="cart-text-wrapper-24">$118</div>
+            <div className="cart-text-wrapper-24">${totalPrice + 20}</div>
             <img className="cart-divider-3" alt="Divider" src={divider} />
             <button className="cart-btn">
               <div title="Proceed to Checkout" className="cart-div-wrapper">

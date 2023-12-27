@@ -5,6 +5,10 @@ export const addToWishlist = async (req, res) => {
 
   try {
     const wishlist = await Wishlist.findOne({ userId });
+    const productExist = await Wishlist.find({
+      userId: userId,
+      products: { $in: [productId] },
+    });
 
     if (!wishlist) {
       // If the wishlist doesn't exist for the user, create a new one
@@ -12,10 +16,15 @@ export const addToWishlist = async (req, res) => {
       const savedWishlist = await newWishlist.save();
       res.status(201).json(savedWishlist);
     } else {
-      // If the wishlist already exists, add the new product to it
-      wishlist.products.push(productId);
-      const updatedWishlist = await wishlist.save();
-      res.json(updatedWishlist);
+      if (productExist.length === 0) {
+        wishlist.products.push(productId);
+        const updatedWishlist = await wishlist.save();
+        res.status(201).json(updatedWishlist);
+      } else {
+        res
+          .status(400)
+          .json({ message: "Product already exist in your wishlist" });
+      }
     }
   } catch (err) {
     res.status(400).json({ message: err.message });
