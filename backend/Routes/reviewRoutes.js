@@ -2,15 +2,16 @@ import express from "express";
 import {
   createReview,
   updateReview,
-  getProductReviews,
+  averageRating,
   deleteReview,
 } from "../Controllers/reviewsController.js";
+import { authenticateToken } from "../JWT_Utils/jwt.js";
 
 // Create an Express router
 const router = express.Router();
 
 // Get all reviews of a product
-router.get("/getProductReviews/:id", getProductReviews);
+router.get("/averageRating/:id", averageRating);
 
 // Create a new review
 router.post("/createReview", createReview);

@@ -1,4 +1,5 @@
 import Review from "../Models/reviewsModel.js";
+import mongoose from "mongoose";
 
 export const createReview = async (req, res) => {
   const { userId, productId, rating, comment } = req.body;
@@ -33,14 +34,27 @@ export const updateReview = async (req, res) => {
   }
 };
 
-export const getProductReviews = async (req, res) => {
-  const productId = req.params.productId;
-
+export const averageRating = async (req, res) => {
   try {
-    const productReviews = await Review.find({ productId });
-    res.json(productReviews);
+    const productId = req.params.id;
+    console.log(",here");
+    const result = await Review.aggregate([
+      { $match: { productId: new mongoose.Types.ObjectId(productId) } },
+      {
+        $group: {
+          _id: null,
+          averageRating: { $avg: "$rating" },
+        },
+      },
+    ]);
+
+    if (result.length > 0) {
+      res.json({ averageRating: result[0].averageRating });
+    } else {
+      res.json({ averageRating: 0 });
+    }
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ error: err.message });
   }
 };
 

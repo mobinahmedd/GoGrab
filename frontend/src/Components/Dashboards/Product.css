@@ -1,5 +1,7 @@
 .box {
   width: 269px;
+  margin-bottom: 16px;
+  margin-right: 9px;
 }
 
 .box .products-cards {
@@ -10,7 +12,6 @@
   top: 0;
   width: 269px;
 }
-
 .box .ui-challenge-day {
   /* margin-bottom: 10px; */
   box-shadow: 0px 4px 4px #00000040;
@@ -19,7 +20,14 @@
   border-radius: 20px;
   height: 349px;
   overflow: hidden;
+  transition: 0.3s ease;
   /* position: relative; */
+}
+.box .ui-challenge-day:hover {
+  transform: scale(0.98);
+}
+.box .ui-challenge-day:active {
+  transform: scale(1);
 }
 
 .box .text-wrapper {
@@ -33,13 +41,16 @@
   /* position: absolute; */
   top: 263px;
 }
-
+.box .text-wrapper:hover {
+  opacity: 1 !important;
+}
 .box .div {
   color: #000000;
   font-family: "Inter-Bold", Helvetica;
   font-size: 24px;
   font-weight: 700;
-  left: 208px;
+  left: 195px;
+  /* right: -100px; */
   letter-spacing: 0;
   line-height: normal;
   position: relative;
@@ -110,8 +121,14 @@
   position: absolute;
   top: 13px;
   width: 28px;
+  z-index: 100;
 }
-
+.box .favourites:hover {
+  transform: scale(1.1);
+}
+.box .favourites:active {
+  transform: scale(1);
+}
 .box .image {
   height: 186px;
   left: 43px;

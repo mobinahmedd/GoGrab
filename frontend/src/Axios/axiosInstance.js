@@ -85,7 +85,7 @@ const createAxiosInstance = (baseURL) => {
 
   const handleTokenExpiration = async (refreshToken, accessTokenKey) => {
     try {
-      const response = await instance.post(
+      const response = await axios.post(
         "http://localhost:5000/api/auth/refresh-token",
         {
           token: refreshToken,

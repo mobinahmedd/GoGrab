@@ -11,7 +11,11 @@ const Categories = (props) => {
     "#1279FE",
   ];
   return (
-    <div style={{ backgroundColor: colors[2] }} className="cat-frame">
+    <div
+      style={{ backgroundColor: colors[2] }}
+      onClick={() => props.fetchProductsByCategory(props.id)}
+      className="cat-frame"
+    >
       <div className="cat-overlap-group">
         <div
           style={{ lineHeight: "33px", textTransform: "uppercase" }}
@@ -19,7 +23,12 @@ const Categories = (props) => {
         >
           {props.name}
         </div>
-        <img className="cat-element" alt="Element" src={props.image} />
+        {/* <img className="cat-element" alt="Element" src={props.image} /> */}
+        <img
+          className="cat-element"
+          alt="Element"
+          src={`data:image/png;base64,${props.image}`}
+        />
       </div>
     </div>
   );

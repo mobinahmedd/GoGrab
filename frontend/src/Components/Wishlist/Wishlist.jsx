@@ -9,7 +9,7 @@ import product2 from "../../Assets/product2.png";
 import product3 from "../../Assets/product3.png";
 import product4 from "../../Assets/product4.png";
 
-const Wishlist = () => {
+const Wishlist = (props) => {
   return (
     <>
       <div className="wl-blurbg">
@@ -29,7 +29,10 @@ const Wishlist = () => {
               <Product image={headphoneProduct} name="Headphone" price="16" />
             </div>
 
-            <div className="wl-overlap"></div>
+            <div
+              onClick={props.toggleShowWishList}
+              className="wl-overlap"
+            ></div>
           </div>
         </div>
       </div>

@@ -4,14 +4,63 @@ import productHeart from "../../Assets/productHeart.png";
 import star from "../../Assets/star.png";
 import productCardLine from "../../Assets/productCardLine.png";
 import nextArrow from "../../Assets/next.png";
+import { mainServerInstance } from "../../Axios/axiosInstance";
+import { NotificationContext } from "../../NotificationContext";
 
 const Product = (props) => {
+  const [review, setReview] = React.useState("");
+  const { notification, setNotification } =
+    React.useContext(NotificationContext);
+
+  React.useEffect(() => {
+    getreview();
+  }, []);
+
+  const getreview = async () => {
+    try {
+      const response = await mainServerInstance.get(
+        `/api/reviews/averageRating/${props.id}`
+      );
+      console.log("reviews:", response.data);
+      setReview(response.data.averageRating);
+    } catch (error) {
+      console.error("Error fetching review:", error);
+    }
+  };
+  const addToCart = async () => {
+    try {
+      const response = await mainServerInstance.post("api/cart/addToCart", {
+        productId: props.id,
+      });
+      if (response.status === 201) {
+        showMessage("Added to Cart", "success");
+      }
+    } catch (error) {
+      showMessage(error.response.data.message, "error");
+    }
+  };
+
+  const showMessage = (message, type) => {
+    setNotification({
+      show: true,
+      message: message,
+      type: type,
+    });
+  };
+
   return (
     <div className="box">
       <div className="products-cards">
         <div className="ui-challenge-day">
-          <div className="text-wrapper">Beats by Dre</div>
-          <div className="div">$16</div>
+          <div className="text-wrapper">{props.name}</div>
+          <div
+            style={{
+              width: "fit-content",
+            }}
+            className="div"
+          >
+            {"$" + props.price}
+          </div>
           <div className="frame">
             <div className="overlap-group1">
               <div className="group">
@@ -20,20 +69,29 @@ const Product = (props) => {
                   alt="Iconamoon arrow"
                   src={nextArrow}
                 />
-                <div className="text-wrapper-2">Add to Cart</div>
+                <div onClick={addToCart} className="text-wrapper-2">
+                  Add to Cart
+                </div>
               </div>
             </div>
           </div>
           <img className="favourites" alt="Favourites" src={productHeart} />
           <div className="image">
-            <img className="" alt="Image" src={props.img} />
+            <img
+              className=""
+              alt="Image"
+              src={`data:image/png;base64,${props.img}`}
+            />
           </div>
           <img className="line" alt="Line" src={productCardLine} />
-          <div className="text-wrapper-3">4.8</div>
+          <div className="text-wrapper-3">{review || 0}</div>
           <img className="star" alt="Star" src={star} />
           <p className="sold">
             <span className="span">
-              Sold : <span style={{ fontWeight: "normal" }}>(2.2k)</span>
+              Sold :{" "}
+              <span
+                style={{ fontWeight: "normal" }}
+              >{`(${props.timesSold})`}</span>
             </span>
           </p>
         </div>
