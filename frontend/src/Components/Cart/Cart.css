@@ -279,7 +279,8 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   align-items: center;
   padding-top: 0%;
-  overflow: auto;
+  overflow-y: scroll;
+  max-width: 1300px;
 }
 
 .cart-products::-webkit-scrollbar {
@@ -301,6 +302,7 @@ body::-webkit-scrollbar-thumb {
   margin-top: 45px;
   width: 1262px;
   position: relative;
+  max-width: 1262px;
 }
 
 .cart-frame .cart-divider {

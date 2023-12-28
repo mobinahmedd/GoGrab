@@ -1,8 +1,12 @@
 import Wishlist from "../Models/wishlistModel.js";
+import User from "../Models/userModel.js";
 
 export const addToWishlist = async (req, res) => {
-  const { userId, productId } = req.body;
-
+  const { productId } = req.body;
+  const username = req.user.username;
+  const user = await User.findOne({ username });
+  const userId = user._id;
+  console.log(user);
   try {
     const wishlist = await Wishlist.findOne({ userId });
     const productExist = await Wishlist.find({

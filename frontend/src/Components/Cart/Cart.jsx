@@ -31,6 +31,52 @@ const Cart = () => {
     getCartProducts();
   }, []);
 
+  React.useEffect(() => {
+    if (cartData.length !== 0) {
+      updateCartProducts();
+    }
+  }, [cartData]);
+
+  const updateCartProducts = async () => {
+    try {
+      const response = await mainServerInstance.patch(
+        `/api/cart/updateCart/658b8af4d9be0843103f31b1`,
+        { products: cartData.products }
+      );
+
+      console.log("Cart updated:", response.data);
+    } catch (error) {
+      console.error("Error updating cart:", error);
+      // Handle errors or display an error message to the user
+    }
+  };
+
+  const updateProductQuantity = (productId, newQuantity) => {
+    // Update the quantity for the specific product in the cartData
+    setCartData((prevCart) => {
+      const updatedCart = {
+        ...prevCart,
+        products: prevCart.products.map((product) => {
+          if (product._id === productId) {
+            return {
+              ...product,
+              quantity: newQuantity,
+            };
+          }
+          return product;
+        }),
+      };
+      // Recalculate the total price
+      const newTotalPrice = updatedCart.products.reduce(
+        (total, product) => total + product.productId.price * product.quantity,
+        0
+      );
+      setTotalPrice(newTotalPrice);
+
+      return updatedCart;
+    });
+  };
+
   const cartProduct = cartData.products?.map((product) => (
     <CartProduct
       key={product._id}
@@ -38,6 +84,9 @@ const Cart = () => {
       name={product.productId.name}
       price={product.productId.price}
       quantity={product.quantity}
+      updateQuantity={(newQuantity) =>
+        updateProductQuantity(product._id, newQuantity)
+      }
     />
   ));
 
@@ -56,6 +105,8 @@ const Cart = () => {
   };
 
   console.log(cartData);
+
+  const handleCheckout = () => {};
 
   return (
     <div className="cart-frame">
@@ -166,7 +217,11 @@ const Cart = () => {
             <div className="cart-text-wrapper-24">${totalPrice + 20}</div>
             <img className="cart-divider-3" alt="Divider" src={divider} />
             <button className="cart-btn">
-              <div title="Proceed to Checkout" className="cart-div-wrapper">
+              <div
+                title="Proceed to Checkout"
+                onClick={handleCheckout}
+                className="cart-div-wrapper"
+              >
                 <div className="cart-text-wrapper-25">Check out</div>
               </div>
             </button>

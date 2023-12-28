@@ -8,26 +8,31 @@ import divider from "../../Assets/divider.png";
 
 const CartProduct = (props) => {
   const [quantity, setQuantity] = React.useState(props.quantity);
-  const [productTotal, setProductTotal] = React.useState(
-    props.price * quantity
-  );
 
   const handleIncreaseQuantity = () => {
     setQuantity((prev) => {
-      return prev + 1;
+      const newQuantity = prev + 1;
+      // Call the parent component function to update the quantity
+      props.updateQuantity(newQuantity);
+      return newQuantity;
     });
-    setProductTotal(props.price * (quantity + 1));
   };
+
   const handleDecreaseQuantity = () => {
     setQuantity((prev) => {
-      return prev === 1 ? prev : prev - 1;
+      const newQuantity = prev === 1 ? prev : prev - 1;
+      // Call the parent component function to update the quantity
+      props.updateQuantity(newQuantity);
+      return newQuantity;
     });
-    setProductTotal(props.price * quantity !== 1 ? quantity - 1 : quantity);
   };
+
   return (
     <div className="cart-cart-item">
       <img className="cart-divider" alt="Divider" src={divider} />
-      <div className="cart-text-wrapper-4">${Math.round(productTotal)}</div>
+      <div className="cart-text-wrapper-4">
+        ${Math.round(props.price * quantity)}
+      </div>
       <div className="cart-text-wrapper-5">${Math.round(props.price)}</div>
       <div className="cart-qty">
         <div className="cart-overlap-group-2">

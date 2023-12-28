@@ -89,6 +89,37 @@ export const updateCart = async (req, res) => {
   }
 };
 
+// export const updateCart = async (req, res) => {
+//   const { userId } = req.params;
+//   const { productId, quantity } = req.body;
+
+//   try {
+//     const cart = await Cart.findOne({ userId });
+
+//     if (!cart) {
+//       return res.status(404).json({ message: "Cart not found" });
+//     }
+
+//     // Check if the product with the given ID is already in the cart
+//     const existingProductIndex = cart.products.findIndex((product) =>
+//       product.productId.equals(productId)
+//     );
+
+//     if (existingProductIndex !== -1) {
+//       // Update the quantity if the product is found
+//       cart.products[existingProductIndex].quantity = quantity;
+//     } else {
+//       // If the product is not found, add it to the cart
+//       cart.products.push({ productId, quantity });
+//     }
+
+//     const updatedCart = await cart.save();
+//     res.json(updatedCart);
+//   } catch (err) {
+//     res.status(400).json({ message: err.message });
+//   }
+// };
+
 export const removeFromCart = async (req, res) => {
   const { userId, productId } = req.params;
 
