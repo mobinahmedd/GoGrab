@@ -20,7 +20,7 @@ router.get("/getAllCategories", authenticateToken, getAllCategories);
 router.get("/getCategory/:id", getCategory);
 
 // Create a new category
-router.post("/createCategory", authenticateToken, createCategory);
+router.post("/createCategory", createCategory);
 
 router.patch("/updateCategory/:id", updateCategory);
 

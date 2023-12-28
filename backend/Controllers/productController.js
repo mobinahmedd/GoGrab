@@ -84,3 +84,24 @@ export const searchProduct = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+export const getProductsByCategory = async (req, res) => {
+  try {
+    const categoryId = req.params.categoryId;
+
+    // Find products with the provided category ID
+    const products = await Product.find({ categoryId }).populate("categoryId");
+
+    if (!products || products.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No products found for the provided category ID." });
+    }
+
+    res.status(200).json(products);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Internal server error", error: error.message });
+  }
+};

@@ -4,8 +4,16 @@
   border-radius: 20px;
   height: 300px;
   overflow: hidden;
+  transition: 0.3s ease;
   width: 237px;
   /* display: block; */
+  cursor: pointer;
+}
+.cat-frame:hover {
+  transform: scale(0.93);
+}
+.cat-frame:active {
+  transform: scale(1);
 }
 
 .cat-frame .cat-overlap-group {
@@ -16,10 +24,13 @@
 }
 
 .cat-frame .cat-text-wrapper {
-  color: #ffffff;
+  color: #f0efef;
+  /* color: white; */
+  /* opacity: 0.8; */
   font-family: "Be Vietnam Pro-Black", Helvetica;
   font-size: 30px;
   font-size: 26px;
+  font-size: 23px;
   font-weight: 900;
   left: 19px;
   letter-spacing: 0;
@@ -28,7 +39,7 @@
   top: 16px;
   left: 13px;
   width: 208px;
-  width: 150px;
+  width: 138px;
   z-index: 11;
   /* border: 2px solid red; */
 }
@@ -42,6 +53,6 @@
   bottom: 0;
   width: 237px;
   z-index: 10;
-  opacity: 0.8;
-  filter: blur(2px);
+  /* opacity: 0.8; */
+  /* filter: blur(2px); */
 }

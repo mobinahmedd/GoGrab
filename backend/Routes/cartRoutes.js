@@ -5,6 +5,7 @@ import {
   updateCart,
   removeFromCart,
 } from "../Controllers/cartController.js";
+import { authenticateToken } from "../JWT_Utils/jwt.js";
 
 // Create an Express router
 const router = express.Router();
@@ -13,7 +14,7 @@ const router = express.Router();
 router.get("/getCart/:userId", getCart);
 
 // Add a new product to the cart
-router.post("/addToCart", addToCart);
+router.post("/addToCart", authenticateToken, addToCart);
 
 // Update the cart by user ID
 router.patch("/updateCart/:userId", updateCart);

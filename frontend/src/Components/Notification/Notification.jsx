@@ -83,7 +83,8 @@ const Notification = () => {
         <div
           className={`notification ${type}`}
           style={{
-            backgroundColor: "#f8d7da",
+            backgroundColor: "rgb(255,255,255)",
+            // backgroundColor: getColor(),
           }}
         >
           <div className="message">{message}</div>
