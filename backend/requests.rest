@@ -158,8 +158,6 @@ GET http://localhost:4000/api/products/searchProduct?name=pro
 ###
 GET http://localhost:4000/api/users/searchUser?item=ahmed
 
-###
-
 
 ###
 GET http://localhost:4000/api/reviews/createReview
@@ -192,9 +190,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlNra
 
 GET http://localhost:4000/api/wishlist/getWishlist
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlNraGFuNzEyIiwiaWF0IjoxNzAzNjE4MTc5LCJleHAiOjE3MDM2MTkwNzl9.qGU7sICTrB_Cm09XoFbkB2q4eCunrtCyIDtkUx6MtiI
-
-###
-
 
 
 ###

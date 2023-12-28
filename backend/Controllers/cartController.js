@@ -80,7 +80,10 @@ export const getCart = async (req, res) => {
   const { userId } = req.params;
 
   try {
-    const cart = await Cart.findOne({ userId });
+    const cart = await Cart.findOne({ userId }).populate(
+      "products.productId",
+      "name price images"
+    );
 
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
@@ -91,6 +94,22 @@ export const getCart = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+// export const getCart = async (req, res) => {
+//   const { userId } = req.params;
+
+//   try {
+//     const cart = await Cart.findOne({ userId });
+
+//     if (!cart) {
+//       return res.status(404).json({ message: "Cart not found" });
+//     }
+
+//     res.json(cart);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// };
 
 export const updateCart = async (req, res) => {
   const { userId } = req.params;
@@ -112,17 +131,49 @@ export const updateCart = async (req, res) => {
   }
 };
 
+// export const updateCart = async (req, res) => {
+//   const { userId } = req.params;
+//   const { productId, quantity } = req.body;
+
+//   try {
+//     const cart = await Cart.findOne({ userId });
+
+//     if (!cart) {
+//       return res.status(404).json({ message: "Cart not found" });
+//     }
+
+//     // Check if the product with the given ID is already in the cart
+//     const existingProductIndex = cart.products.findIndex((product) =>
+//       product.productId.equals(productId)
+//     );
+
+//     if (existingProductIndex !== -1) {
+//       // Update the quantity if the product is found
+//       cart.products[existingProductIndex].quantity = quantity;
+//     } else {
+//       // If the product is not found, add it to the cart
+//       cart.products.push({ productId, quantity });
+//     }
+
+//     const updatedCart = await cart.save();
+//     res.json(updatedCart);
+//   } catch (err) {
+//     res.status(400).json({ message: err.message });
+//   }
+// };
+
 export const removeFromCart = async (req, res) => {
-  const { userId, product } = req.params;
+  const { userId, productId } = req.params;
 
   try {
     const cart = await Cart.findOne({ userId });
-
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
     }
 
-    const productIndex = cart.products.findIndex((p) => p.product === product);
+    const productIndex = cart.products.findIndex(
+      (p) => p.productId == productId
+    );
 
     if (productIndex !== -1) {
       // Remove the product from the cart

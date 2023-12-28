@@ -3,11 +3,11 @@ import "./Wishlist.css";
 import Product from "./Product";
 import line from "../../Assets/footerLine.png";
 import headphoneProduct from "../../Assets/headphoneProduct.png";
-import headphoneSet from "../../Assets/headphoneSet.jpeg";
-import product1 from "../../Assets/product1.png";
-import product2 from "../../Assets/product2.png";
-import product3 from "../../Assets/product3.png";
-import product4 from "../../Assets/product4.png";
+// import headphoneSet from "../../Assets/headphoneSet.jpeg";
+// import product1 from "../../Assets/product1.png";
+// import product2 from "../../Assets/product2.png";
+// import product3 from "../../Assets/product3.png";
+// import product4 from "../../Assets/product4.png";
 
 const Wishlist = (props) => {
   return (

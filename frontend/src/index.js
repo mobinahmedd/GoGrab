@@ -10,6 +10,7 @@ import Product from "../src/Components/Product/Product";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 // root.render(<Dashboard />);
-// root.render(<Cart />);
+root.render(<Cart />);
 // root.render(<Profile />);
 // root.render(<Product />);
+

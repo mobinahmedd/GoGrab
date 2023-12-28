@@ -113,6 +113,7 @@ export const addToWishlist = async (req, res) => {
   const user = await User.findOne({ username });
   const userId = user._id;
   console.log(productId);
+  console.log(user);
   try {
     const wishlist = await Wishlist.findOne({ userId });
     const productExist = await Wishlist.find({
