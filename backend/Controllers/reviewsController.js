@@ -37,7 +37,6 @@ export const updateReview = async (req, res) => {
 export const averageRating = async (req, res) => {
   try {
     const productId = req.params.id;
-    console.log(",here");
     const result = await Review.aggregate([
       { $match: { productId: new mongoose.Types.ObjectId(productId) } },
       {

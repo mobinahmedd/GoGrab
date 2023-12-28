@@ -50,6 +50,20 @@ const Dashboard = () => {
   const [categoriesData, setCategoriesData] = React.useState([]);
   const [productsData, setProductsData] = React.useState([]);
   const [wishlistData, setWishlistData] = React.useState([]);
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const productRef = React.useRef(null);
+
+  const scrollToProducts = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  React.useEffect(() => {
+    if (searchTerm) {
+      searchProduct();
+    } else {
+      getAllProducts();
+    }
+  }, [searchTerm]);
 
   React.useEffect(() => {
     getAllCategories();
@@ -147,6 +161,26 @@ const Dashboard = () => {
     }
   }
 
+  const handleSearchTermChange = (event) => {
+    const { value } = event.target;
+    setSearchTerm(value);
+  };
+
+  const searchProduct = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:4000/api/products/searchProduct?name=${searchTerm}`
+      );
+      if (!response.ok) {
+        showMessage("Failed to fetch", "error");
+      }
+      const data = await response.json();
+      setProductsData(data);
+    } catch (error) {
+      showMessage("Error fetching products", "error");
+    }
+  };
+
   return (
     <>
       {showWishlist && <Wishlist toggleShowWishList={toggleShowWishList} />}
@@ -241,7 +275,7 @@ const Dashboard = () => {
           {products}
         </div>
         {/*  */}
-        <div className="products-heading">
+        <div ref={productRef} className="products-heading">
           {/* <div className="sort-by">
             <div className="overlap-group-2">
               <img
@@ -325,7 +359,12 @@ const Dashboard = () => {
 
             <button className="login-button">
               <div style={{ width: "200px" }} className="overlap-6">
-                <div className="text-wrapper-32">SHOP NOW</div>
+                <div
+                  className="text-wrapper-32"
+                  onClick={() => scrollToProducts(productRef)}
+                >
+                  SHOP NOW
+                </div>
               </div>
             </button>
           </div>
@@ -343,11 +382,15 @@ const Dashboard = () => {
                 style={{ padding: "20px", fontSize: "18px" }}
                 className="overlap-group-5"
                 placeholder="Search for 1000+ of available products"
+                value={searchTerm}
+                onChange={handleSearchTermChange}
+                onClick={() => scrollToProducts(productRef)}
               />
 
               <button
                 style={{ border: "none" }}
                 className="search-icon-wrapper"
+                onClick={searchProduct}
               >
                 <img
                   className="search-icon"
