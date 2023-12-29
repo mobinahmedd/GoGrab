@@ -24,7 +24,13 @@ const wishlistSchema = new mongoose.Schema({
     required: true,
   },
   products: [
-    { type: mongoose.Schema.Types.ObjectId, ref: "Products", required: true },
+    {
+      productId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Products",
+        required: true,
+      },
+    },
   ],
 });
 
