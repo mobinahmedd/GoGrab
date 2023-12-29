@@ -27,6 +27,11 @@ const CartProduct = (props) => {
     });
   };
 
+  const handleRemoveProduct = () => {
+    // Call the removeProduct function from the parent component
+    props.removeProduct(props.productId);
+  };
+
   return (
     <div className="cart-cart-item">
       <img className="cart-divider" alt="Divider" src={divider} />
@@ -55,6 +60,7 @@ const CartProduct = (props) => {
         </div>
       </div>
       <img
+        onClick={handleRemoveProduct}
         style={{ cursor: "pointer" }}
         title="Remove Product"
         className="cart-del"
