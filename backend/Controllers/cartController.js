@@ -77,7 +77,11 @@ export const addToCart = async (req, res) => {
   }
 };
 export const getCart = async (req, res) => {
-  const { userId } = req.params;
+  // const { userId } = req.params;
+
+  const username = req.user.username;
+  const user = await User.findOne({ username });
+  const userId = user._id;
 
   try {
     const cart = await Cart.findOne({ userId }).populate(
@@ -112,7 +116,9 @@ export const getCart = async (req, res) => {
 // };
 
 export const updateCart = async (req, res) => {
-  const { userId } = req.params;
+  const username = req.user.username;
+  const user = await User.findOne({ username });
+  const userId = user._id;
   const { products } = req.body;
 
   try {

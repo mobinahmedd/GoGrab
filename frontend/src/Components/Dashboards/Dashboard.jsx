@@ -39,6 +39,7 @@ import product4 from "../../Assets/product4.png";
 import headphoneProduct from "../../Assets/headphoneProduct.png";
 import headphoneSet from "../../Assets/headphoneSet.jpeg";
 import { NotificationContext } from "../../NotificationContext";
+import { Link } from "react-router-dom";
 
 // import { getWishlist } from "../../../../backend/Controllers/wishlistController";
 
@@ -49,7 +50,6 @@ const Dashboard = () => {
   const [showWishlist, setShowWishlist] = React.useState(false);
   const [categoriesData, setCategoriesData] = React.useState([]);
   const [productsData, setProductsData] = React.useState([]);
-  const [wishlistData, setWishlistData] = React.useState([]);
   const [searchTerm, setSearchTerm] = React.useState("");
   const productRef = React.useRef(null);
 
@@ -68,7 +68,6 @@ const Dashboard = () => {
   React.useEffect(() => {
     getAllCategories();
     getAllProducts();
-    getWishlist();
   }, []);
 
   const categories = categoriesData?.map((category) => (
@@ -107,17 +106,6 @@ const Dashboard = () => {
       setCategoriesData(response.data);
     } catch (error) {
       console.error("Error fetching categories:", error);
-    }
-  };
-  const getWishlist = async () => {
-    try {
-      const response = await mainServerInstance.get(
-        "/api/wishlist/getWishlist"
-      );
-      console.log("wishlist:", response.data);
-      setWishlistData(response.data);
-    } catch (error) {
-      console.error("Error fetching wishlist:", error);
     }
   };
 
@@ -371,12 +359,17 @@ const Dashboard = () => {
         </div>
         <div className="nav-bar-wrapper">
           <div className="nav-bar">
-            <img className="logo-2" alt="Logo" src={logo} />
-            <img
-              className="prime-shopping-cart navIcons"
-              alt="Prime shopping cart"
-              src={cartIcon}
-            />
+            <Link to="/dashboard" className="logo-2">
+              <img alt="Logo" src={logo} />
+            </Link>
+            <Link to="/cart" className="prime-shopping-cart navIcons">
+              <img
+                style={{ cursor: "pointer" }}
+                title="Cart"
+                alt="Prime shopping cart"
+                src={cartIcon}
+              />
+            </Link>
             <div className="search-button">
               <input
                 style={{ padding: "20px", fontSize: "18px" }}
@@ -405,7 +398,9 @@ const Dashboard = () => {
               src={favouritesIcon}
               onClick={toggleShowWishList}
             />
-            <img className="profile navIcons" alt="Profile" src={profileIcon} />
+            <Link to="/profile" className="profile navIcons">
+              <img alt="Profile" src={profileIcon} />
+            </Link>
           </div>
         </div>
         {/* </div> */}
