@@ -1,5 +1,7 @@
 import React from "react";
 import "./Wishlist.css";
+import { mainServerInstance } from "../../Axios/axiosInstance";
+
 import Product from "./Product";
 import line from "../../Assets/footerLine.png";
 import headphoneProduct from "../../Assets/headphoneProduct.png";
@@ -10,6 +12,18 @@ import headphoneProduct from "../../Assets/headphoneProduct.png";
 // import product4 from "../../Assets/product4.png";
 
 const Wishlist = (props) => {
+  const [wishlistData, setWishlistData] = React.useState([]);
+  const getWishlist = async () => {
+    try {
+      const response = await mainServerInstance.get(
+        "/api/wishlist/getWishlist"
+      );
+      console.log("wishlist:", response.data);
+      setWishlistData(response.data);
+    } catch (error) {
+      console.error("Error fetching wishlist:", error);
+    }
+  };
   return (
     <>
       <div className="wl-blurbg">

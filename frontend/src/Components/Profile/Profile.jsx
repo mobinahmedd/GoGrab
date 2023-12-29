@@ -1,5 +1,7 @@
 import React from "react";
 import "./Profile.css";
+import { Link } from "react-router-dom";
+
 import profileIcon from "../../Assets/profile.png";
 import favouriteIcon from "../../Assets/favourites.png";
 import cartIcon from "../../Assets/prime_shopping-cart.png";
@@ -143,14 +145,17 @@ const Profile = () => {
         </div>
         <div className="profile-nav-bar-wrapper">
           <div className="profile-nav-bar">
-            <img className="profile-logo-2" alt="Logo" src={logo} />
-            <img
-              style={{ cursor: "pointer" }}
-              title="Cart"
-              className="profile-prime-shopping-cart"
-              alt="Prime shopping cart"
-              src={cartIcon}
-            />
+            <Link to="/dashboard" className="profile-logo-2">
+              <img alt="Logo" src={logo} />
+            </Link>
+            <Link to="/cart" className="profile-prime-shopping-cart">
+              <img
+                style={{ cursor: "pointer" }}
+                title="Cart"
+                alt="Prime shopping cart"
+                src={cartIcon}
+              />
+            </Link>
             <div className="profile-search-button">
               <input
                 className="profile-overlap-group-3"

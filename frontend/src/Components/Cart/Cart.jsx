@@ -1,5 +1,6 @@
 import React from "react";
 import { mainServerInstance } from "../../Axios/axiosInstance";
+import { Link } from "react-router-dom";
 
 import "./Cart.css";
 import profileIcon from "../../Assets/profile.png";
@@ -39,16 +40,36 @@ const Cart = () => {
 
   const updateCartProducts = async () => {
     try {
-      const response = await mainServerInstance.patch(
-        `/api/cart/updateCart/658b8af4d9be0843103f31b1`,
-        { products: cartData.products }
-      );
+      const response = await mainServerInstance.patch(`/api/cart/updateCart`, {
+        products: cartData.products,
+      });
 
       console.log("Cart updated:", response.data);
     } catch (error) {
       console.error("Error updating cart:", error);
       // Handle errors or display an error message to the user
     }
+  };
+
+  const removeProduct = (productId) => {
+    // Update the cartData to remove the specified product
+    setCartData((prevCart) => {
+      const updatedCart = {
+        ...prevCart,
+        products: prevCart.products.filter(
+          (product) => product._id !== productId
+        ),
+      };
+
+      // Recalculate the total price
+      const newTotalPrice = updatedCart.products.reduce(
+        (total, product) => total + product.productId.price * product.quantity,
+        0
+      );
+      setTotalPrice(newTotalPrice);
+
+      return updatedCart;
+    });
   };
 
   const updateProductQuantity = (productId, newQuantity) => {
@@ -87,14 +108,14 @@ const Cart = () => {
       updateQuantity={(newQuantity) =>
         updateProductQuantity(product._id, newQuantity)
       }
+      productId={product._id}
+      removeProduct={removeProduct}
     />
   ));
 
   const getCartProducts = async () => {
     try {
-      const response = await mainServerInstance.get(
-        "/api/cart/getCart/658b8af4d9be0843103f31b1"
-      );
+      const response = await mainServerInstance.get("/api/cart/getCart");
 
       console.log("Cart:", response.data);
       setCartData(response.data);
@@ -229,14 +250,17 @@ const Cart = () => {
         </div>
         <div className="cart-nav-bar-wrapper">
           <div className="cart-nav-bar">
-            <img className="cart-logo-2" alt="Logo" src={logo} />
-            <img
-              style={{ cursor: "pointer" }}
-              className="cart-prime-shopping-cart"
-              alt="Prime shopping cart"
-              src={cartIcon}
-              title="Cart"
-            />
+            <Link to="/dashboard" className="cart-logo-2">
+              <img alt="Logo" src={logo} />
+            </Link>
+            <Link to="/cart" className="cart-prime-shopping-cart">
+              <img
+                style={{ cursor: "pointer" }}
+                alt="Prime shopping cart"
+                src={cartIcon}
+                title="Cart"
+              />
+            </Link>
             <div className="cart-search-button">
               <input
                 className="cart-overlap-group-6"
@@ -273,13 +297,14 @@ const Cart = () => {
               src={favouriteIcon}
               title="Favourites"
             />
-            <img
-              style={{ cursor: "pointer" }}
-              className="cart-profile"
-              alt="Profile"
-              src={profileIcon}
-              title="Profile"
-            />
+            <Link to="/profile" className="cart-profile">
+              <img
+                style={{ cursor: "pointer" }}
+                alt="Profile"
+                src={profileIcon}
+                title="Profile"
+              />
+            </Link>
           </div>
         </div>
       </div>
