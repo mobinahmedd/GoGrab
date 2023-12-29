@@ -1,6 +1,7 @@
 import React from "react";
 import "./Product.css";
 import productHeart from "../../Assets/productHeart.png";
+import filledHeart from "../../Assets/filledHeart.png";
 import star from "../../Assets/star.png";
 import productCardLine from "../../Assets/productCardLine.png";
 import nextArrow from "../../Assets/next.png";
@@ -8,6 +9,9 @@ import { mainServerInstance } from "../../Axios/axiosInstance";
 import { NotificationContext } from "../../NotificationContext";
 
 const Product = (props) => {
+  const [isProductInWishlist, setIsProductInWishlist] = React.useState(
+    props.isFavourite
+  );
   const [review, setReview] = React.useState("");
   const { notification, setNotification } =
     React.useContext(NotificationContext);
@@ -48,6 +52,42 @@ const Product = (props) => {
     });
   };
 
+  const addToWishlist = async () => {
+    try {
+      const response = await mainServerInstance.post(
+        "api/wishlist/addToWishlist",
+        {
+          productId: [props.id],
+        }
+      );
+      console.log(response);
+
+      setIsProductInWishlist(true);
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+    }
+  };
+
+  const removeFromWishlist = async () => {
+    try {
+      const response = await mainServerInstance.delete(
+        `api/wishlist/removeFromWishlist/${props.id}`
+      );
+      console.log(response);
+      setIsProductInWishlist(false);
+    } catch (error) {
+      console.error("Error removing from wishlist:", error);
+    }
+  };
+
+  const handleToggleFavourite = () => {
+    if (isProductInWishlist) {
+      removeFromWishlist();
+    } else {
+      addToWishlist();
+    }
+  };
+
   return (
     <div className="box">
       <div className="products-cards">
@@ -75,7 +115,12 @@ const Product = (props) => {
               </div>
             </div>
           </div>
-          <img className="favourites" alt="Favourites" src={productHeart} />
+          <img
+            className="favourites"
+            alt="Favourites"
+            src={isProductInWishlist ? filledHeart : productHeart}
+            onClick={handleToggleFavourite}
+          />
           <div className="image">
             <img
               className=""

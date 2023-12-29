@@ -41,8 +41,6 @@ import headphoneSet from "../../Assets/headphoneSet.jpeg";
 import { NotificationContext } from "../../NotificationContext";
 import { Link } from "react-router-dom";
 
-// import { getWishlist } from "../../../../backend/Controllers/wishlistController";
-
 const Dashboard = () => {
   const { notification, setNotification } =
     React.useContext(NotificationContext);
@@ -52,6 +50,7 @@ const Dashboard = () => {
   const [productsData, setProductsData] = React.useState([]);
   const [searchTerm, setSearchTerm] = React.useState("");
   const productRef = React.useRef(null);
+  const [favouriteProducts, setFavouriteProducts] = React.useState([]);
 
   const scrollToProducts = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
@@ -68,6 +67,7 @@ const Dashboard = () => {
   React.useEffect(() => {
     getAllCategories();
     getAllProducts();
+    getFavouriteProducts();
   }, []);
 
   const categories = categoriesData?.map((category) => (
@@ -79,16 +79,32 @@ const Dashboard = () => {
       fetchProductsByCategory={fetchProductsByCategory}
     />
   ));
-  const products = productsData?.map((product) => (
-    <Product
-      key={product._id}
-      id={product._id}
-      img={product.images[0]}
-      name={product.name}
-      timesSold={product.timesSold}
-      price={product.price}
-    />
-  ));
+  // const products = productsData?.map((product) => (
+  //   <Product
+  //     key={product._id}
+  //     id={product._id}
+  //     img={product.images[0]}
+  //     name={product.name}
+  //     timesSold={product.timesSold}
+  //     price={product.price}
+  //   />
+  // ));
+  const products = productsData?.map((product) => {
+    const isFavourite = favouriteProducts.includes(product._id);
+
+    // console.log("Is favourite:", isFavourite, product.id, favouriteProducts);
+    return (
+      <Product
+        key={product._id}
+        id={product._id}
+        img={product.images[0]}
+        name={product.name}
+        timesSold={product.timesSold}
+        price={product.price}
+        isFavourite={isFavourite}
+      />
+    );
+  });
   const showMessage = (message, type) => {
     setNotification({
       show: true,
@@ -96,6 +112,21 @@ const Dashboard = () => {
       type: type,
     });
   };
+
+  const getFavouriteProducts = async () => {
+    try {
+      const response = await mainServerInstance.get(
+        "/api/wishlist/getWishlist"
+      );
+      const productIds = response.data.products.map(
+        (product) => product.productId
+      );
+      setFavouriteProducts(productIds);
+    } catch (error) {
+      console.error("Error fetching wishlist:", error);
+    }
+  };
+
   const getAllCategories = async () => {
     try {
       const response = await mainServerInstance.get(
