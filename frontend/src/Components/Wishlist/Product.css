@@ -8,9 +8,10 @@
 .wl-frame .wl-div-wrapper {
   height: 27px;
   left: 193px;
-  /* position: absolute; */
+  position: absolute;
   top: 45px;
   width: 138px;
+  width: 180px;
 }
 
 .wl-frame .wl-text-wrapper-4 {
@@ -19,11 +20,21 @@
   font-size: 22px;
   font-weight: 700;
   letter-spacing: 0;
-
+  /* border: 2px solid red; */
+  width: 180px;
+  /* height: 80px; */
   line-height: normal;
   position: relative;
-  top: -55px;
+  top: -58px;
   left: 193px;
+}
+.wl-product-name {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: break-word;
+  text-overflow: ellipsis !important;
 }
 .productpic img {
   mix-blend-mode: darken;
@@ -39,7 +50,7 @@
   /* border: 2px solid red; */
 }
 .wl-product .wl-image {
-  mix-blend-mode: darken;
+  mix-blend-mode: darken !important;
   height: 100%;
   width: 100%;
   object-fit: contain;
@@ -102,3 +113,17 @@
 
   top: -122px;
 }
+
+/* .wl-delIcon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  margin-left: 2px;
+  height: 100px;
+}
+.wl-delIcon img {
+  position: relative;
+  top: 10px;
+} */

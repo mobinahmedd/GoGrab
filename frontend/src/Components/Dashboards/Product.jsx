@@ -9,12 +9,17 @@ import { mainServerInstance } from "../../Axios/axiosInstance";
 import { NotificationContext } from "../../NotificationContext";
 
 const Product = (props) => {
-  const [isProductInWishlist, setIsProductInWishlist] = React.useState(
-    props.isFavourite
-  );
+  const [isProductInWishlist, setIsProductInWishlist] = React.useState(true);
+
+  console.log(isProductInWishlist);
   const [review, setReview] = React.useState("");
   const { notification, setNotification } =
     React.useContext(NotificationContext);
+
+  React.useEffect(() => {
+    setIsProductInWishlist(props.isFavourite);
+    console.log(props.isFavourite, "is?");
+  }, [props.isFavourite]);
 
   React.useEffect(() => {
     getreview();

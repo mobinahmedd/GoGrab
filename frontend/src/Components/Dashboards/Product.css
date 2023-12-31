@@ -40,6 +40,11 @@
   line-height: normal;
   /* position: absolute; */
   top: 263px;
+  /* border: 2px solid red; */
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .box .text-wrapper:hover {
   opacity: 1 !important;

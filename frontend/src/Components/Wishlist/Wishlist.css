@@ -86,8 +86,9 @@
 
 .wl-frame .wl-group {
   /* height: 133px; */
-  height: 300px;
+  /* height: 300px; */
   height: 485px;
+  /* height: fit-content; */
   overflow-y: auto;
   overflow-x: hidden;
   /* border: 2px solid yellow; */
