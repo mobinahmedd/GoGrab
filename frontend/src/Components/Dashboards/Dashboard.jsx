@@ -92,7 +92,7 @@ const Dashboard = () => {
   const products = productsData?.map((product) => {
     const isFavourite = favouriteProducts.includes(product._id);
 
-    // console.log("Is favourite:", isFavourite, product.id, favouriteProducts);
+    console.log("Is favourite:", isFavourite);
     return (
       <Product
         key={product._id}
@@ -187,13 +187,20 @@ const Dashboard = () => {
 
   const searchProduct = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:4000/api/products/searchProduct?name=${searchTerm}`
+      const response = await mainServerInstance.get(
+        `http://localhost:4000/api/products/searchProduct`,
+        {
+          params: {
+            name: searchTerm, // Assuming searchTerm is defined elsewhere
+          },
+        }
       );
-      if (!response.ok) {
+
+      if (response.status !== 200) {
         showMessage("Failed to fetch", "error");
       }
-      const data = await response.json();
+
+      const data = response.data;
       setProductsData(data);
     } catch (error) {
       showMessage("Error fetching products", "error");

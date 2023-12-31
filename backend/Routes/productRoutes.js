@@ -17,7 +17,7 @@ const router = express.Router();
 router.get("/getAllProducts", authenticateToken, getAllProducts);
 
 // Get product by ID
-router.get("/getProduct/:id", getProduct);
+router.get("/getProduct/:id", authenticateToken, getProduct);
 
 // Create a new product
 router.post("/createProduct", authenticateToken, createProduct);
@@ -29,7 +29,7 @@ router.patch("/updateProduct/:id", updateProduct);
 router.delete("/deleteProduct/:id", deleteProduct);
 
 // Define a route for searching products by name
-router.get("/searchProduct", searchProduct);
+router.get("/searchProduct", authenticateToken, searchProduct);
 
 router.get(
   "/getProductsByCategory/:categoryId",

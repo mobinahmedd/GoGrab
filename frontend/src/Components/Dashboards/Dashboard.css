@@ -1335,10 +1335,11 @@ body {
   width: 28px;
 }
 .home .navIcons {
-  transition: 0.1s ease;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 .home .navIcons:hover {
-  opacity: 0.5;
+  transform: scale(1.2); /* Adjust the scale factor as needed */
+  filter: brightness(1.5); /* Adjust the brightness factor as needed */
 }
 .home .navIcons:active {
   opacity: 0.8;
