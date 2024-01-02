@@ -1044,6 +1044,20 @@
   position: absolute;
   top: 0;
   width: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-color-blue,
+.product-color-red,
+.product-color-black,
+.product-color-yellow {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .product-frame .product-qty {

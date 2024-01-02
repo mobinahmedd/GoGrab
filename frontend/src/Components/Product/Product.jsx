@@ -2,6 +2,15 @@ import React from "react";
 import "./Product.css";
 import profileIcon from "../../Assets/profile.png";
 import favouriteIcon from "../../Assets/favourites.png";
+import favouriteFilledIcon from "../../Assets/favouritesFilled.png";
+import red from "../../Assets/red.png";
+import blue from "../../Assets/blue.png";
+import black from "../../Assets/black.png";
+import yellow from "../../Assets/yellow.png";
+import yellowSelected from "../../Assets/yellowSelected.png";
+import blackSelected from "../../Assets/blackSelected.png";
+import blueSelected from "../../Assets/blueSelected.png";
+import redSelected from "../../Assets/redSelected.png";
 import cartIcon from "../../Assets/prime_shopping-cart.png";
 import searchIcon from "../../Assets/search-icon.png";
 import logo from "../../Assets/logo.png";
@@ -32,11 +41,19 @@ import ProductCard from "./ProductCard";
 
 const Product = () => {
   const [quantity, setQuantity] = React.useState(1);
+  const [color, setColor] = React.useState("red");
   const handleIncreaseQuantity = () => {
     setQuantity((prev) => {
       return prev + 1;
     });
   };
+
+  const handleChangeColor = (event) => {
+    setColor(event.target.name);
+  };
+
+  console.log(color);
+
   const handleDecreaseQuantity = () => {
     setQuantity((prev) => {
       return prev === 1 ? prev : prev - 1;
@@ -280,7 +297,56 @@ const Product = () => {
         </div>
         <div className="product-color">
           <div className="product-text-wrapper-27">Select Color:</div>
-          <img className="product-colors" alt="Colors" src={colorsImg} />
+          <div className="product-colors">
+            <img
+              onClick={handleChangeColor}
+              style={
+                color === "blue"
+                  ? { height: "25px", width: "25px" }
+                  : { height: "20px", width: "20px" }
+              }
+              className="product-color-blue"
+              alt="Blue"
+              src={color === "blue" ? blueSelected : blue}
+              name="blue"
+            />
+            <img
+              onClick={handleChangeColor}
+              style={
+                color === "red"
+                  ? { height: "25px", width: "25px" }
+                  : { height: "20px", width: "20px" }
+              }
+              className="product-color-red"
+              alt="Red"
+              src={color === "red" ? redSelected : red}
+              name="red"
+            />
+            <img
+              onClick={handleChangeColor}
+              style={
+                color === "black"
+                  ? { height: "25px", width: "25px" }
+                  : { height: "20px", width: "20px" }
+              }
+              className="product-color-black"
+              alt="Black"
+              src={color === "black" ? blackSelected : black}
+              name="black"
+            />
+            <img
+              onClick={handleChangeColor}
+              style={
+                color === "yellow"
+                  ? { height: "25px", width: "25px" }
+                  : { height: "20px", width: "20px" }
+              }
+              className="product-color-yellow"
+              alt="Yellow"
+              src={color === "yellow" ? yellowSelected : yellow}
+              name="yellow"
+            />
+          </div>
         </div>
         <div className="product-qty">
           <div className="product-overlap-4">
