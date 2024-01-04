@@ -108,3 +108,43 @@ export async function signUp(req, res) {
       .json({ message: "Failed to create user : " + error, error });
   }
 }
+
+export const verifyPW = async (req, res) => {
+  const { oldPassword } = req.body;
+  const username = req.user.username;
+  const userData = await userModel.findOne({ username });
+  if (!userData) {
+    return res.status(404).json({ message: "user not found" });
+  }
+  const isPasswordCorrect = await comparePassword(
+    oldPassword,
+    userData.password
+  );
+  console.log(isPasswordCorrect);
+  if (!isPasswordCorrect) {
+    return res.status(401).json({ message: "Incorrect Password." });
+  }
+  return res.status(200).json({ message: "Correct Password." });
+};
+
+export const updatePassword = async (req, res) => {
+  const username = req.user.username;
+  const { newPassword } = req.body;
+
+  try {
+    const user = await userModel.findOne({ username });
+
+    const userId = user._id;
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update the password
+    user.password = await hashPassword(newPassword);
+    await user.save();
+    return res.status(200).json({ message: "Password updated successfully" });
+  } catch (error) {
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};

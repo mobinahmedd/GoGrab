@@ -18,7 +18,6 @@ const Product = (props) => {
 
   React.useEffect(() => {
     setIsProductInWishlist(props.isFavourite);
-    console.log(props.isFavourite, "is?");
   }, [props.isFavourite]);
 
   React.useEffect(() => {
