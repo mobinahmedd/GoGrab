@@ -17,9 +17,9 @@ const router = express.Router();
 router.get("/getAllUsers", getAllUsers);
 
 // Get category by ID
-router.get("/getUser/:id", getUser);
+router.get("/getUser", authenticateToken, getUser);
 
-router.patch("/updateUser/:id", updateUser);
+router.patch("/updateUser", authenticateToken, updateUser);
 
 // Delete category by ID
 router.delete("/deleteUser/:id", deleteUser);

@@ -1,4 +1,8 @@
 import User from "../Models/userModel.js";
+import {
+  hashPassword,
+  comparePassword,
+} from "../Encryption_Utils/passwordEncryptor.js";
 
 export const getAllUsers = async (req, res) => {
   try {
@@ -11,7 +15,8 @@ export const getAllUsers = async (req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
+    const username = req.user.username;
+    const user = await User.find({ username });
     if (user == null) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -22,8 +27,11 @@ export const getUser = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-  const UserId = req.params.id;
   const updateData = req.body;
+
+  // console.log(updateData);
+  const username = req.user.username;
+  const UserId = await User.find({ username });
 
   try {
     const updatedUser = await User.findByIdAndUpdate(UserId, updateData, {
@@ -35,6 +43,28 @@ export const updateUser = async (req, res) => {
     }
 
     res.json(updatedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const updatePassword = async (req, res) => {
+  const pw = req.body.oldPassword;
+
+  const username = req.user.username;
+  const UserId = await User.find({ username });
+
+  try {
+    const updatedUser = await User.findByIdAndUpdate(UserId, pw, {
+      new: true,
+    });
+
+    if (!updatedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.json({ message: "password updated" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });

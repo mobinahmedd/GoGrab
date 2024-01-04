@@ -834,15 +834,17 @@ body {
   font-family: "Poppins-SemiBold", Helvetica;
   font-size: 30px;
   font-weight: 600;
-  left: 132px;
+  left: 125px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
   top: 54px;
+  width: 250px;
+  text-align: center;
+  /* border: 2px solid red; */
 }
 
 .profile-frame .profile-material-symbols-wrapper {
-  background-image: url("../../Assets/profile-avatar.png");
   background-position: 50% 50%;
   background-size: cover;
   height: 200px;
@@ -1032,7 +1034,8 @@ body {
 .profile-frame .profile-search-icon-wrapper {
   background-color: #383838;
   border-radius: 0px 100px 100px 0px;
-  height: 55px;
+  /* height: 55px; */
+  height: 100%;
   left: 697px;
   position: absolute;
   top: 0;
