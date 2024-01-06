@@ -21,15 +21,69 @@ export const getAllProducts = async (req, res) => {
 
 export const getProduct = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
-    if (product == null) {
+    const product = await Product.findById(req.params.id)
+      .populate("categoryId")
+      .populate("subcategoryId");
+
+    if (!product) {
       return res.status(404).json({ message: "Product not found" });
     }
-    res.status(200).json(product);
+
+    // Access category data through the populated 'categoryId' field
+    const {
+      _id,
+      name,
+      description,
+      price,
+      quantity,
+      discount,
+      images,
+      timesSold,
+      sellerId,
+      categoryId,
+      subcategoryId,
+    } = product;
+
+    // Extract category name from populated 'categoryId' field
+    const categoryName = categoryId ? categoryId.name : null;
+
+    // Extract subcategory name from populated 'subcategoryId' field
+    const subcategoryName = subcategoryId ? subcategoryId.name : null;
+
+    // Create a new object with both product, category, and subcategory data
+    const productDataWithCategory = {
+      _id,
+      name,
+      description,
+      price,
+      quantity,
+      discount,
+      categoryId,
+      categoryName,
+      subcategoryId,
+      subcategoryName,
+      images,
+      timesSold,
+      sellerId,
+    };
+
+    res.status(200).json(productDataWithCategory);
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
 };
+
+// export const getProduct = async (req, res) => {
+//   try {
+//     const product = await Product.findById(req.params.id);
+//     if (product == null) {
+//       return res.status(404).json({ message: "Product not found" });
+//     }
+//     res.status(200).json(product);
+//   } catch (err) {
+//     return res.status(500).json({ message: err.message });
+//   }
+// };
 
 export const updateProduct = async (req, res) => {
   const productId = req.params.id;

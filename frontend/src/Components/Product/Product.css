@@ -26,8 +26,8 @@
 .product-group-wrapper:hover,
 .product-favourites-2:hover,
 .product-iconamoon-search:hover {
-  transform: scale(1.2); /* Adjust the scale factor as needed */
-  filter: brightness(1.5); /* Adjust the brightness factor as needed */
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+  filter: brightness(1.1); /* Adjust the brightness factor as needed */
 }
 
 .product-frame {
@@ -429,12 +429,12 @@
   line-height: normal;
   position: absolute;
   top: 0;
-  width: 122px;
+  width: 500px;
 }
 
 .product-frame .product-pic {
   background-image: url("../../Assets/product-bg.png");
-  background-size: 100% 100%;
+  /* background-size: 100% 100%; */
   height: 600px;
   left: 124px;
   position: absolute;
@@ -443,12 +443,30 @@
 }
 
 .product-frame .product-image {
-  height: 500px;
-  left: 50px;
-  object-fit: cover;
-  position: absolute;
-  top: 50px;
-  width: 500px;
+  height: 400px;
+  margin-left: 100px;
+  margin-right: 50px;
+  margin-top: 100px;
+  width: 400px;
+  animation: fadeIn 3s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.product-picture {
+  display: block;
+  inset: 0;
+  opacity: 1;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
 }
 
 .product-frame .product-rectangle {
@@ -881,7 +899,7 @@
   line-height: normal;
   position: absolute;
   top: 0;
-  width: 71px;
+  width: 100px;
 }
 
 .product-frame .product-text-wrapper-20 {
@@ -1309,7 +1327,7 @@
   left: 0;
   position: absolute;
   top: 0;
-  width: 244px;
+  width: 230px;
 }
 
 .product-frame .product-inner {
@@ -1337,7 +1355,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 0;
+  margin-top: 2px;
   white-space: nowrap;
   width: 160px;
 }
@@ -1349,12 +1367,21 @@
   left: 255px;
   position: absolute;
   top: 0;
-  width: 244px;
+  width: 230px;
+}
+
+.product-prev {
+  position: absolute;
+  margin-top: 20px;
+}
+
+.product-next {
+  margin-left: 500px;
 }
 
 .product-frame .product-inner-2 {
   height: 18px;
-  left: 44px;
+  left: 40px;
   position: relative;
   top: 13px;
   width: 173px;
@@ -1369,7 +1396,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 0;
+  margin-top: 2px;
   white-space: nowrap;
   width: 140px;
 }
@@ -1406,6 +1433,11 @@
   margin-right: 40px;
 }
 
+.product-carousel {
+  width: 80%;
+  margin: auto;
+}
+
 .product-frame .product-text-wrapper-35 {
   color: #000000;
   font-family: "Inter-Bold", Helvetica;
@@ -1416,6 +1448,11 @@
   line-height: normal;
   position: absolute;
   top: 263px;
+  width: 190px;
+  height: 25px;
+  max-height: 25px;
+  max-width: 190px;
+  overflow: hidden;
 }
 
 .product-frame .product-text-wrapper-36 {
