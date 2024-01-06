@@ -30,6 +30,9 @@ export const Login = (props) => {
     role: "buyer",
   });
 
+  React.useEffect(() => {
+    props.handleAuthorization();
+  }, []);
   const showMessage = (message, type) => {
     setNotification({
       show: true,

@@ -7,9 +7,11 @@ import productCardLine from "../../Assets/productCardLine.png";
 import nextArrow from "../../Assets/next.png";
 import { mainServerInstance } from "../../Axios/axiosInstance";
 import { NotificationContext } from "../../NotificationContext";
+import { Link } from "react-router-dom";
 
 const Product = (props) => {
   const [isProductInWishlist, setIsProductInWishlist] = React.useState(true);
+  const [favouriteProducts, setFavouriteProducts] = React.useState([]);
 
   console.log(isProductInWishlist);
   const [review, setReview] = React.useState("");
@@ -126,13 +128,13 @@ const Product = (props) => {
             src={isProductInWishlist ? filledHeart : productHeart}
             onClick={handleToggleFavourite}
           />
-          <div className="image">
+          <Link to={`/product/${props.id}`} className="image">
             <img
               className=""
               alt="Image"
               src={`data:image/png;base64,${props.img}`}
             />
-          </div>
+          </Link>
           <img className="line" alt="Line" src={productCardLine} />
           <div className="text-wrapper-3">{review || 0}</div>
           <img className="star" alt="Star" src={star} />

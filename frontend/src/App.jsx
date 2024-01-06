@@ -1,5 +1,11 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import "./index.css";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/SignUp/SignUp";
@@ -41,19 +47,45 @@ import Notification from "./Components/Notification/Notification";
 import { NotificationProvider } from "./NotificationContext";
 
 const App = () => {
+  const [isAuthorized, setIsAuthorized] = React.useState(false);
+  const [productId, setProductId] = React.useState("");
+
+  // React.useEffect(() => {
+  //   localStorage.setItem("accessToken", "");
+  //   localStorage.setItem("refreshToken", "");
+  // }, []);
+
+  const handleAuthorization = () => {
+    setIsAuthorized(true);
+  };
+
   return (
     <>
       <NotificationProvider>
         <Notification />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route
+              path="/"
+              element={<Login handleAuthorization={handleAuthorization} />}
+            />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/product" element={<Product />} />
+            <Route
+              path="/product/:productId"
+              element={<Product Id={useParams().productId} />}
+            />
+            {/* {isAuthorized && (
+              <>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/product" element={<Product />} />
+              </>
+            )} */}
           </Routes>
         </BrowserRouter>
       </NotificationProvider>

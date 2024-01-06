@@ -35,6 +35,11 @@ const Cart = () => {
   React.useEffect(() => {
     if (cartData.length !== 0) {
       updateCartProducts();
+      const newTotalPrice = cartData.products.reduce(
+        (total, product) => total + product.productId.price * product.quantity,
+        0
+      );
+      setTotalPrice(newTotalPrice);
     }
   }, [cartData]);
 
