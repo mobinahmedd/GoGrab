@@ -1,7 +1,6 @@
 import React from "react";
 import "./Profile.css";
 import { Link } from "react-router-dom";
-
 import profileIcon from "../../Assets/profile.png";
 import favouriteIcon from "../../Assets/favourites.png";
 import cartIcon from "../../Assets/prime_shopping-cart.png";
@@ -12,6 +11,8 @@ import Spnoser2 from "../../Assets/Ralph-Lauren.png";
 import Spnoser3 from "../../Assets/chanel.png";
 import Spnoser4 from "../../Assets/mighty-furnitures.png";
 import Spnoser5 from "../../Assets/hermes-paris.png";
+import boy from "../../Assets/boy.png";
+import girl from "../../Assets/girl.png";
 import footerDivider from "../../Assets/footer-divider.png";
 import footerSearchIcon from "../../Assets/footer-search.png";
 import fbIcon from "../../Assets/facebook.png";
@@ -23,8 +24,51 @@ import profileAvatar from "../../Assets/profile-avatar.png";
 import deleteAvatar from "../../Assets/delete-avatar.png";
 import UserInfoTab from "./UserInfoTab";
 import PasswordTab from "./PasswordTab";
+import { NotificationContext } from "../../NotificationContext";
+import { mainServerInstance } from "../../Axios/axiosInstance";
 
 const Profile = () => {
+  const { notification, setNotification } =
+    React.useContext(NotificationContext);
+  const [userData, setUserData] = React.useState({
+    username: "",
+    name: {
+      firstName: "",
+      lastName: "",
+    },
+    address: {
+      floor: "",
+      houseNo: "",
+      street: "",
+      area: "",
+      city: "",
+      country: "",
+      zipCode: "",
+    },
+    password: "",
+    role: "buyer",
+    contact: {
+      email: "",
+      phoneNumber: [],
+    },
+    avatar: "",
+  });
+
+  React.useEffect(() => {
+    getUser();
+  }, []);
+
+  const getUser = async () => {
+    try {
+      const response = await mainServerInstance.get("/api/users/getUser");
+
+      console.log("User:", response.data[0]);
+      setUserData(response.data[0]);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
   return (
     <div className="profile-frame">
       <div className="profile-div">
@@ -104,8 +148,17 @@ const Profile = () => {
             <UserInfoTab in={true} />
             {/* <PasswordTab in={true} /> */}
             <div className="profile-div-3">
-              <div className="profile-text-wrapper-19">Maula Bakhsh</div>
-              <div className="profile-material-symbols-wrapper">
+              <div className="profile-text-wrapper-19">
+                {userData.name.firstName + " " + userData.name.lastName}
+              </div>
+              <div
+                style={{
+                  backgroundImage: `url(${
+                    userData.avatar === "boy" ? boy : girl
+                  })`,
+                }}
+                className="profile-material-symbols-wrapper"
+              >
                 <img
                   style={{ cursor: "pointer" }}
                   title="Remove Avatar"

@@ -11,7 +11,7 @@ import { authenticateToken } from "../JWT_Utils/jwt.js";
 const router = express.Router();
 
 // Get all reviews of a product
-router.get("/averageRating/:id", averageRating);
+router.get("/averageRating/:id", authenticateToken, averageRating);
 
 // Create a new review
 router.post("/createReview", createReview);

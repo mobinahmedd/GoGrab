@@ -2,11 +2,96 @@ import React from "react";
 import "./Profile.css";
 import PasswordTab from "./PasswordTab";
 import { motion } from "framer-motion";
+import { NotificationContext } from "../../NotificationContext";
+import { mainServerInstance } from "../../Axios/axiosInstance";
 
 const UserInfoTab = () => {
   const [isComponentVisible, setComponentVisibility] = React.useState(true);
   const handleClick = () => {
     setComponentVisibility(false);
+  };
+
+  const { notification, setNotification } =
+    React.useContext(NotificationContext);
+  const [userData, setUserData] = React.useState({
+    username: "",
+    name: {
+      firstName: "",
+      lastName: "",
+    },
+    address: {
+      floor: "",
+      houseNo: "",
+      street: "",
+      area: "",
+      city: "",
+      country: "",
+      zipCode: "",
+    },
+    password: "",
+    role: "buyer",
+    contact: {
+      email: "",
+      phoneNumber: [],
+    },
+    avatar: "",
+  });
+
+  const showMessage = (message, type) => {
+    setNotification({
+      show: true,
+      message: message,
+      type: type,
+    });
+  };
+
+  React.useEffect(() => {
+    getUser();
+  }, []);
+
+  const getUser = async () => {
+    try {
+      const response = await mainServerInstance.get("/api/users/getUser");
+
+      console.log("User:", response.data[0]);
+      setUserData(response.data[0]);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  const updateUser = async () => {
+    try {
+      const response = await mainServerInstance.patch(
+        "/api/users/updateUser",
+        userData
+      );
+      response.status === 200 && showMessage("Updated", "success");
+    } catch (error) {
+      showMessage(error.message, "error");
+    }
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    const [parentKey, childKey] = name.split(".");
+
+    setUserData((prev) => {
+      if (childKey) {
+        return {
+          ...prev,
+          [parentKey]: {
+            ...prev[parentKey],
+            [childKey]: value,
+          },
+        };
+      } else {
+        return {
+          ...prev,
+          [name]: value,
+        };
+      }
+    });
   };
 
   return (
@@ -20,8 +105,6 @@ const UserInfoTab = () => {
           transition={{ duration: 0.5 }}
           className="profile-div-2"
         >
-          {/* ... Your existing component content ... */}
-
           <div className="profile-overlap-2">
             <div className="profile-rectangle" />
             <div className="profile-text-wrapper-4">Edit Profile</div>
@@ -34,8 +117,10 @@ const UserInfoTab = () => {
             <div>
               <input
                 className="profile-div-wrapper"
-                placeholder="Adan"
                 type="text"
+                value={userData.name.firstName}
+                name="name.firstName"
+                onChange={handleInputChange}
               />
             </div>
             <div className="profile-text-wrapper-8">First Name</div>
@@ -43,8 +128,10 @@ const UserInfoTab = () => {
           <div className="profile-btn-2">
             <input
               className="profile-div-wrapper"
-              placeholder="Karsaz"
               type="text"
+              value={userData.address.area}
+              name="address.area"
+              onChange={handleInputChange}
             />
             <div className="profile-text-wrapper-8">Area</div>
           </div>
@@ -52,8 +139,10 @@ const UserInfoTab = () => {
             <div>
               <input
                 className="profile-overlap-4"
-                placeholder="Karachi"
                 type="text"
+                value={userData.address.city}
+                name="address.city"
+                onChange={handleInputChange}
               />
             </div>
             <div className="profile-text-wrapper-8">City</div>
@@ -62,8 +151,10 @@ const UserInfoTab = () => {
             <div>
               <input
                 className="profile-overlap-5"
-                placeholder="Adan"
                 type="text"
+                value={userData.name.lastName}
+                name="name.lastName"
+                onChange={handleInputChange}
               />
             </div>
             <div className="profile-text-wrapper-8">Last Name</div>
@@ -72,8 +163,10 @@ const UserInfoTab = () => {
             <div>
               <input
                 className="profile-overlap-6"
-                placeholder="79856"
-                type="number"
+                type="text"
+                value={userData.address.zipCode}
+                name="address.zipCode"
+                onChange={handleInputChange}
               />
             </div>
             <div className="profile-text-wrapper-8">Zip Code</div>
@@ -82,8 +175,10 @@ const UserInfoTab = () => {
             <div>
               <input
                 className="profile-overlap-7"
-                placeholder="Pakistan"
                 type="text"
+                value={userData.address.country}
+                name="address.country"
+                onChange={handleInputChange}
               />
             </div>
             <div className="profile-text-wrapper-8">Country</div>
@@ -92,8 +187,10 @@ const UserInfoTab = () => {
             <div>
               <input
                 className="profile-overlap-8"
-                placeholder="S10"
                 type="text"
+                value={userData.address.floor}
+                name="address.floor"
+                onChange={handleInputChange}
               />
             </div>
             <div className="profile-text-wrapper-11">Floor</div>
@@ -102,8 +199,10 @@ const UserInfoTab = () => {
             <div>
               <input
                 className="profile-overlap-9"
-                placeholder="100th"
                 type="text"
+                value={userData.address.houseNo}
+                name="address.houseNo"
+                onChange={handleInputChange}
               />
             </div>
             <div className="profile-text-wrapper-12">House no</div>
@@ -112,8 +211,10 @@ const UserInfoTab = () => {
             <div>
               <input
                 className="profile-overlap-10"
-                placeholder="Hanif SRE"
                 type="text"
+                value={userData.address.street}
+                name="address.street"
+                onChange={handleInputChange}
               />
             </div>
             <div className="profile-text-wrapper-11">Street</div>
@@ -121,9 +222,16 @@ const UserInfoTab = () => {
           <div className="profile-btn-10">
             <div>
               <input
+                style={{
+                  backgroundColor: "rgba(131, 131, 131, 0.4)",
+                  opacity: "0.8",
+                }}
                 className="profile-overlap-11"
-                placeholder="Adan"
                 type="text"
+                value={userData.username}
+                name="username"
+                onChange={handleInputChange}
+                readOnly
               />
             </div>
             <div className="profile-text-wrapper-15">Username</div>
@@ -132,8 +240,10 @@ const UserInfoTab = () => {
             <div>
               <input
                 className="profile-overlap-12"
-                placeholder="03000909990"
-                type="number"
+                type="text"
+                value={userData.contact.phoneNumber}
+                name="contact.phoneNumber"
+                onChange={handleInputChange}
               />
             </div>
             <div className="profile-text-wrapper-15">Phone no</div>
@@ -142,15 +252,19 @@ const UserInfoTab = () => {
             <div>
               <input
                 className="profile-overlap-13"
-                placeholder="muhammadadan381@gmail.com"
                 type="email"
+                value={userData.contact.email}
+                name="contact.email"
+                onChange={handleInputChange}
               />
             </div>
             <div className="profile-text-wrapper-15">Email</div>
           </div>
           <div className="profile-update-btn">
             <div className="profile-overlap-14">
-              <div className="profile-text-wrapper-18">Update info</div>
+              <div onClick={updateUser} className="profile-text-wrapper-18">
+                Update info
+              </div>
             </div>
           </div>
         </motion.div>
