@@ -1,8 +1,9 @@
 import React from "react";
 import "./Profile.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import profileIcon from "../../Assets/profile.png";
 import favouriteIcon from "../../Assets/favourites.png";
+import logout from "../../Assets/logout.png";
 import cartIcon from "../../Assets/prime_shopping-cart.png";
 import searchIcon from "../../Assets/search-icon.png";
 import logo from "../../Assets/logo.png";
@@ -27,9 +28,19 @@ import PasswordTab from "./PasswordTab";
 import { NotificationContext } from "../../NotificationContext";
 import { mainServerInstance } from "../../Axios/axiosInstance";
 
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
 const Profile = () => {
+  const navigate = useNavigate();
   const { notification, setNotification } =
     React.useContext(NotificationContext);
+  const [open, setOpen] = React.useState(false);
+
   const [userData, setUserData] = React.useState({
     username: "",
     name: {
@@ -58,6 +69,14 @@ const Profile = () => {
     getUser();
   }, []);
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const getUser = async () => {
     try {
       const response = await mainServerInstance.get("/api/users/getUser");
@@ -68,7 +87,11 @@ const Profile = () => {
       console.error("Error fetching user data:", error);
     }
   };
-
+  const handleLogout = () => {
+    localStorage.setItem("accessToken", "");
+    localStorage.setItem("refreshToken", "");
+    navigate("/");
+  };
   return (
     <div className="profile-frame">
       <div className="profile-div">
@@ -190,12 +213,42 @@ const Profile = () => {
               <p className="profile-member-since">
                 <span className="profile-span">Member since: </span>
                 <span className="profile-text-wrapper-22">
-                  25 December 2003
+                  25 December 2023
                 </span>
               </p>
             </div>
           </div>
         </div>
+        {/* <img
+          onClick={handleLogout}
+          className="profile-logout"
+          src={logout}
+          alt=""
+        /> */}
+
+        <Button className="profile-logout" onClick={handleClickOpen}>
+          <img src={logout} alt="" />
+        </Button>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Logout?"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              You will be asked to enter username and Password to login again.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={handleLogout} autoFocus>
+              Logout
+            </Button>
+          </DialogActions>
+        </Dialog>
+
         <div className="profile-nav-bar-wrapper">
           <div className="profile-nav-bar">
             <Link to="/dashboard" className="profile-logo-2">

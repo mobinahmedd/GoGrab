@@ -142,7 +142,7 @@
   border-color: #1d85ff;
   border-radius: 10px;
   height: 291px;
-  left: 24px;
+  left: 40px;
   position: absolute;
   top: 94px;
   width: 437px;
@@ -185,6 +185,11 @@
   position: absolute;
   top: 2px;
   width: 393px;
+}
+
+.main-img {
+  height: 50px;
+  width: 50px;
 }
 
 .addProduct-frame .addProduct-text-wrapper-2 {

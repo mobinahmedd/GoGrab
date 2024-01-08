@@ -1,9 +1,14 @@
 import Product from "../Models/productModel.js";
+import User from "../Models/userModel.js";
 
 export const createProduct = async (req, res) => {
-  const product = new Product(req.body);
+  const response = new Product(req.body);
+  const username = req.user.username;
+  const user = await User.findOne({ username });
+  const userId = user._id;
   try {
-    const newProduct = await product.save();
+    const product = await response.save();
+    const newProduct = { ...product, sellerId: userId };
     res.status(201).json(newProduct);
   } catch (err) {
     res.status(400).json({ message: err.message });

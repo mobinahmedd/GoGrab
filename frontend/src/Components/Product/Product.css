@@ -450,6 +450,7 @@
   width: 400px;
   animation: fadeIn 3s ease-in-out forwards;
   opacity: 0;
+  mix-blend-mode: darken;
 }
 
 @keyframes fadeIn {
