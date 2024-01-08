@@ -7,6 +7,7 @@ import {
   deleteProduct,
   searchProduct,
   getProductsByCategory,
+  getSimilarProducts,
 } from "../Controllers/productController.js";
 import { authenticateToken } from "../JWT_Utils/jwt.js";
 
@@ -35,6 +36,12 @@ router.get(
   "/getProductsByCategory/:categoryId",
   authenticateToken,
   getProductsByCategory
+);
+
+router.get(
+  "/similar-products/:productId",
+  authenticateToken,
+  getSimilarProducts
 );
 
 // Export the router

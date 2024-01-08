@@ -920,11 +920,11 @@
   font-family: "Poppins-Regular", Helvetica;
   font-size: 16px;
   font-weight: 400;
-  left: 924px;
+  left: 940px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 327px;
+  top: 329px;
   width: 77px;
 }
 
@@ -937,7 +937,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 327px;
+  top: 329px;
   width: 133px;
   cursor: pointer;
   user-select: none;
@@ -957,11 +957,11 @@
 }
 
 .product-frame .product-rate {
-  height: 18px;
+  height: 10px;
   left: 806px;
   position: absolute;
   top: 325px;
-  width: 99px;
+  width: 50px;
 }
 
 .product-frame .product-text-wrapper-24 {
@@ -1289,12 +1289,11 @@
   font-family: "Proxima Nova-Regular", Helvetica;
   font-size: 16px;
   font-weight: 400;
-  left: 83px;
+  left: 90px;
   letter-spacing: 0;
   line-height: normal;
-  opacity: 0product-25;
   position: absolute;
-  top: 6px;
+  top: 2px;
   width: 11px;
   color: #33a0ff;
   font-family: Poppins;
