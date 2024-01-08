@@ -83,6 +83,7 @@ const Product = () => {
   const [favouriteProducts, setFavouriteProducts] = React.useState([]);
   console.log(isProductInWishlist);
   const [review, setReview] = React.useState("");
+  const [productImages, setProductImages] = React.useState([]);
 
   const isFavourite = favouriteProducts.includes(productData._id);
 
@@ -258,23 +259,25 @@ const Product = () => {
   //   slidesToScroll: 1,
   // };
 
-  const productImages = [
-    productImg,
-    productImg1,
-    productImg2,
-    productImg3,
-    productImg4,
-  ];
+  // const productImages = [
+  //   productImg,
+  //   productImg1,
+  //   productImg2,
+  //   productImg3,
+  //   productImg4,
+  // ];
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % productImages.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % productData.images.length);
   };
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? productImages.length - 1 : prevIndex - 1
+      prevIndex === 0 ? productData.images.length - 1 : prevIndex - 1
     );
   };
+
+  console.log(productData.images);
 
   return (
     <>
@@ -417,11 +420,13 @@ const Product = () => {
           </div>
           <div className="product-pic">
             <div className="product-picture">
-              <img
-                className="product-image"
-                alt={`Image ${currentIndex}`}
-                src={productImages[currentIndex]}
-              />
+              {productData && productData.images && (
+                <img
+                  className="product-image"
+                  alt={`Image ${currentIndex}`}
+                  src={productData.images[currentIndex]}
+                />
+              )}
             </div>
             <div>
               <Helmet>

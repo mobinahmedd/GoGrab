@@ -1065,3 +1065,19 @@ body {
   top: 25px;
   width: 24px;
 }
+
+.profile-logout {
+  /* background: url("../../Assets/logout.png"); */
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  top: 1074px;
+  left: 240px;
+  transition: 0.3s ease;
+}
+.profile-logout:hover {
+  transform: scale(0.98);
+}
+.profile-logout:active {
+  transform: scale(1);
+}
