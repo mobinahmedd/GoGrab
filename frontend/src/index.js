@@ -9,8 +9,8 @@ import Product from "../src/Components/Product/Product";
 import AddProduct from "../src/Components/Seller/AddProduct";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(<App />);
-root.render(<AddProduct />);
+root.render(<App />);
+// root.render(<AddProduct />);
 // root.render(<Dashboard />);
 // root.render(<Cart />);
 // root.render(<Profile />);

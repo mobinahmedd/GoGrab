@@ -159,3 +159,29 @@ export const getProductsByCategory = async (req, res) => {
       .json({ message: "Internal server error", error: error.message });
   }
 };
+
+export const getSimilarProducts = async (req, res) => {
+  try {
+    const productId = req.params.productId;
+
+    // Find the product by its ID
+    const openedProduct = await Product.findById(productId);
+
+    if (!openedProduct) {
+      return res.status(404).json({ error: "Product not found" });
+    }
+
+    // Find similar products based on criteria (e.g., same category)
+    const similarProducts = await Product.find({
+      categoryId: openedProduct.categoryId,
+      _id: { $ne: openedProduct._id }, // Exclude the opened product itself
+    })
+      .limit(5) // You can adjust the limit based on your preferences
+      .exec();
+
+    res.json(similarProducts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};

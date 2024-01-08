@@ -6,6 +6,8 @@ import "./Product.css";
 import { NotificationContext } from "../../NotificationContext";
 import Wishlist from "../Wishlist/Wishlist";
 import { Helmet } from "react-helmet";
+import Rating from "@mui/material/Rating";
+import Alert from "@mui/material/Alert";
 
 // import { Carousel } from "flowbite-react";
 // import Carousel from "react-material-ui-carousel";
@@ -93,6 +95,12 @@ const Product = () => {
     getreview();
   }, []);
 
+  React.useEffect(() => {
+    getProductData();
+    getAllProducts();
+    getFavouriteProducts();
+  }, [productId]);
+
   const getreview = async () => {
     try {
       const response = await mainServerInstance.get(
@@ -136,13 +144,14 @@ const Product = () => {
   const getAllProducts = async () => {
     try {
       const response = await mainServerInstance.get(
-        "/api/products/getAllProducts"
+        `/api/products/similar-products/${productId}`
       );
 
-      console.log("All Products:", response.data);
+      console.log("Similar Products:", response.data);
       setAllProducts(response.data);
     } catch (error) {
-      console.error("Error fetching categories:", error);
+      console.error("Error fetching products:", error);
+      console.log(productData.categoryId);
     }
   };
 
@@ -196,12 +205,6 @@ const Product = () => {
       showMessage(error.response.data.message, "error");
     }
   };
-
-  React.useEffect(() => {
-    getProductData();
-    getAllProducts();
-    getFavouriteProducts();
-  }, [productId]);
 
   const handleDecreaseQuantity = () => {
     setQuantity((prev) => {
@@ -275,6 +278,9 @@ const Product = () => {
 
   return (
     <>
+      {/* <Alert style={{ paddingLeft: "50%" }} severity="warning">
+        Coming Soon
+      </Alert> */}
       {showWishlist && <Wishlist toggleShowWishList={toggleShowWishList} />}
       <div
         style={showWishlist ? { filter: "blur(2px)" } : {}}
@@ -572,7 +578,16 @@ const Product = () => {
           <div className="product-text-wrapper-21">0 reviews</div>
           <div className="product-text-wrapper-22">Submit a review</div>
           <div className="product-text-wrapper-23">{productData.name}</div>
-          <img className="product-rate" alt="Rate" src={rate} />
+          {/* <img className="product-rate" alt="Rate" src={rate} /> */}
+          {/* left: 806px; position: absolute; top: 325px; */}
+          <Rating
+            className="product-rate"
+            name="half-rating-read"
+            defaultValue={2.5}
+            value={review}
+            precision={0.5}
+            readOnly
+          />
           <div className="product-text-wrapper-24">${productPrice}</div>
           <div className="product-div-2">
             <div className="product-text-wrapper-25">${productData.price}</div>
