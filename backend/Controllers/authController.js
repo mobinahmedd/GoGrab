@@ -33,6 +33,7 @@ export async function login(req, res) {
     accessToken: accessToken,
     refreshToken: refreshToken,
     username: username,
+    role: role,
   });
 }
 
