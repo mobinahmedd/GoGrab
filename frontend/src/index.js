@@ -7,11 +7,12 @@ import Cart from "../src/Components/Cart/Cart";
 import Profile from "../src/Components/Profile/Profile";
 import Product from "../src/Components/Product/Product";
 import AddProduct from "../src/Components/Seller/AddProduct";
+import SellerDashboard from "../src/Components/Seller/Dashboard/Dashboard";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(<App />);
-root.render(<AddProduct />);
-// root.render(<Dashboard />);
+root.render(<App />);
+// root.render(<AddProduct />);
+// root.render(<SellerDashboard />);
 // root.render(<Cart />);
 // root.render(<Profile />);
 // root.render(<Product />);

@@ -65,11 +65,15 @@ export const Login = (props) => {
         formData
       );
       const { accessToken, refreshToken, username } = response.data;
-
+      console.log("role test", response.data.role);
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
       showMessage(`Authenticated as ${username}`, "success");
-      navigate("/dashboard");
+      if (response.data.role === "buyer") {
+        navigate("/dashboard");
+      } else if (response.data.role === "seller") {
+        navigate("/sellerDashboard");
+      }
     } catch (error) {
       showMessage("Invalid credentials. Please try again.", "error");
     }
