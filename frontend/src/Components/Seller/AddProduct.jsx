@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { mainServerInstance } from "../../Axios/axiosInstance";
-
+import { NotificationContext } from "../../NotificationContext";
 import "./AddProduct.css";
 import uploadIcon from "./Assets/upload-icon.png";
 import uploadSmallIcon from "./Assets/upload-smallicon.png";
 import crossIcon from "./Assets/cross-icon.png";
 import Categories from "../Dashboards/Categories";
+import { Link, useNavigate } from "react-router-dom";
 
 const AddProduct = (props) => {
   const [productData, setProductData] = React.useState({
@@ -19,9 +20,18 @@ const AddProduct = (props) => {
     images: [],
     timesSold: "0",
   });
+  const navigate = useNavigate();
 
+  const { notification, setNotification } =
+    React.useContext(NotificationContext);
   const [categoriesData, setCategoriesData] = useState([]);
-
+  const showMessage = (message, type) => {
+    setNotification({
+      show: true,
+      message: message,
+      type: type,
+    });
+  };
   const getAllCategories = async () => {
     try {
       const response = await mainServerInstance.get(
@@ -102,6 +112,8 @@ const AddProduct = (props) => {
       );
 
       console.log("Product published successfully:", response.data);
+      showMessage("Product Pusblished", "success");
+      navigate("/sellerDashboard");
       // Handle successful submission, e.g., clear form, show success message
     } catch (error) {
       console.error("Error publishing product:", error);

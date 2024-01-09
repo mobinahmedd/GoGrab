@@ -87,6 +87,9 @@ const Profile = () => {
       console.error("Error fetching user data:", error);
     }
   };
+  const handleComingSoon = () => {
+    navigate("/comingSoon");
+  };
   const handleLogout = () => {
     localStorage.setItem("accessToken", "");
     localStorage.setItem("refreshToken", "");
@@ -195,7 +198,12 @@ const Profile = () => {
                   style={{ cursor: "pointer" }}
                   className="profile-overlap-group-2"
                 >
-                  <div className="profile-text-wrapper-20">Change Avatar</div>
+                  <div
+                    onClick={handleComingSoon}
+                    className="profile-text-wrapper-20"
+                  >
+                    Change Avatar
+                  </div>
                 </div>
               </button>
               <div className="profile-desc">
@@ -210,12 +218,12 @@ const Profile = () => {
                   </p>
                 </div>
               </div>
-              <p className="profile-member-since">
+              {/* <p className="profile-member-since">
                 <span className="profile-span">Member since: </span>
                 <span className="profile-text-wrapper-22">
                   25 December 2023
                 </span>
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

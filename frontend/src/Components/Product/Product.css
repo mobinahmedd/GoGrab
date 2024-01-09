@@ -954,7 +954,10 @@
   line-height: normal;
   position: absolute;
   top: 257px;
-  width: 578px;
+  width: 700px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-frame .product-rate {

@@ -35,11 +35,7 @@ const Product = (props) => {
         <img src={delIcon} alt="" />
       </div> */}
       <div className="productpic">
-        <img
-          className="wl-image"
-          alt="Image"
-          src={`data:image/png;base64,${props.img}`}
-        />
+        <img className="wl-image" alt="Image" src={`${props.img}`} />
       </div>
       <div className="wl-text-wrapper-4">
         <div className="wl-product-name">{props.name} </div>

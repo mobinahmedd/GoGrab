@@ -128,11 +128,7 @@ const Product = (props) => {
             onClick={handleToggleFavourite}
           />
           <Link to={`/product/${props.id}`} className="image">
-            <img
-              className=""
-              alt="Image"
-              src={`data:image/png;base64,${props.img}`}
-            />
+            <img className="" alt="Image" src={`${props.img}`} />
           </Link>
           <img className="line" alt="Line" src={productCardLine} />
           <div className="text-wrapper-3">{review || 0}</div>

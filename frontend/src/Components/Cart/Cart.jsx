@@ -1,6 +1,6 @@
 import React from "react";
 import { mainServerInstance } from "../../Axios/axiosInstance";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./Cart.css";
 import profileIcon from "../../Assets/profile.png";
@@ -27,6 +27,7 @@ import CartProduct from "./CartProduct";
 const Cart = () => {
   const [totalPrice, setTotalPrice] = React.useState(0);
   const [cartData, setCartData] = React.useState([]);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     getCartProducts();
@@ -106,7 +107,7 @@ const Cart = () => {
   const cartProduct = cartData.products?.map((product) => (
     <CartProduct
       key={product._id}
-      image={product.productId.image}
+      image={product.productId.images[0]}
       name={product.productId.name}
       price={product.productId.price}
       quantity={product.quantity}
@@ -132,7 +133,9 @@ const Cart = () => {
 
   console.log(cartData);
 
-  const handleCheckout = () => {};
+  const handleCheckout = () => {
+    navigate("/comingSoon");
+  };
 
   return (
     <div className="cart-frame">
@@ -244,6 +247,8 @@ const Cart = () => {
             <img className="cart-divider-3" alt="Divider" src={divider} />
             <button className="cart-btn">
               <div
+                // to="/checkOutForm"
+                // style={{ zIndex: "100000" }}
                 title="Proceed to Checkout"
                 onClick={handleCheckout}
                 className="cart-div-wrapper"
