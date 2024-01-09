@@ -134,7 +134,7 @@ const ProductCard = (props) => {
         onClick={handleToggleFavourite}
       />
       <Link to={`/product/${props.id}`}>
-        <img className="product-image-2" alt="Image" src={productImg} />
+        <img className="product-image-2" alt="Image" src={props.img} />
       </Link>
       <img className="product-line-2" alt="Line" src={divider2} />
       <div className="product-text-wrapper-38">{review}</div>

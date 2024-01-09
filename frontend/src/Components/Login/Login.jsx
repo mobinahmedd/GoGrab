@@ -30,9 +30,10 @@ export const Login = (props) => {
     role: "buyer",
   });
 
-  React.useEffect(() => {
-    props.handleAuthorization();
-  }, []);
+  // React.useEffect(() => {
+  //   props.handleAuthorization();
+  // }, []);
+
   const showMessage = (message, type) => {
     setNotification({
       show: true,
@@ -69,6 +70,7 @@ export const Login = (props) => {
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
       showMessage(`Authenticated as ${username}`, "success");
+      props.handleAuthorization();
       if (response.data.role === "buyer") {
         navigate("/dashboard");
       } else if (response.data.role === "seller") {

@@ -92,7 +92,7 @@ const Dashboard = () => {
   const products = productsData?.map((product) => {
     const isFavourite = favouriteProducts.includes(product._id);
 
-    console.log("Is favourite:", isFavourite);
+    console.log("Is favourite:", product.images[0]);
     return (
       <Product
         key={product._id}

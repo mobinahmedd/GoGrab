@@ -61,7 +61,7 @@ import productImg4 from "../../Assets/product4.png";
 
 const Product = () => {
   const { productId } = useParams();
-
+  const navigate = useNavigate();
   // const [shouldRerender, setShouldRerender] = React.useState(true);
 
   // const handleRerender = () => {
@@ -141,7 +141,9 @@ const Product = () => {
       console.error("Error removing from wishlist:", error);
     }
   };
-
+  const handleComingSoon = () => {
+    navigate("/comingSoon");
+  };
   const getAllProducts = async () => {
     try {
       const response = await mainServerInstance.get(
@@ -237,6 +239,7 @@ const Product = () => {
   const products = allProducts?.map((product) => {
     const isFavourite = favouriteProducts.includes(product._id);
     console.log("Is favourite:", isFavourite);
+
     return (
       <ProductCard
         key={product._id}
@@ -581,7 +584,9 @@ const Product = () => {
             </div>
           </div>
           <div className="product-text-wrapper-21">0 reviews</div>
-          <div className="product-text-wrapper-22">Submit a review</div>
+          <div onClick={handleComingSoon} className="product-text-wrapper-22">
+            Submit a review
+          </div>
           <div className="product-text-wrapper-23">{productData.name}</div>
           {/* <img className="product-rate" alt="Rate" src={rate} /> */}
           {/* left: 806px; position: absolute; top: 325px; */}
@@ -716,6 +721,7 @@ const Product = () => {
             </div>
           </div>
           <img
+            onClick={handleComingSoon}
             className="product-payment-methods"
             alt="Payment methods"
             src={paymentMethods}
@@ -724,7 +730,12 @@ const Product = () => {
             <div style={{ cursor: "pointer" }} className="product-share-btn">
               <div className="product-inner">
                 <img className="product-facebook" alt="Facebook" src={fb} />
-                <div className="product-text-wrapper-33">Share on Facebook</div>
+                <div
+                  onClick={handleComingSoon}
+                  className="product-text-wrapper-33"
+                >
+                  Share on Facebook
+                </div>
               </div>
             </div>
             <div
@@ -732,7 +743,12 @@ const Product = () => {
               className="product-inner-wrapper"
             >
               <div className="product-inner-2">
-                <div className="product-text-wrapper-34">Share on Twitter</div>
+                <div
+                  onClick={handleComingSoon}
+                  className="product-text-wrapper-34"
+                >
+                  Share on Twitter
+                </div>
                 <img className="product-twitter" alt="Twitter" src={twitter} />
               </div>
             </div>

@@ -15,7 +15,8 @@
 .box .ui-challenge-day {
   /* margin-bottom: 10px; */
   box-shadow: 0px 4px 4px #00000040;
-  background-color: #dad9c3;
+  /* background-color: #dad9c3; */
+  background-color: #e2e2e3;
   border: 0px none;
   border-radius: 20px;
   height: 349px;

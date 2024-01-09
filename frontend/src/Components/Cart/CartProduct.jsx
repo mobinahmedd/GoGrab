@@ -68,7 +68,7 @@ const CartProduct = (props) => {
         src={deleteIcon}
       />
       <div className="cart-pic">
-        <img className="cart-image" alt="Image" src={productImg} />
+        <img className="cart-image" alt="Image" src={props.image} />
       </div>
       <div className="cart-text-wrapper-7">{props.name}</div>
     </div>
